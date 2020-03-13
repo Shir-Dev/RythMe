@@ -13,3 +13,9 @@ Herramientas:
 3. Node Server -> Conexión con BBDD (MongoDB y/o MySQL)
 4. Búsqueda BBDD
 5. Conectar API
+
+Tareas:
+
+*
+*
+*
