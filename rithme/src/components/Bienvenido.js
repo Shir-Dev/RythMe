@@ -15,7 +15,7 @@ function Bienvenido() {
           <img src={logom} className="logo_p"/>
           <img src={logop} className="logo_p"/>
 
-      </div>""
+      </div>
       <nav className="c__nav">
       <a href="">Pefil</a>
       <a href="">Fan Store</a>
