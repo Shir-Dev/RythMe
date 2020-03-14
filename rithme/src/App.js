@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
 import Bienvenido from './components/Bienvenido'
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Bienvenido/>
     </div>
+    
   );
 }
 

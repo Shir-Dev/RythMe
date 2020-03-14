@@ -1,19 +1,21 @@
 import React from 'react';
-import logog from './assets/icons/conversationMinor.png';
-import logom from './assets/icons/profileMajorMonotone.png';
-import logop from './assets/icons/group.png';
+import logom from './assets/icons/avatar.png';
+import logop from './assets/icons/comentario.png';
+import logos from './assets/icons/usuario.png';
+import './assets/styles/bienvenido.css';
+
 
 
 function Bienvenido() {
   return (
-    <div className="">
+    <div className="contenedor">
       <header className="">
       <p className="parrafo">¡Bienvenido!</p>
       </header>
       <div className="c__img">
-          <img src={logog} className="logo_g"/>
-          <img src={logom} className="logo_p"/>
-          <img src={logop} className="logo_p"/>
+          <img src={logop} className="logo_p "/>
+          <img src={logom} className="logo_g"/>
+          <img src={logos} className="logo_p"/>
 
       </div>
       <nav className="c__nav">
