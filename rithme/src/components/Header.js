@@ -1,11 +1,12 @@
 import React from "react";
-import "./App.css";
+import "./assets/styles/header.css";
+import flecha from "./assets/icons/flecha.png";
 
 function App() {
   return (
     <div className="">
       <header className="b-header">
-        <div></div>
+        <img src={flecha} className="b-flecha"></img>
       </header>
     </div>
   );
