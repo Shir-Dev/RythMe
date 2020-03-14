@@ -3,12 +3,14 @@ import logom from './assets/icons/avatar.png';
 import logop from './assets/icons/comentario.png';
 import logos from './assets/icons/usuario.png';
 import './assets/styles/bienvenido.css';
+import Header from './Header'
 
 
 
 function Bienvenido() {
   return (
     <div className="contenedor">
+      <Header/>
       <header className="">
       <p className="parrafo">¡Bienvenido!</p>
       </header>
