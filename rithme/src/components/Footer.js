@@ -20,7 +20,7 @@ function Footer() {
           <p class="buscar">Buscar</p>
           <p class="home">Home</p>
           <p class="notif">Notificaciones</p>
-          <p class="config">Configuración</p>
+       <p class="config">Configuración</p>
         </div>
       </footer>
     </div>

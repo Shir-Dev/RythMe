@@ -27,12 +27,10 @@
 .App-link {
   color: #61dafb;
 }
-.logo_g{
+.logo_g {
   width: 120pt;
   height: 60pt;
   padding: 5%;
- 
-  
 }
 
 @keyframes App-logo-spin {
