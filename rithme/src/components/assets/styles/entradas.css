@@ -2,24 +2,20 @@ body {
   background-color: #110033;
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
- 
 }
-.contenedor{
-    margin-left: 5%;
-    margin-right: 5%;
+.contenedor {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .img_girl {
   width: 45%;
   height: 130px;
-  
 }
 .contenedor_img {
   display: flex;
   margin-bottom: 3%;
   padding-top: 5%;
   margin-left: 5%;
-  
- 
 }
 .contenedor_text {
   background-color: rgb(255, 220, 53);
@@ -28,47 +24,41 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height:130px;
-  
- 
+  height: 130px;
 }
-.botones{
-    text-align: left;
-   
-   
+.botones {
+  text-align: left;
 }
-.btn_comprar{
-    background-color: #ffdc35 ;
-    border-radius: 30%;
-    margin: 10px;
+.btn_comprar {
+  background-color: #ffdc35;
+  border-radius: 30%;
+  margin: 10px;
 }
-.btn_compartir{
-    background-color: #01918e;
-    border-radius: 30%;
+.btn_compartir {
+  background-color: #01918e;
+  border-radius: 30%;
 }
-.nombretexto{
-    font-size: 18px;
-    text-align: left;
-    
+.nombretexto {
+  font-size: 18px;
+  text-align: left;
 }
-.texto2{
-    margin: 0px;
-    text-align: left;
-    font-size: 12px;
-    margin-left: 10px;
+.texto2 {
+  margin: 0px;
+  text-align: left;
+  font-size: 12px;
+  margin-left: 10px;
 }
-.texto3{
-    color: white;
-    text-align: left;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 12px;
+.texto3 {
+  color: white;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 12px;
 }
-.ubicacion{
+.ubicacion {
   color: white;
   text-align: left;
   margin-bottom: 40px;
-
 }
 .ubicacion p {
   margin: 0px;
@@ -76,13 +66,13 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 }
-.icono_play{
+.icono_play {
   width: 15%;
   margin-left: 75%;
 }
-.icono{
+.icono {
   margin-right: 5px;
 }
-.Pasistiran{
+.Pasistiran {
   margin-left: 100px;
 }

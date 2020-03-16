@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,9 +8,7 @@ import {
   useParams
 } from "react-router-dom";
 
-import Entradas from './components/Entradas'
-
-
+import Entradas from "./components/Entradas";
 
 function App() {
   return (
