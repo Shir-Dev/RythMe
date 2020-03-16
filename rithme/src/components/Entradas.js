@@ -58,8 +58,9 @@ function Bienvenido() {
           Premio Grammy a la Mejor Película Musical por su actuación en esta
           película.
         </p>
+        <Footer/>
       </div>
-      <Footer/>
+     
       </div>
       
       
