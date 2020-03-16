@@ -1,13 +1,11 @@
-import React from 'react';
-import Bienvenido from './components/Bienvenido'
-
+import React from "react";
+import Bienvenido from "./components/Bienvenido";
 
 function App() {
   return (
     <div className="">
-      <Bienvenido/>
+      <Bienvenido />
     </div>
-    
   );
 }
 
