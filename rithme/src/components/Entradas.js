@@ -59,8 +59,9 @@ function Bienvenido() {
           película.
         </p>
       </div>
-      
+      <Footer/>
       </div>
+      
       
     </div>
   );

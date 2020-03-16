@@ -8,14 +8,14 @@ import {
   useParams
 } from "react-router-dom";
 
-import Entradas from './components/Entradas'
+import Footer from './components/Footer.js'
 
 
 
 function App() {
   return (
     <div className="">
-      <Entradas />
+       <Footer/>
     </div>
   );
 }
