@@ -1,0 +1,11 @@
+body {
+    background-color: #110033;
+    font-family: Roboto, Helvetica, sans-serif;
+    text-align: center;
+    width: 100%;
+  }
+
+ div h2{
+     color: white;
+     text-align: left;
+ } 

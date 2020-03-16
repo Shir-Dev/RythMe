@@ -1,3 +1,7 @@
+.container{
+  position: sticky;
+  bottom: 0;
+}
 .b-footer {
   background-color: rgb(255, 220, 53);
   width: 100%;
@@ -5,6 +9,7 @@
   font-family: Overpass-Light;
   margin-top: 0px;
   border: 1 px solid red;
+ 
 }
 
 .ticket {
