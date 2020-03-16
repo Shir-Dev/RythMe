@@ -10,11 +10,11 @@ function Footer() {
   return (
     <div className="container">
       <footer className="b-footer">
-        <img src={entradas} className="b-footer"></img>
-        <img src={lupa1} className="b-footer"></img>
-        <img src={star} className="b-footer"></img>
-        <img src={campana} className="b-footer"></img>
-        <img src={config} className="b-footer"></img>
+        <img src={entradas} className="ticket"></img>
+        <img src={lupa1} className="lupa"></img>
+        <img src={star} className="star"></img>
+        <img src={campana} className="campana"></img>
+        <img src={config} className="config"></img>
         <div class="letras">
           <p class="entradas">Entradas</p>
           <p class="buscar">Buscar</p>
