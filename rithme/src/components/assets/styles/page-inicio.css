@@ -1,0 +1,17 @@
+body{
+    background-image: url(../img/171MindCrawl@3x.png);
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    margin: 50% 25% 0% 28%;
+
+}
+.logo_g{
+    width: 120pt;
+    height: 60pt;
+    padding: 5%;
+   
+    
+}

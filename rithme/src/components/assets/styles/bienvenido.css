@@ -23,11 +23,11 @@ body{
 .parrafo{
     color:#ffdc35;
     font-size: 30pt;
+    margin-top: 3px;
 }
 .logo_p{
     width: 40pt;
     height: 40pt;
-    
     filter: brightness(500%);
     background-color: white;
     border-radius: 20%;
