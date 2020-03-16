@@ -27,7 +27,7 @@
 }
 .config {
   width: 5%;
-  margin-left: 17%;
+  margin-left: 15%;
 }
 /*.container {
   display: flex;
@@ -38,9 +38,13 @@
 .letras {
   display: flex;
   width: 62%;
-
-  font-size: 60%;
+  font-size: 50%;
   color: #444;
+  
+}
+.letras p{
+  margin-top: 0px;
+  padding:1px
 }
 
 .entradas {
