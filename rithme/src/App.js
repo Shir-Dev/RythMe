@@ -8,16 +8,15 @@ import {
   useParams
 } from "react-router-dom";
 
-import Bienvenido from './components/Bienvenido'
+import Entradas from './components/Entradas'
 
 
 
 function App() {
   return (
     <div className="">
-      <Bienvenido/>
+      <Entradas />
     </div>
-    
   );
 }
 

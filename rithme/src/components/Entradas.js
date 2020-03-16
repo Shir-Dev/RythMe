@@ -8,6 +8,8 @@ import icono_dolar from './assets/icons/dolar.png';
 import icono_ubicacion from './assets/icons/ubicacion.png';
 import icono_nota from './assets/icons/nota.png';
 import icono_microfono from './assets/icons/microfono.png';
+import Footer from "./Footer";
+import "./assets/styles/footer.css";
 
 function Bienvenido() {
   return (
@@ -57,7 +59,9 @@ function Bienvenido() {
           película.
         </p>
       </div>
+      
       </div>
+      
     </div>
   );
 }
