@@ -6,21 +6,28 @@ const passport = require("passport");
 const initializePassport = require("../Passport/passport.config");
 initializePassport(
   passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
+  async userName => {
+    user = await pool.query("SELECT * from Login WHERE  userName = ? ", [
+      userName
+    ]);
+    user = user[0];
+    console.log(user);
+    return user;
+  },
+  async id => {
+    user = await pool.query("SELECT * from Login WHERE  userID = ? ", [id]);
+    user = user[0];
+    console.log(user);
+    return user;
+  }
 );
 /* GET home page. */
-router.post("/", async (req, res) => {
-  const userToValidate = {
-    userName: req.body.userName
-  };
-  console.log(req.body.userName, req.body.email, req.body.password);
-
-  const users = await pool.query("SELECT * from Login WHERE  ? ", [
-    userToValidate
-  ]);
-  console.log(users);
-  res.redirect("/");
-});
+router.post(
+  "/",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login"
+  })
+);
 
 module.exports = router;
