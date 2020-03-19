@@ -20,7 +20,7 @@ function Bienvenido() {
         <input className="btnContinuar" type="button" value="Continuar" name="continue" id="continue"/>
       </div>
       </div>
-      <Footer></Footer>
+      <Footer/>
     </div>
   );
 }
