@@ -12,6 +12,8 @@ router.post("/", async (req, res) => {
   console.log(req.body.userName, req.body.email, req.body.password);
 
   const users = await pool.query("INSERT INTO Login set ? ", [newUser]);
+  //FALTA POR HACER METER AQUÍ EN MONGO
+
   res.redirect("/login");
 });
 
