@@ -17,6 +17,8 @@
   margin-top: 12%;
   margin-left: 5vw;
 }
+<<<<<<< HEAD
+=======
 .ticket:hover {
   transform: scale(1.5);
   border: #110033 8px solid;
@@ -25,6 +27,7 @@
   margin-left: 39%;
   margin-bottom: 10%;
 }
+>>>>>>> 1d7dd5e4772d137b8f8056fb87a6106c26f0ba04
 
 .lupa {
   width: 43%;
