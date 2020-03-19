@@ -6,7 +6,6 @@ import Footer from "./Footer";
 function Bienvenido() {
   return (
     <div className="">
-<<<<<<< HEAD
       <Header/>
      <div>
        <h2>Datos Personales</h2>
@@ -20,68 +19,6 @@ function Bienvenido() {
         <input type="number" placeholder="F. Cumpleaños 03/07/1998" name="birthDay" id="birthDay" required />
         <input className="btnContinuar" type="button" value="Continuar" name="continue" id="continue"/>
       </div>
-=======
-      <Header />
-      <div>
-        <h2>Datos Personales</h2>
-        <div className="contenedor">
-          <input
-            type="text"
-            placeholder="Nombre de Usuario"
-            name="username"
-            id="username"
-            required
-          />
-          <input
-            type="text"
-            placeholder="Escriba su Nombre"
-            name="name"
-            id="name"
-            required
-          />
-          <input
-            type="text"
-            placeholder="Escriba su Apellido"
-            name="surname"
-            id="surname"
-            required
-          />
-          <input
-            type="email"
-            placeholder="Correo Electronico"
-            name="email"
-            id="email"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            name="password"
-            id="password"
-            required
-          />
-          <input
-            type="number"
-            placeholder="C.Postal"
-            name="zipCode"
-            id="zipCode"
-            required
-          />
-          <input
-            type="number"
-            placeholder="Fecha de Cumpleaños"
-            name="birthDay"
-            id="birthDay"
-            required
-          />
-          <input
-            type="submit"
-            value="Continuar"
-            name="continue"
-            id="continue"
-          />
-        </div>
->>>>>>> 1d7dd5e4772d137b8f8056fb87a6106c26f0ba04
       </div>
 
       <Footer></Footer>
