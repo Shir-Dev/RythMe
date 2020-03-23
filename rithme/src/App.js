@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import { Link, useRouteMatch, useParams } from "react-router-dom";
+import Routes from "./components/Routes";
 
 import Form from "./components/Form.js";
 
@@ -14,6 +8,7 @@ function App() {
   return (
     <div className="">
       <Form />
+      <Routes></Routes>
     </div>
   );
 }

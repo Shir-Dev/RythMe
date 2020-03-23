@@ -9,9 +9,10 @@ import icono_ubicacion from "./assets/icons/ubicacion.png";
 import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
+import Entradas from "./Entradas";
 import "./assets/styles/footer.css";
 
-function Bienvenido() {
+function Entradas() {
   return (
     <div className="">
       <Header />
@@ -80,9 +81,11 @@ function Bienvenido() {
           </p>
         </div>
       </div>
-      <Footer></Footer>
+      <div>
+        <img src={icono_nota} className="icono" />
+      </div>
     </div>
   );
 }
 
-export default Bienvenido;
+export default Entradas;

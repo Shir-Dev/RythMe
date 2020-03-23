@@ -24,6 +24,23 @@
   margin-top: 12%;
   margin-left: 5vw;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.ticket:hover {
+  transform: scale(1.5);
+  border: #110033 8px solid;
+  border-radius: 0% 0% 50% 50%;
+  padding: 2%;
+  margin-left: 39%;
+  margin-bottom: 10%;
+}
+>>>>>>> 1d7dd5e4772d137b8f8056fb87a6106c26f0ba04
+>>>>>>> c9365ea33ea85946aedd801ee068d8bcf55bf09e
+>>>>>>> 028ce0cf7cadfc87c20bc26069d0036e0921daf4
 
 .lupa {
   width: 43%;
