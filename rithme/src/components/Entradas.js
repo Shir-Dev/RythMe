@@ -14,7 +14,7 @@ import "./assets/styles/footer.css";
 
 function Entradas() {
   return (
-    <div className="">
+    <div className="contenedor_g">
       <Header />
       <div className="contenedor">
         <div className="contenedor_img">
@@ -80,9 +80,6 @@ function Entradas() {
             Mejor Película Musical por su actuación en esta película.
           </p>
         </div>
-      </div>
-      <div>
-        <img src={icono_nota} className="icono" />
       </div>
     </div>
   );

@@ -6,10 +6,10 @@ import Form from "./Form";
 
 function Form() {
   return (
-    <div className="">
+    <div className="contenedor_g">
       <Header />
       <div>
-        <h2>Datos Personales</h2>
+        <h2 className="h2">Datos Personales</h2>
         <div className="contenedor">
           <input
             type="text"
@@ -69,12 +69,6 @@ function Form() {
           />
         </div>
       </div>
-      <nav>
-        <li className="configurasion">
-          <a href="/home">HOME</a>
-        </li>
-      </nav>
-      <Footer />
     </div>
   );
 }
