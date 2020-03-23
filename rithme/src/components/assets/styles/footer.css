@@ -8,6 +8,13 @@
   font-family: Overpass-Light;
   margin-top: 0px;
 }
+.config {
+  background-color: red;
+  width: 35%;
+  margin-left: 80%;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
 /*
 .icons {
   display: flex;
@@ -17,17 +24,6 @@
   margin-top: 12%;
   margin-left: 5vw;
 }
-<<<<<<< HEAD
-=======
-.ticket:hover {
-  transform: scale(1.5);
-  border: #110033 8px solid;
-  border-radius: 0% 0% 50% 50%;
-  padding: 2%;
-  margin-left: 39%;
-  margin-bottom: 10%;
-}
->>>>>>> 1d7dd5e4772d137b8f8056fb87a6106c26f0ba04
 
 .lupa {
   width: 43%;

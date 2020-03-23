@@ -1,15 +1,18 @@
 import React from "react";
 import "./assets/styles/footer.css";
 import home from "./assets/img/home.png";
-import configuraacion from "./assets/img/configuraacion.png";
+importgit  configuraacion from "./assets/img/configuraacion.png";
 
 function Footer() {
   return (
     <div className="container">
       <footer className="b-footer">
         <img src={configuraacion} className="configuracion"></img>
-
-        <img src={home} className="configuracion"></img>
+        <nav>
+          <li className="config">
+            <a href="Form.js">configuracion</a>
+          </li>
+        </nav>
       </footer>
     </div>
   );
