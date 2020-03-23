@@ -19,20 +19,19 @@ function App() {
   return (
 
     <Router>
-    
+    <div>
       <nav>
-        
-        
+    
             <Link to="/entradas">Entradas</Link>
-          
+        
             <Link to="/buscar">Buscar</Link>
-          
-            <Link to="/home">Home</Link>
-          
-          
-            <Link to="/misconciertos">Mis Conciertos</Link>
          
+            <Link to="/home">Home</Link>
+       
+            <Link to="/misconciertos">Mis Conciertos</Link>
+       
             <Link to="/configuracion">Configuracion</Link>
+       
       </nav>
       <Switch>
         <Route path="/entradas">
@@ -48,7 +47,7 @@ function App() {
           <Form />
         </Route>
       </Switch>
-    
+    </div>
   </Router>
   
   );

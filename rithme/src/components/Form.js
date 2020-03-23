@@ -5,10 +5,10 @@ import Footer from "./Footer";
 
 function Bienvenido() {
   return (
-    <div className="">
+    <div className="contenedor_g">
       <Header/>
-     <div>
-       <h2>Datos Personales</h2>
+     <div >
+       <h2 className="h2">Datos Personales</h2>
       <div className="contenedor">
         <input type="text" placeholder="Nombre de Usuario" name="username" id="username" required />
         <input type="text" placeholder="Escriba su Nombre" name="name" id="name" required />
@@ -20,7 +20,6 @@ function Bienvenido() {
         <input className="btnContinuar" type="button" value="Continuar" name="continue" id="continue"/>
       </div>
       </div>
-      <Footer/>
     </div>
   );
 }

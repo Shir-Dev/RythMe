@@ -13,7 +13,7 @@ import "./assets/styles/footer.css";
 
 function Bienvenido() {
   return (
-    <div className="">
+    <div className="contenedor_g">
       <Header />
       <div className="contenedor">
         <div className="contenedor_img">
@@ -80,7 +80,7 @@ function Bienvenido() {
           </p>
         </div>
       </div>
-      <Footer></Footer>
+      
     </div>
   );
 }
