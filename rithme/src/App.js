@@ -7,7 +7,6 @@ import Form from "./components/Form.js";
 function App() {
   return (
     <div className="">
-      <Form />
       <Routes></Routes>
     </div>
   );
