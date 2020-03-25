@@ -10,8 +10,6 @@ import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 
-
-
 function Entradas() {
   return (
     <div className="contenedor_g">
@@ -82,7 +80,7 @@ function Entradas() {
         </div>
       </div>
       <div>
-        <Footer/>
+        <Footer changeNav="home" />
       </div>
     </div>
   );
