@@ -4,10 +4,9 @@ import Header from "./Header";
 
 import Form from "./Form";
 
-function Form() {
+function Form () {
   return (
     <div className="contenedor_g">
-      <Header />
       <div>
         <h2 className="h2">Datos Personales</h2>
         <div className="contenedor">
@@ -68,7 +67,15 @@ function Form() {
             id="continue"
           />
         </div>
+        <div className="configurasion">
+          <nav>
+            <li>
+              <a href="/home">HOME</a>
+            </li>
+          </nav>
+        </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
