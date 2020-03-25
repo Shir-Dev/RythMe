@@ -1,13 +1,14 @@
 import React from "react";
 import "./assets/styles/form.css";
+import Footer from "./Footer";
 import Header from "./Header";
 
-import Form from "./Form";
+
 
 function Form () {
   return (
     <div className="contenedor_g">
-      <div>
+      <Header/>
         <h2 className="h2">Datos Personales</h2>
         <div className="contenedor">
           <input
@@ -73,10 +74,11 @@ function Form () {
               <a href="/home">HOME</a>
             </li>
           </nav>
+          </div>
+        
+        
+      <Footer/>
         </div>
-      </div>
-      <Footer></Footer>
-    </div>
   );
 }
 

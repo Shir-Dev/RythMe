@@ -9,8 +9,8 @@ import icono_ubicacion from "./assets/icons/ubicacion.png";
 import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
-import home from "./assets/img/home.png";
-import "./assets/styles/footer.css";
+
+
 
 function Entradas() {
   return (
@@ -82,7 +82,7 @@ function Entradas() {
         </div>
       </div>
       <div>
-        <img src={home} className="home"></img>
+        <Footer/>
       </div>
     </div>
   );

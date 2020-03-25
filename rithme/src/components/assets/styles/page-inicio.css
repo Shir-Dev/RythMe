@@ -1,17 +1,19 @@
-.contenedor{
-   
-}
-.contenedor{
-    display: flex;
-    flex-direction: column;
-    max-width: 30%;
-    margin: 50% 25% 0% 28%;
+@Import '../../../App.css';
 
+.pageInicio{
+    background-color: #110033;
+    height: 100%;
 }
-.logo_g{
-    width: 120pt;
-    height: 60pt;
-    padding: 5%;
+
+.contenedor_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
    
-    
+}
+
+
+.logo_grande{ 
+  margin-top: 50%;
+  width: 200px;
 }

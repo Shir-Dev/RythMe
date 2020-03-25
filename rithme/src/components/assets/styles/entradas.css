@@ -29,15 +29,20 @@
 }
 .botones {
   text-align: left;
+  margin-bottom: 20px;
+  padding: 5px;
 }
 .btn_comprar {
   background-color: #ffdc35;
   border-radius: 30%;
   margin: 10px;
+  
 }
 .btn_compartir {
   background-color: #01918e;
   border-radius: 30%;
+  margin: 10px;
+  
 }
 .nombretexto {
   font-size: 18px;

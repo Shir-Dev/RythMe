@@ -3,12 +3,15 @@ import logom from './assets/icons/avatar.png';
 import logop from './assets/icons/comentario.png';
 import logos from './assets/icons/usuario.png';
 import './assets/styles/bienvenido.css';
+import '../App.css';
 import Header from './Header'
+import Footer from './Footer';
 
 
 
 function Bienvenido() {
   return (
+    
     <div className="contenedor">
       <Header/>
       <header className="">
@@ -21,13 +24,13 @@ function Bienvenido() {
 
       </div>
       <nav className="c__nav">
-      <a href="">Pefil</a>
-      <a href="">Fan Store</a>
-      <a href="">Tours & Tickets</a>
-      <a href="">Fan Wall</a>
-      <a href="">Amigos y mensajes</a>
+      <a href="">Perfil</a>
+ 
       </nav>
+      <footer><Footer/></footer>
+      
     </div>
+    
   );
 }
 
