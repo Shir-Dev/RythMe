@@ -1,26 +1,11 @@
 var express = require("express");
 var router = express.Router();
 const pool = require("../mysql/database");
+const JWT = require("jsonwebtoken");
 
 const passport = require("passport");
-const initializePassport = require("../Passport/passport.config");
-initializePassport(
-  passport,
-  async userName => {
-    user = await pool.query("SELECT * from Login WHERE  userName = ? ", [
-      userName
-    ]);
-    user = user[0];
-    console.log(user);
-    return user;
-  },
-  async id => {
-    user = await pool.query("SELECT * from Login WHERE  userID = ? ", [id]);
-    user = user[0];
-    console.log(user);
-    return user;
-  }
-);
+const passportSignIn = passport.authenticate("local", { session: false });
+const passportConf = require("../Passport/passport.config");
 /* GET home page. */
 router.post(
   "/",
