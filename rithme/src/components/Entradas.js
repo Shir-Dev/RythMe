@@ -80,7 +80,7 @@ function Entradas() {
         </div>
       </div>
       <div>
-        <Footer changeNav="home" />
+        <Footer changeNav="entradas" />
       </div>
     </div>
   );

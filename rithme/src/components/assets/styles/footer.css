@@ -8,10 +8,13 @@
   font-family: Overpass-Light;
   margin-top: 0px;
 }
-.config {
-  background-color: red;
-  width: 35%;
-  margin-left: 80%;
+/*.bienven {
+  background-color: greenyellow;
+  display: flex;
+  position: absolute;
+  margin-left: 10%;
+  margin-top: 22%;
   filter: alpha(opacity=100);
   opacity: 1;
 }
+*/
