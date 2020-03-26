@@ -8,6 +8,16 @@
   font-family: Overpass-Light;
   margin-top: 0px;
 }
+.router-links {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.link {
+  width: 20%;
+}
 /*.bienven {
   background-color: greenyellow;
   display: flex;
