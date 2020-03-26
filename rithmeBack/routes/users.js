@@ -26,11 +26,11 @@ router.get("/", function(req, res, next) {
 router.post("/signup", async function(req, res, next) {
   // ESTO VA A MONGO
   const newProfile = new Profile({
-    username: req.body.username
-    // name: req.body.name,
-    // surname: req.body.surname,
-    // zipCode: req.body.zipCode,
-    // birthDay: req.body.birthDay,
+    username: req.body.username,
+    name: req.body.name,
+    surname: req.body.surname,
+    zipCode: req.body.zipCode,
+    birthDay: req.body.birthDay
     // musicalInterest: req.body.musicalInterest,
     // eventsId: req.body.eventsId
   });

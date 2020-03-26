@@ -38,6 +38,7 @@ app.use(require("./routes/profiles"));
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/users", usersRouter);
+app.use(require("./routes/musicGenres"));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

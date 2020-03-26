@@ -8,7 +8,11 @@ function Form() {
     <div className="contenedor_g">
       <Header />
       <h2 className="h2">Datos Personales</h2>
-      <div className="contenedor">
+      <form
+        className="contenedor"
+        method="post"
+        action="http://localhost:3333/users/signup"
+      >
         <input
           type="text"
           placeholder="Nombre de Usuario"
@@ -52,7 +56,7 @@ function Form() {
           required
         />
         <input
-          type="number"
+          type="date"
           placeholder="F. Cumpleaños 03/07/1998"
           name="birthDay"
           id="birthDay"
@@ -60,12 +64,12 @@ function Form() {
         />
         <input
           className="btnContinuar"
-          type="button"
+          type="submit"
           value="Continuar"
           name="continue"
           id="continue"
         />
-      </div>
+      </form>
 
       <Footer changeNav="conf" />
     </div>
