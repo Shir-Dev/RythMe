@@ -23,7 +23,7 @@ function Bienvenido() {
         <a href="">Perfil</a>
       </nav>
       <footer>
-        <Footer changeNav="home" />
+        <Footer changeNav="buscar" />
       </footer>
     </div>
   );
