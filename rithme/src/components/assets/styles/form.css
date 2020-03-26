@@ -1,0 +1,27 @@
+.contenedor_g {
+  background-color: #110033;
+  font-family: Roboto, Helvetica, sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+.h2 {
+  color: white;
+  text-align: left;
+  margin-left: 18%;
+  font-size: 30px;
+}
+
+.contenedor input {
+  margin-bottom: 10px;
+  padding: 3%;
+  width: 70%;
+  font-size: 18px;
+}
+.btnContinuar {
+  background-color: #4dd599;
+  color: #110033;
+  text-align: center;
+  border-radius: 30%;
+  border: 1px solid #110033;
+}

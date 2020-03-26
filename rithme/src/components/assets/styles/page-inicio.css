@@ -1,0 +1,19 @@
+@Import '../../../App.css';
+
+.pageInicio{
+    background-color: #110033;
+    height: 100%;
+}
+
+.contenedor_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+.logo_grande{ 
+  margin-top: 50%;
+  width: 200px;
+}
