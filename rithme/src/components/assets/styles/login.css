@@ -1,0 +1,38 @@
+.contenedor_g {
+  background-color: #110033;
+  font-family: Roboto, Helvetica, sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.h2 {
+  color: #110033;
+  text-align: left;
+  margin-left: 25%;
+  font-size: 25px;
+  padding: 8px;
+}
+
+.contenedor_login{
+  background-color: #ccc;
+  height: 40%;
+  width: 100%;
+  
+ 
+
+}
+
+.contenedor_login input {
+  margin-bottom: 10px;
+  padding: 3%;
+  width: 70%;
+  font-size: 18px;
+}
+.btnContinue {
+  background-color: #4dd599;
+  color: #110033;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid #110033;
+}
