@@ -17,10 +17,10 @@ function Footer(props) {
     <div className="container">
       <div className="router-links">
         <Link to="/entradas" className="link"></Link>
-        <Link to="#" className="link"></Link>
+        <Link to="/buscar" className="link"></Link>
         <Link to="/bienvenido" className="link"></Link>
-        <Link to="#" className="link"></Link>
-        <Link to="#" className="link"></Link>
+        <Link to="/conciertos" className="link"></Link>
+        <Link to="/configuracion" className="link"></Link>
       </div>
       <footer className="b-footer">
         <img src={srcImage} className="imageCss"></img>
