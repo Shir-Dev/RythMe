@@ -15,18 +15,16 @@ function Footer(props) {
 
   return (
     <div className="container">
+      <div className="router-links">
+        <Link to="/entradas" className="link"></Link>
+        <Link to="#" className="link"></Link>
+        <Link to="/bienvenido" className="link"></Link>
+        <Link to="#" className="link"></Link>
+        <Link to="#" className="link"></Link>
+      </div>
       <footer className="b-footer">
         <img src={srcImage} className="imageCss"></img>
       </footer>
-      <div className="bienven">
-        <Link to="/bienvenido">bienve</Link>
-      </div>
-      <div className="entra">
-        <Link to="/entradas">entrad</Link>
-      </div>
-      <div className="formu">
-        <Link to="/form">form</Link>
-      </div>
     </div>
   );
 }
