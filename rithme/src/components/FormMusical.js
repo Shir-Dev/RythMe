@@ -1,14 +1,67 @@
-import React from "react";
+
 import "./assets/styles/formMusical.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export default function FormMusical () {
-  
+  const [music, setMusic] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:3333/musicgenres`).then(res => {
+        console.log(res.data)
+        setMusic(res.data);
+    })}, []);
+
+    const laMusica = [];
+    const musica1=[];
+    const musica2=[];
+    const musica3=[];
+    const musica4=[];
+    const musica5=[];
+
+
+   
+
+    for(let i=0;i<music.length;i++){
+      const musica = music[i];
+      laMusica.push( <input className="btn_music" type="button" value={musica.name} id=""/>)
+     
+    }
+
+    for(let i = 0; i < laMusica.length;i++){
+      if(i<8){
+        
+        musica1.push(laMusica[i]);
+      
+      }
+      if(i >= 8 && i < 16){
+        
+        musica2.push(laMusica[i]);
+      
+      }
+      if(i >= 16 && i < 24){
+        
+        musica3.push(laMusica[i]);
+      
+      }
+      if(i >= 24 && i < 32){
+        
+        musica4.push(laMusica[i]);
+      
+      }
+      if(i >= 32 && i < 40){
+        
+        musica5.push(laMusica[i]);
+      
+      }
+    }
+
+      
     const settings = {
       dots: true,
       infinite: false,
@@ -23,52 +76,29 @@ export default function FormMusical () {
         <h2 className="parrafo">Cuentanos tus Gustos</h2>
         <Slider {...settings}>
           <div>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Rock" id=""/>
-            <input className="btn_music" type="button" value="Punk" id=""/>
-            <input className="btn_music" type="button" value="Techno" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-           
+           {musica1}
           </div>
           <div>
           </div>
           <div>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Techno" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
+          {musica2}
           </div>
           <div>
           </div>
           <div>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Techno" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
+          {musica3}
           </div>
           <div>
           </div>
           <div>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Techno" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
+          {musica4}
           </div>
+          <div>
+          </div>
+          <div>
+          {musica5}
+          </div>
+       
          
       </Slider>
       <input className="btn_continuar" type="submit" value="Finalizar"/>
@@ -77,3 +107,8 @@ export default function FormMusical () {
     );
   
 }
+
+
+
+
+
