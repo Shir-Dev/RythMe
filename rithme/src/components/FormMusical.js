@@ -12,7 +12,7 @@ import axios from "axios";
 export default function FormMusical () {
   const [music, setMusic] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3333/musicgenres`).then(res => {
+    axios.get(`http://localhost:3333/musicgenres`&&`http://192.168.1.66:3333/musicgenres`).then(res => {
         console.log(res.data)
         setMusic(res.data);
     })}, []);
