@@ -62,12 +62,16 @@ router.post(
   (req, res, next) => {
     const token = signToken(req.user.userID);
     console.log("login successfull, the user is ", req.user.userID);
-    res.status(200).json({ token });
+    res.cookie("token", token, { httpOnly: true }).sendStatus(200);
   }
 );
 
-router.post("/secret", passport.authenticate("jwt", { session: false }), () => {
-  console.log("He entrado con el token");
-});
+router.post(
+  "/checktoken",
+  passport.authenticate("jwt", { session: false }),
+  () => {
+    console.log("He entrado con el token");
+  }
+);
 
 module.exports = router;

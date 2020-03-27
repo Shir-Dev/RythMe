@@ -10,13 +10,14 @@ const Profile = require("../model/Profile");
 passport.use(
   new JwtStrategy(
     {
-      jwtFromRequest: ExtractJwt.fromHeader("authorization"),
+      jwtFromRequest: req => req.cookies.token,
       secretOrKey: "pepino",
       passReqToCallback: true
     },
     async (req, payload, done) => {
       try {
         // Find the user specified in token
+        console.log(payload.sub);
         const user = await Profile.findById(payload.sub);
 
         // If user doesn't exists, handle it
