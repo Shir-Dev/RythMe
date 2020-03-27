@@ -70,8 +70,6 @@ function Form() {
           id="continue"
         />
       </form>
-
-      <Footer changeNav="conf" />
     </div>
   );
 }

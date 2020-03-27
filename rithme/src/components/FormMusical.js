@@ -1,49 +1,111 @@
-import React from "react";
 import "./assets/styles/formMusical.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
+export default function FormMusical() {
+  const [music, setMusic] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:3333/musicgenres` &&
+          `http://192.168.1.66:3333/musicgenres`
+      )
+      .then(res => {
+        console.log(res.data);
+        setMusic(res.data);
+      });
+  }, []);
 
-export default function FormMusical () {
-  
-    const settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 2
-    };
-    return (
-      <div className="contenedor_form">
-        <Header/>
+  const laMusica = [];
+  const musica1 = [];
+  const musica2 = [];
+  const musica3 = [];
+  const musica4 = [];
+  const musica5 = [];
 
-        <h2 className="parrafo">Cuentanos tus Gustos</h2>
-        <Slider {...settings}>
-          <div>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Rock" id=""/>
-            <input className="btn_music" type="button" value="Punk" id=""/>
-            <input className="btn_music" type="button" value="Techno" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-            <input className="btn_music" type="button" value="Hard" id=""/>
-            <input className="btn_music" type="button" value="Pop" id=""/>
-           
-          </div>
-          <div>
-          </div>
-          <div>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-            <input className="btn_music" type="button" value="Pop"/>
-          </div>
-      </Slider>
-      <input className="btn_continuar" type="submit" value="Finalizar"/>
-      <Footer changeNav="conf" />
-      </div>
+  const musicalInterest = [];
+
+  function changeColor(idMusic) {
+    
+    const button = document.getElementById(idMusic);
+    
+   
+    if(button.className === 'btn_music'){
+      button.className = "btn_music_on";
+      musicalInterest.push(idMusic);
+      
+    }else{
+      button.className = "btn_music";
+      musicalInterest.splice(musicalInterest.indexOf(idMusic),1);
+     
+    }
+
+    console.log(musicalInterest);
+  }
+
+  for (let i = 0; i < music.length; i++) {
+    const musica = music[i];
+    laMusica.push(
+      <input
+        className="btn_music"
+        onClick={() => {
+          changeColor(musica.name);
+        }}
+        type="button"
+        value={musica.name}
+        id={musica.name}
+      />
     );
-  
+  }
+
+  for (let i = 0; i < laMusica.length; i++) {
+    if (i < 8) {
+      musica1.push(laMusica[i]);
+    }
+    if (i >= 8 && i < 16) {
+      musica2.push(laMusica[i]);
+    }
+    if (i >= 16 && i < 24) {
+      musica3.push(laMusica[i]);
+    }
+    if (i >= 24 && i < 32) {
+      musica4.push(laMusica[i]);
+    }
+    if (i >= 32 && i < 40) {
+      musica5.push(laMusica[i]);
+    }
+  }
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 2
+  };
+  return (
+    <div className="contenedor_form">
+      <Header />
+
+      <h2 className="parrafo">Cuentanos tus Gustos</h2>
+      <Slider {...settings}>
+        <div>{musica1}</div>
+        <div></div>
+        <div>{musica2}</div>
+        <div></div>
+        <div>{musica3}</div>
+        <div></div>
+        <div>{musica4}</div>
+        <div></div>
+        <div>{musica5}</div>
+      </Slider>
+      <input className="btn_continuar" type="submit" value="Finalizar" />
+      <Footer changeNav="conf" />
+    </div>
+  );
 }
