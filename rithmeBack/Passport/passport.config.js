@@ -3,7 +3,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const pool = require("../mysql/database");
 const JwtStrategy = require("passport-jwt").Strategy;
-const { ExtractJwt } = require("passport-jwt");
 const Profile = require("../model/Profile");
 // JSON WEB TOKENS STRATEGY
 
@@ -71,33 +70,3 @@ passport.use(
     }
   )
 );
-
-/* function initialize(passport, getUserByusername, getUserById) {
-  const authenticateUser = async (username, password, done) => {
-    const user = await getUserByusername(username);
-    if (user == null) {
-      return done(null, false, { message: "No user with that username" });
-    }
-
-    try {
-      console.log(password);
-      console.log(user.password);
-      if (await bcrypt.compare(password, user.password)) {
-        return done(null, user);
-      } else {
-        return done(null, false, { message: "Password incorrect" });
-      }
-    } catch (e) {
-      return done(e);
-    }
-  };
-
-  passport.use(
-    new LocalStrategy({ usernameField: "username" }, authenticateUser)
-  );
-  passport.serializeUser((user, done) => done(null, user.userID));
-  passport.deserializeUser((id, done) => {
-    return done(null, getUserById(id));
-  });
-
- */
