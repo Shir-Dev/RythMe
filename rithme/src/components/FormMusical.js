@@ -39,7 +39,37 @@ export default function FormMusical () {
             <input className="btn_music" type="button" value="Pop"/>
             <input className="btn_music" type="button" value="Pop"/>
             <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Techno" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
           </div>
+          <div>
+          </div>
+          <div>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Techno" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
+          </div>
+          <div>
+          </div>
+          <div>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Pop"/>
+            <input className="btn_music" type="button" value="Techno" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
+            <input className="btn_music" type="button" value="Hard" id=""/>
+            <input className="btn_music" type="button" value="Pop" id=""/>
+          </div>
+         
       </Slider>
       <input className="btn_continuar" type="submit" value="Finalizar"/>
       <Footer changeNav="conf" />
