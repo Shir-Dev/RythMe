@@ -8,9 +8,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Bienvenido() {
+  const formHeader = {
+    headerText: "Home",
+    srcArrow: ""
+  };
   return (
     <div className="contenedor">
-      <Header />
+      <Header headerObject={formHeader} />
       <header className="">
         <p className="parrafo">¡Bienvenido!</p>
       </header>
