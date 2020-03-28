@@ -19,10 +19,6 @@ const signToken = profileId =>
     "pepino"
   );
 
-/* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a resource");
-});
 router.post("/signup", async function(req, res, next) {
   // ESTO VA A MONGO
   const newProfile = new Profile({
