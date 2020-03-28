@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./assets/styles/form.css";
-import Footer from "./Footer";
 import Header from "./Header";
+function Form(props) {
+  const [formObject, setFormObject] = useState();
 
-function Form() {
+  console.log(formObject);
+
+  function sendingData(event) {
+    event.preventDefault();
+    props.sendingData(formObject);
+  }
+
   return (
     <div className="contenedor_g">
       <Header />
       <h2 className="h2">Datos Personales</h2>
       <form
+        onSubmit={sendingData}
         className="contenedor"
         method="post"
         action="http://localhost:3333/users/signup"
@@ -19,6 +27,9 @@ function Form() {
           name="username"
           id="username"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, username: $event.target.value })
+          }
         />
         <input
           type="text"
@@ -26,6 +37,9 @@ function Form() {
           name="name"
           id="name"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, name: $event.target.value })
+          }
         />
         <input
           type="text"
@@ -33,6 +47,9 @@ function Form() {
           name="surname"
           id="surname"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, surname: $event.target.value })
+          }
         />
         <input
           type="email"
@@ -40,6 +57,9 @@ function Form() {
           name="email"
           id="email"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, email: $event.target.value })
+          }
         />
         <input
           type="password"
@@ -47,6 +67,9 @@ function Form() {
           name="password"
           id="password"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, password: $event.target.value })
+          }
         />
         <input
           type="number"
@@ -54,6 +77,9 @@ function Form() {
           name="zipCode"
           id="zipCode"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, number: $event.target.value })
+          }
         />
         <input
           type="date"
@@ -61,6 +87,9 @@ function Form() {
           name="birthDay"
           id="birthDay"
           required
+          onChange={$event =>
+            setFormObject({ ...formObject, birthDay: $event.target.value })
+          }
         />
         <input
           className="btnContinuar"
