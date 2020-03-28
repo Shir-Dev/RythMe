@@ -10,10 +10,13 @@ function Form(props) {
     event.preventDefault();
     props.sendingData(formObject);
   }
-
+  const formHeader = {
+    headerText: "Registro",
+    srcArrow: "/bienvenido"
+  };
   return (
     <div className="contenedor_g">
-      <Header />
+      <Header headerObject={formHeader} />
       <h2 className="h2">Datos Personales</h2>
       <form
         onSubmit={sendingData}
@@ -21,6 +24,18 @@ function Form(props) {
         method="post"
         action="http://localhost:3333/users/signup"
       >
+        <div className="content_camara">
+          <label className="camara_txt" for="Name">
+            Foto de Perfil
+          </label>
+          <input
+            className="camara"
+            type="file"
+            id="photo"
+            accept="image/*"
+            required
+          />
+        </div>
         <input
           type="text"
           placeholder="Nombre de Usuario"
@@ -30,6 +45,7 @@ function Form(props) {
           onChange={$event =>
             setFormObject({ ...formObject, username: $event.target.value })
           }
+          className=""
         />
         <input
           type="text"

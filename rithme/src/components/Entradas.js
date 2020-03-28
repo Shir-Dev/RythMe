@@ -11,9 +11,13 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 
 function Entradas() {
+  const formHeader = {
+    headerText: "Entradas",
+    srcArrow: "/bienvenido"
+  };
   return (
     <div className="contenedor_g">
-      <Header />
+      <Header headerObject={formHeader} />
       <div className="contenedor">
         <div className="contenedor_img">
           <img src={Girl} className="img_girl" />

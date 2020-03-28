@@ -24,23 +24,29 @@ function Buscar() {
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i];
     losGenres.push(<option value={genre.name}>{genre.name}</option>);
-
   }
+  const formHeader = {
+    headerText: "Búsqueda",
+    srcArrow: "/bienvenido"
+  };
+
   return (
     <div className="contenedor_g">
-      <Header />
+      <Header headerObject={formHeader} />
       <form>
-    <div class="box">
-    <div class="container-4">
-    <input type="search" id="search" placeholder="Search..." />
-    <button class="icon"><img src={logo_lupa} className="logo_lupa" /></button>
-    </div>
-    </div>
-    <label className="genres" for="genres">Genero Musical</label>
-    <select className="selector">
-    {losGenres}
-    </select>
-    </form>
+        <div class="box">
+          <div class="container-4">
+            <input type="search" id="search" placeholder="Search..." />
+            <button class="icon">
+              <img src={logo_lupa} className="logo_lupa" />
+            </button>
+          </div>
+        </div>
+        <label className="genres" for="genres">
+          Genero Musical
+        </label>
+        <select className="selector">{losGenres}</select>
+      </form>
       <Footer changeNav="buscar" />
     </div>
   );
