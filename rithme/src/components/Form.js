@@ -7,18 +7,23 @@ function Form() {
   return (
     <div className="contenedor_g">
       <Header />
-      <h2 className="h2">Datos Personales</h2>
+      <h2 className="parrafo_h2">Datos Personales</h2>
       <form
         className="contenedor"
         method="post"
         action="http://localhost:3333/users/signup"
       >
+        <div className="content_camara">
+       <label className="camara_txt" for="Name">Foto de Perfil</label>
+       <input className="camara" type="file" id="photo"  accept="image/*"  required/>
+      </div>
         <input
           type="text"
           placeholder="Nombre de Usuario"
           name="username"
           id="username"
           required
+          className=""
         />
         <input
           type="text"

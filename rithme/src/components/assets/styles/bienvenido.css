@@ -7,27 +7,6 @@
     margin-left: 0px;
    
 }
-
-.c__nav{
-    display: flex;
-    flex-direction: column;
-    
-}
-.c__nav a{
-    color: white;
-    font-size: 20pt;
-    text-decoration: none;
-    padding: 5px;
-}
-.c__nav a:hover{
-    color:#4acb94;
-}
-
-.bienvenido{
-    color:rgb(255, 220, 53);
-    font-size: 30pt;
-    margin-top: 3px;
-}
 .logo_p{
     width: 40pt;
     height: 40pt;
@@ -43,4 +22,42 @@
     margin: 5px 30px 30px;
     background-color: white;
     border-radius: 50%; 
+}
+hr{
+    width: 70%;
+    color: #f4f4f4;
+}
+.bienvenido{
+    color:rgb(255, 220, 53);
+    font-size: 30pt;
+    margin-top: 3px;
+}
+
+.c__nav{
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.c__nav p{
+    color: white;
+    font-size: 20pt;
+    text-decoration: none;
+    padding: 5px;
+}
+.datosPersonales p{
+    color: white;
+    font-size: 20px;
+
+}
+.tusGustos{
+color: white;
+display: flex;
+flex-direction: column;
+}
+.musicalInteres{
+   padding: 5px;
+   border: 1px solid red;
+   font-size: 20px;
+
 }
