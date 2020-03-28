@@ -4,10 +4,19 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 function Form() {
+  const formHeader = {
+    headerText: "Registro",
+    srcArrow: "/bienvenido"
+  };
   return (
     <div className="contenedor_g">
+<<<<<<< HEAD
       <Header />
       <h2 className="parrafo_h2">Datos Personales</h2>
+=======
+      <Header headerObject={formHeader} />
+      <h2 className="h2">Datos Personales</h2>
+>>>>>>> 9a6b42188d9ab0bc89b97278623bd5cc692986a3
       <form
         className="contenedor"
         method="post"
