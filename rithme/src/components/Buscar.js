@@ -36,6 +36,7 @@ function Buscar() {
     <button class="icon"><img src={logo_lupa} className="logo_lupa" /></button>
     </div>
     </div>
+    <label className="genres" for="genres">Genero Musical</label>
     <select className="selector">
     {losGenres}
     </select>
