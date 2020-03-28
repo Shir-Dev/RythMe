@@ -70,4 +70,8 @@ router.post("/secret", passport.authenticate("jwt", { session: false }), () => {
   console.log("He entrado con el token");
 });
 
+router.get("/", async (req, res) => {
+  const profile = await Profile.findById("5e7c7964a071e524f42419c8");
+  res.status(200).json(profile);
+});
 module.exports = router;
