@@ -8,7 +8,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 
-<<<<<<< HEAD
 
 function Bienvenido() { 
   
@@ -21,13 +20,11 @@ function Bienvenido() {
   console.log(datos.musicalInterest)
  
      
-=======
-function Bienvenido() {
+
   const formHeader = {
     headerText: "Home",
     srcArrow: ""
   };
->>>>>>> 9a6b42188d9ab0bc89b97278623bd5cc692986a3
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
