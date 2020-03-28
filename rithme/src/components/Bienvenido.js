@@ -39,19 +39,19 @@ function Bienvenido() {
       <nav className="c__nav">
         <p> {datos.username}</p>
       </nav>
-      <hr/>
+      <hr />
       <div className="datosPersonales">
-      <p> {datos.name}</p>
-      <p> {datos.surname}</p>
-      <p>{datos.birthDay}</p>
-      <p>{datos.zipCode}</p>
+        <p> {datos.name}</p>
+        <p> {datos.surname}</p>
+        <p>{datos.birthDay}</p>
+        <p>{datos.zipCode}</p>
       </div>
-      <hr/>
+      <hr />
       <div className="tusGustos">
-      <p>TUS GUSTOS</p>
-      <p className="musicalInteres">{datos.musicalInterest}</p>
+        <p>TUS GUSTOS</p>
+        <p className="musicalInteres">{datos.musicalInterest}</p>
       </div>
-      <hr/>
+      <hr />
       <footer>
         <Footer changeNav="home" />
       </footer>
