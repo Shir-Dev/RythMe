@@ -53,7 +53,7 @@ router.post("/signup", async function(req, res, next) {
 
   const token = signToken(newProfile.id);
 
-  res.status(200).json({ token });
+  res.cookie("token", token, { httpOnly: true }).sendStatus(200);
 });
 
 router.post(
