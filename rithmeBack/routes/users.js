@@ -30,8 +30,8 @@ router.post("/signup", async function(req, res, next) {
     name: req.body.name,
     surname: req.body.surname,
     zipCode: req.body.zipCode,
-    birthDay: req.body.birthDay
-    // musicalInterest: req.body.musicalInterest,
+    birthDay: req.body.birthDay,
+    musicalInterest: req.body.musicalInterest
     // eventsId: req.body.eventsId
   });
   console.log(newProfile.id);
