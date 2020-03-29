@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./assets/styles/form.css";
 import Header from "./Header";
+
 function Form(props) {
   const [formObject, setFormObject] = useState();
 
-  console.log(formObject);
-
   function sendingData(event) {
     event.preventDefault();
-    props.sendingData(formObject);
+    console.log(props.hola);
+    props.takingData(formObject);
   }
   const formHeader = {
     headerText: "Registro",
@@ -28,20 +28,14 @@ function Form(props) {
           <label className="camara_txt" for="Name">
             Foto de Perfil
           </label>
-          <input
-            className="camara"
-            type="file"
-            id="photo"
-            accept="image/*"
-            required
-          />
+          <input className="camara" type="file" id="photo" accept="image/*" />
         </div>
         <input
           type="text"
           placeholder="Nombre de Usuario"
           name="username"
           id="username"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, username: $event.target.value })
           }
@@ -52,7 +46,7 @@ function Form(props) {
           placeholder="Escriba su Nombre"
           name="name"
           id="name"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, name: $event.target.value })
           }
@@ -62,7 +56,7 @@ function Form(props) {
           placeholder="Escriba su Apellido"
           name="surname"
           id="surname"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, surname: $event.target.value })
           }
@@ -72,7 +66,7 @@ function Form(props) {
           placeholder="Correo Electronico"
           name="email"
           id="email"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, email: $event.target.value })
           }
@@ -82,7 +76,7 @@ function Form(props) {
           placeholder="Contraseña"
           name="password"
           id="password"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, password: $event.target.value })
           }
@@ -92,7 +86,7 @@ function Form(props) {
           placeholder="C.Postal"
           name="zipCode"
           id="zipCode"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, number: $event.target.value })
           }
@@ -102,7 +96,7 @@ function Form(props) {
           placeholder="F. Cumpleaños 03/07/1998"
           name="birthDay"
           id="birthDay"
-          required
+          //required
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }

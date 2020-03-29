@@ -20,7 +20,10 @@ export default function FormMusical() {
         setMusic(res.data);
       });
   }, []);
-
+  const formHeader = {
+    headerText: "Registro",
+    srcArrow: "/bienvenido"
+  };
   const laMusica = [];
   const musica1 = [];
   const musica2 = [];
@@ -31,18 +34,14 @@ export default function FormMusical() {
   const musicalInterest = [];
 
   function changeColor(idMusic) {
-    
     const button = document.getElementById(idMusic);
-    
-   
-    if(button.className === 'btn_music'){
+
+    if (button.className === "btn_music") {
       button.className = "btn_music_on";
       musicalInterest.push(idMusic);
-      
-    }else{
+    } else {
       button.className = "btn_music";
-      musicalInterest.splice(musicalInterest.indexOf(idMusic),1);
-     
+      musicalInterest.splice(musicalInterest.indexOf(idMusic), 1);
     }
 
     console.log(musicalInterest);
@@ -90,7 +89,7 @@ export default function FormMusical() {
   };
   return (
     <div className="contenedor_form">
-      <Header />
+      <Header headerObject={formHeader} />
 
       <h2 className="parrafo">Cuentanos tus Gustos</h2>
       <Slider {...settings}>
