@@ -7,13 +7,13 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function FormMusical() {
+export default function FormMusical(props) {
   const [music, setMusic] = useState([]);
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3333/musicgenres` &&
-          `http://192.168.1.66:3333/musicgenres`
+        `http://localhost:3333/musicgenres` /* &&
+          `http://192.168.1.66:3333/musicgenres` */
       )
       .then(res => {
         console.log(res.data);
@@ -87,6 +87,31 @@ export default function FormMusical() {
     slidesToShow: 1,
     slidesToScroll: 2
   };
+  function sendingRegister() {
+    let registerObject = props.formObject;
+    registerObject.musicalInterest = musicalInterest;
+    console.log(registerObject);
+    fetch("http://localhost:3333/users/signup", {
+      method: "POST",
+      body: JSON.stringify(registerObject),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        if (res.status === 200) {
+          this.props.history.push("/");
+        } else {
+          const error = new Error(res.error);
+          throw error;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error logging in please try again");
+      });
+  }
+
   return (
     <div className="contenedor_form">
       <Header headerObject={formHeader} />
@@ -103,7 +128,12 @@ export default function FormMusical() {
         <div></div>
         <div>{musica5}</div>
       </Slider>
-      <input className="btn_continuar" type="submit" value="Finalizar" />
+      <input
+        className="btn_continuar"
+        type="submit"
+        value="Finalizar"
+        onClick={sendingRegister}
+      />
       <Footer changeNav="conf" />
     </div>
   );

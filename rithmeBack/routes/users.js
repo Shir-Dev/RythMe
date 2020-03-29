@@ -20,14 +20,15 @@ const signToken = profileId =>
   );
 
 router.post("/signup", async function(req, res, next) {
+  console.log(req.body.username, req.body.email, req.body.password);
   // ESTO VA A MONGO
   const newProfile = new Profile({
     username: req.body.username,
     name: req.body.name,
     surname: req.body.surname,
     zipCode: req.body.zipCode,
-    birthDay: req.body.birthDay
-    // musicalInterest: req.body.musicalInterest,
+    birthDay: req.body.birthDay,
+    musicalInterest: req.body.musicalInterest
     // eventsId: req.body.eventsId
   });
   console.log(newProfile.id);
@@ -43,8 +44,6 @@ router.post("/signup", async function(req, res, next) {
     email: req.body.email,
     password: await bcrypt.hash(req.body.password, 10)
   };
-
-  console.log(req.body.username, req.body.email, req.body.password);
   const users = await pool.query("INSERT INTO Login set ? ", [newUser]);
 
   const token = signToken(newProfile.id);

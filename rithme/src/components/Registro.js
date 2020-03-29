@@ -10,7 +10,7 @@ function Registro() {
   function takingData(data) {
     formObject = data;
     console.log(formObject);
-    setRegisterForm(<FormMusical></FormMusical>);
+    setRegisterForm(<FormMusical formObject={formObject}></FormMusical>);
   }
 
   return registerForm;
