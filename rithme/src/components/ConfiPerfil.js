@@ -26,9 +26,9 @@ function ConfiPerfil(props) {
     console.log(props.hola);
     props.takingData(formObject);
   }
-  let name = <p> {datos.name} </p>;
-  function changeToInput(variableToModify) {
-    variableToModify = <input placeholder={datos.variableToModify}></input>;
+  let nombre = <p> {datos.name} </p>;
+  function changeToInput() {
+    nombre = <input type="text" placeholder={datos.name}></input>;
   }
 
   const formHeader = {
@@ -41,34 +41,14 @@ function ConfiPerfil(props) {
       <header className="">
         <p className="bienvenido">¡Bienvenido!</p>
       </header>
-      <div className="c__img">
-        <img src={logop} className="logo_p " />
-        <img src={logom} className="logo_g" />
-        <img src={logos} className="logo_p" />
-      </div>
+
       <nav className="c__nav">
         <p> {datos.username}</p>
       </nav>
       <hr />
       <div className="datosPersonales">
-        <input
-          type="text"
-          name="surname"
-          value={datos.name}
-          id="surname"
-          required
-          onChange={$event =>
-            setFormObject({ ...formObject, surname: $event.target.value })
-          }
-        />
-        {name}{" "}
-        <input
-          type="button"
-          onClick={() => {
-            changeToInput(name);
-          }}
-        ></input>
-        <p> {datos.surname}</p>
+        {nombre}<input type="button" onClick={() => {changeToInput();}}></input>
+        <p>{datos.surname}</p>
         <p>{datos.birthDay}</p>
         <p>{datos.zipCode}</p>
       </div>
