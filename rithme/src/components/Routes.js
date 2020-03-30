@@ -11,6 +11,7 @@ import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
+import Carrito from "./Carrito";
 
 function Routes() {
   return (
@@ -19,6 +20,7 @@ function Routes() {
         <Route exact path="/confi" component={ConfiPerfil} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/bienvenido" component={Bienvenido} />
+        <Route exact path="/carrito" component={Carrito} />
         <Route exact path="/entradas" component={Entradas} />
         <Route exact path="/formMusical" component={FormMusical} />
         <Route exact path="/form" component={Form} />
