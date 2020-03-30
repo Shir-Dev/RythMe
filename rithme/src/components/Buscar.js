@@ -31,7 +31,7 @@ function Buscar() {
   };
 
   return (
-    <div className="contenedor_g">
+    <div className="contenedor">
       <Header headerObject={formHeader} />
       <form>
         <div class="box">
