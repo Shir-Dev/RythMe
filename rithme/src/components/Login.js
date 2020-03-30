@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/styles/login.css";
 import Footer from "./Footer";
 import Header from "./Header";
+import { Link } from "react-router-dom";
 
 function Login() {
   const formHeader = {
@@ -41,6 +42,7 @@ function Login() {
             id="continue"
           />
         </form>
+        <Link to="/form" className="registro">Registrarme</Link>
       </div>
     </div>
   );

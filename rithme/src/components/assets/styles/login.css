@@ -9,18 +9,16 @@
 .h2 {
   color: #110033;
   text-align: left;
-  margin-left: 25%;
   font-size: 25px;
   padding: 8px;
+  display: flex;
+  justify-content: center;
 }
 
 .contenedor_login{
   background-color: #ccc;
-  height: 40%;
+  height: 50%;
   width: 100%;
-  
- 
-
 }
 
 .contenedor_login input {
@@ -35,4 +33,12 @@
   text-align: center;
   margin-top: 20px;
   border: 1px solid #110033;
+}
+.registro{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 30%;
+  font-size: 20px;
+  color: #110033;
 }

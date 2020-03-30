@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Form from "./Form";
 import PageInicio from "./PageInicio";
 import Entradas from "./Entradas";
@@ -12,7 +12,9 @@ import Login from "./Login";
 import Registro from "./Registro";
 
 function Routes() {
+
   return (
+    <BrowserRouter>
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route exact path="/bienvenido" component={Bienvenido} />
@@ -20,11 +22,12 @@ function Routes() {
       <Route exact path="/formMusical" component={FormMusical} />
       <Route exact path="/form" component={Form} />
       <Route exact path="/registro" component={Registro}></Route>
-      <Route exact path="/" component={PageInicio} />
+      <Route exact path="/" component={PageInicio}  />
       <Route exact path="/buscar" component={Buscar} />
       <Route exact path="/conciertos" component={Conciertos} />
       <Route exact path="/configuracion" component={Configuracion} />
     </Switch>
+    </BrowserRouter>
   );
 }
 export default Routes;
