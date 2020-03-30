@@ -8,16 +8,17 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 
-
-function ConfiPerfil(props) { 
-  
+function ConfiPerfil(props) {
   const [datos, setDatos] = useState([]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
-      .then(res => {console.log(res.data); setDatos(res.data);});}, []);
-  console.log(datos.musicalInterest)
+      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
+      .then(res => {
+        console.log(res.data);
+        setDatos(res.data);
+      });
+  }, []);
+  console.log(datos.musicalInterest);
   const [formObject, setFormObject] = useState();
 
   function sendingData(event) {
@@ -25,7 +26,10 @@ function ConfiPerfil(props) {
     console.log(props.hola);
     props.takingData(formObject);
   }
-     
+  let nombre = <p> {datos.name} </p>;
+  function changeToInput() {
+    nombre = <input type="text" placeholder={datos.name}></input>;
+  }
 
   const formHeader = {
     headerText: "Home",
@@ -37,15 +41,14 @@ function ConfiPerfil(props) {
       <header className="">
         <p className="bienvenido">¡Bienvenido!</p>
       </header>
-   
+
       <nav className="c__nav">
         <p> {datos.username}</p>
       </nav>
       <hr />
       <div className="datosPersonales">
-      <input type="text" name="surname" placeholder={datos.name}  id="surname"required onChange={$event => setFormObject({ ...formObject, surname: $event.target.value })}/>
-        <p> {datos.name}</p>
-        <p> {datos.surname}</p>
+        {nombre}<input type="button" onClick={() => {changeToInput();}}></input>
+        <p>{datos.surname}</p>
         <p>{datos.birthDay}</p>
         <p>{datos.zipCode}</p>
       </div>
