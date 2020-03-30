@@ -8,18 +8,18 @@ function App(props) {
   let headerText = " ";
   let srcArrow = "";
 
-  // isArrow = props.headerObject.isArrow;
+  isArrow = props.headerObject.isArrow;
   headerText = props.headerObject.headerText;
   srcArrow = props.headerObject.srcArrow;
 
   let arrow = "";
-  /*if (isArrow === true) {
+  if (isArrow === true) {
     arrow = (
       <Link to={srcArrow}>
         <img src={flecha11} className="b-flecha"></img>
       </Link>
     );
-  }*/
+  }
 
   return (
     <div className="contenedor_header">
