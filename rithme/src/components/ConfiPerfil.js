@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logom from "./assets/icons/avatar.png";
+import logo_escribir from "./assets/icons/escribir.png";
 import logop from "./assets/icons/comentario2.png";
 import logos from "./assets/icons/usuario.png";
 import "./assets/styles/confiPerfil.css";
@@ -14,7 +14,7 @@ function ConfiPerfil(props) {
   const [objectProfile, setObjectProfile] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/users`).then(res => {
+    axios.get(`http://localhost:3333/users`&&`http://192.168.1.66:3333/users`).then(res => {
       console.log(res.data);
       setDatos(res.data);
       setObjectProfile({
@@ -77,24 +77,35 @@ function ConfiPerfil(props) {
     headerText: "Home",
     srcArrow: ""
   };
+ 
   return (
     <div className="contenedor_confiperfil">
       <Header headerObject={formHeader} />
       <header className="">
-        <p className="bienvenido">¡Bienvenido!</p>
+        <p className="bienvenido">Datos de Usuario</p>
       </header>
       <div className="datosPersonales">
+        <div>
       {objectProfile.username}
-        <input className="btn_escri" type="button" onClick={() => {changeToInputUsername();}}></input>
+        <button className="btn_escri"  onClick={() => {changeToInputUsername();}}><img className="logo_escribir" src={logo_escribir}/></button>
+        </div>
       <hr />
+        <div>
         {objectProfile.name}
-        <input className="btn_escri" type="button" onClick={() => {changeToInputName();}}></input>
+        <button className="btn_escri"  onClick={() => {changeToInputName();}}><img className="logo_escribir" src={logo_escribir}/></button>
+        </div>
+        <div>
         {objectProfile.surname}
-        <input className="btn_escri" type="button" onClick={() => {changeToInputSurname();}}></input>
+        <button className="btn_escri"  onClick={() => {changeToInputSurname();}}><img className="logo_escribir" src={logo_escribir}/></button>
+        </div>
+        <div>
         {objectProfile.birthDay}
-        <input className="btn_escri" type="button" onClick={() => {changeToInputBirthDay();}}></input>
+        <button className="btn_escri"  onClick={() => {changeToInputBirthDay();}}><img className="logo_escribir" src={logo_escribir}/></button>
+        </div>
+        <div>
         {objectProfile.zipCode}
-        <input className="btn_escri" type="button" onClick={() => {changeToInputZipcode();}}></input>
+        <button className="btn_escri"  onClick={() => {changeToInputZipcode();}}><img className="logo_escribir" src={logo_escribir}/></button>
+        </div>
       </div>
       <hr />
       <footer>
