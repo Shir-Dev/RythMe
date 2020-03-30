@@ -1,4 +1,4 @@
-.contenedor{
+.contenedor_confiperfil{
     background-color: #110033;
     font-family: Roboto , Helvetica, sans-serif;
     text-align: center;
@@ -33,33 +33,27 @@ hr{
     margin-top: 3px;
 }
 
-.c__nav{
-    display: flex;
-    flex-direction: column;
-    text-transform: uppercase;
-}
 
-.c__nav p{
-    color: white;
-    font-size: 20pt;
-    text-decoration: none;
-    padding: 5px;
-}
 .datosPersonales p{
     color: white;
     font-size: 20px;
+    margin-right: 10%;
+   
+
+}
+.datosPersonales div{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-
 }
-.tusGustos{
-color: white;
-display: flex;
-flex-direction: column;
-}
-.musicalInteres{
-   padding: 5px;
-   border: 1px solid red;
-   font-size: 20px;
 
+.btn_escri{
+    width: 10%;
+    height: 10%;
+}
+.logo_escribir{
+    width: 100%;
+    margin-top: 15%;
+    
+    
 }
