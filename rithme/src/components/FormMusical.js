@@ -94,13 +94,15 @@ export default function FormMusical(props) {
     fetch("http://localhost:3333/users/signup", {
       method: "POST",
       body: JSON.stringify(registerObject),
+      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       }
     })
       .then(res => {
+        console.log(res.status);
         if (res.status === 200) {
-          this.props.history.push("/");
+          console.log(res);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -108,7 +110,7 @@ export default function FormMusical(props) {
       })
       .catch(err => {
         console.error(err);
-        alert("Error logging in please try again");
+        alert("Error al registrarse");
       });
   }
 

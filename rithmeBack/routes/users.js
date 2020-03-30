@@ -61,7 +61,7 @@ router.post(
   }
 );
 
-router.post(
+router.get(
   "/checktoken",
   passport.authenticate("jwt", { session: false }),
   () => {
