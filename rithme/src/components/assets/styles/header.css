@@ -6,7 +6,7 @@
 .b-header {
   background-color: rgb(255, 220, 53);
   width: 100vw;
-  height: 77px;
+  height: 69px;
   font-family: Overpass-Light;
 }
 /*.b-flecha {
@@ -16,6 +16,9 @@
 }*/
 
 .text {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 20px;
 }
