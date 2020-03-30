@@ -14,6 +14,7 @@ passport.use(
       passReqToCallback: true
     },
     async (req, payload, done) => {
+      console.log(payload.sub);
       try {
         // Find the user specified in token
         console.log(payload.sub);

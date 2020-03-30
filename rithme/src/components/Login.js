@@ -3,18 +3,16 @@ import "./assets/styles/login.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 function Login(props) {
   const [loginObject, setLoginObject] = useState();
 
   function autoLogin() {
-    fetch("http://localhost:3333/users/signin", {
+    Axios("http://localhost:3333/users/signin", {
       method: "POST",
-      body: JSON.stringify(loginObject),
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      }
+      data: loginObject,
+      withCredentials: true
     })
       .then(res => {
         if (res.status === 200) {
@@ -37,11 +35,7 @@ function Login(props) {
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <div className="contenedor_login">
-        <form
-          className="contenedor_login"
-          method="post"
-          action="http://localhost:3333/users/signup"
-        >
+        <form className="contenedor_login">
           <h2 className="h2">Iniciar Sesion</h2>
           <input
             type="text"

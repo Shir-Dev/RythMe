@@ -7,24 +7,47 @@ import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import checkAuth from "./checkAuth";
+import { Redirect } from "react-router-dom";
 
-
-function Bienvenido() { 
-  
+function Bienvenido() {
   const [datos, setDatos] = useState([]);
+
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
-      .then(res => {console.log(res.data); setDatos(res.data);});}, []);
-  console.log(datos.musicalInterest)
- 
-     
+      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
+      .then(res => {
+        console.log(res.data);
+        setDatos(res.data);
+      });
+  }, []);
+  console.log(datos.musicalInterest);
 
   const formHeader = {
     headerText: "Home",
     srcArrow: ""
   };
+
+  /*   async function validating() {
+    setIsToken(await checkAuth());
+    await console.log("isToken:", await isToken);
+  }
+
+  validating();
+ */
+  /*   axios("http://localhost:3333/users/checktoken", { withCredentials: true })
+    .then(res => {
+      if (res.status === 200) {
+        console.log("Token Correcto");
+      } else {
+        const error = new Error(res.error);
+        throw error;
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      return <Redirect to="/Login" />;
+    }); */
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
@@ -58,5 +81,4 @@ function Bienvenido() {
     </div>
   );
 }
-
 export default Bienvenido;
