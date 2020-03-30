@@ -15,9 +15,6 @@ function Routes() {
 
   return (
     <BrowserRouter>
-    <Redirect
-            from="/"
-            to="/bienvenido" delay={5000}/>
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route exact path="/bienvenido" component={Bienvenido} />

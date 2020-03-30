@@ -18,6 +18,7 @@ function Form(props) {
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <h2 className="h2">Datos Personales</h2>
+      <a name="#login.js"></a>
       <form
         onSubmit={sendingData}
         className="contenedor"
