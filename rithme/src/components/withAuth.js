@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import FormMusical from "./FormMusical";
+import { Redirect } from "react-router-dom";
 
-function Registro() {
+function withAuth() {
   const [registerForm, setRegisterForm] = useState(
     <Form takingData={takingData} hola="aslkjdf"></Form>
   );
@@ -16,4 +17,4 @@ function Registro() {
   return registerForm;
 }
 
-export default Registro;
+export default withAuth;
