@@ -10,12 +10,14 @@ import Conciertos from "./Conciertos";
 import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
+import ConfiPerfil from "./ConfiPerfil";
 
 function Routes() {
 
   return (
     <BrowserRouter>
     <Switch>
+      <Route exact path="/confi" component={ConfiPerfil} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/bienvenido" component={Bienvenido} />
       <Route exact path="/entradas" component={Entradas} />
