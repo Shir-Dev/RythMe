@@ -18,12 +18,7 @@ function Form(props) {
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <h2 className="h2">Datos Personales</h2>
-      <form
-        onSubmit={sendingData}
-        className="contenedor"
-        method="post"
-        action="http://localhost:3333/users/signup"
-      >
+      <form onSubmit={sendingData} className="contenedor">
         <div className="content_camara">
           <label className="camara_txt" for="Name">
             Foto de Perfil
