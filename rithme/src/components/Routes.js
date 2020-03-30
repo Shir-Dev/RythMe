@@ -11,6 +11,7 @@ import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
+import CheckAuth from "./CheckAuth";
 
 function Routes() {
   return (
@@ -18,11 +19,9 @@ function Routes() {
       <Switch>
         <Route exact path="/confi" component={ConfiPerfil} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/bienvenido" component={Bienvenido} />
+        <Route exact path="/bienvenido" component={CheckAuth("Bienvenido")} />
         <Route exact path="/entradas" component={Entradas} />
-        <Route exact path="/formMusical" component={FormMusical} />
-        <Route exact path="/form" component={Form} />
-        <Route exact path="/registro" component={Registro}></Route>
+        <Route exact path="/registro" component={Registro} />
         <Route exact path="/" component={PageInicio} />
         <Route exact path="/buscar" component={Buscar} />
         <Route exact path="/conciertos" component={Conciertos} />
