@@ -10,14 +10,20 @@ import axios from "axios";
 
 function ConfiPerfil(props) {
   const [datos, setDatos] = useState([]);
+
+  const [objectProfile, setObjectProfile] = useState({});
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
-      .then(res => {
-        console.log(res.data);
-        setDatos(res.data);
+    axios.get(`http://localhost:3333/users`).then(res => {
+      console.log(res.data);
+      setDatos(res.data);
+      setObjectProfile({
+        nombre: <p> {res.data.name} </p>,
+        password: "blakdsjf"
       });
+    });
   }, []);
+
   console.log(datos.musicalInterest);
   const [formObject, setFormObject] = useState();
 
@@ -26,11 +32,15 @@ function ConfiPerfil(props) {
     console.log(props.hola);
     props.takingData(formObject);
   }
-  let nombre = <p> {datos.name} </p>;
-  function changeToInput() {
-    nombre = <input type="text" placeholder={datos.name}></input>;
-  }
 
+  function changeToInput(variableToChange) {
+    setObjectProfile({
+      ...objectProfile,
+      nombre: <input type="text" placeholder={datos.name}></input>
+    });
+
+    console.log(objectProfile);
+  }
   const formHeader = {
     headerText: "Home",
     srcArrow: ""
@@ -47,7 +57,13 @@ function ConfiPerfil(props) {
       </nav>
       <hr />
       <div className="datosPersonales">
-        {nombre}<input type="button" onClick={() => {changeToInput();}}></input>
+        {objectProfile.nombre}
+        <input
+          type="button"
+          onClick={() => {
+            changeToInput("nombre");
+          }}
+        ></input>
         <p>{datos.surname}</p>
         <p>{datos.birthDay}</p>
         <p>{datos.zipCode}</p>
