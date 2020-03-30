@@ -1,0 +1,67 @@
+.contenedor_confiperfil{
+    background-color: #110033;
+    font-family: Roboto , Helvetica, sans-serif;
+    text-align: center;
+    width: 100vw;
+    height: 200%;
+    margin-left: 0px;
+   
+}
+.logo_p{
+    width: 40pt;
+    height: 40pt;
+    filter: brightness(500%);
+    background-color: white;
+    border-radius: 20%;
+    
+    
+}
+.logo_g{
+    width: 80pt;
+    height: 80pt;
+    margin: 5px 30px 30px;
+    background-color: white;
+    border-radius: 50%; 
+}
+hr{
+    width: 70%;
+    color: #f4f4f4;
+}
+.bienvenido{
+    color:rgb(255, 220, 53);
+    font-size: 30pt;
+    margin-top: 3px;
+}
+
+.c__nav{
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.c__nav p{
+    color: white;
+    font-size: 20pt;
+    text-decoration: none;
+    padding: 5px;
+}
+.datosPersonales p{
+    color: white;
+    font-size: 20px;
+
+}
+.tusGustos{
+color: white;
+display: flex;
+flex-direction: column;
+}
+.musicalInteres{
+   padding: 5px;
+   border: 1px solid red;
+   font-size: 20px;
+
+}
+
+.btn_escri{
+    background-color: red;
+}

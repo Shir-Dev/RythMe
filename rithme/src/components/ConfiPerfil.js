@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logom from "./assets/icons/avatar.png";
 import logop from "./assets/icons/comentario2.png";
 import logos from "./assets/icons/usuario.png";
-import "./assets/styles/bienvenido.css";
+import "./assets/styles/confiPerfil.css";
 import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -18,8 +18,11 @@ function ConfiPerfil(props) {
       console.log(res.data);
       setDatos(res.data);
       setObjectProfile({
-        nombre: <p> {res.data.name} </p>,
-        password: "blakdsjf"
+        username: <p> {res.data.username} </p>,
+        name: <p> {res.data.name} </p>,
+        surname: <p>{res.data.surname}</p>,
+        birthDay:  <p>{res.data.birthDay}</p>,
+        zipCode: <p>{res.data.zipCode}</p>
       });
     });
   }, []);
@@ -32,46 +35,66 @@ function ConfiPerfil(props) {
     console.log(props.hola);
     props.takingData(formObject);
   }
-
-  function changeToInput(variableToChange) {
+  function changeToInputUsername() {
     setObjectProfile({
       ...objectProfile,
-      nombre: <input type="text" placeholder={datos.name}></input>
-    });
-
-    console.log(objectProfile);
-  }
+      username: <input type="text" placeholder={datos.username}   onChange={$event =>
+        setFormObject({ ...formObject, username: $event.target.value })
+      }></input>, 
+     
+    });}
+  function changeToInputName() {
+    setObjectProfile({
+      ...objectProfile,
+      name: <input type="text" placeholder={datos.name}  onChange={$event =>
+        setFormObject({ ...formObject, name: $event.target.value })
+      }></input>, 
+     
+    });}
+  function changeToInputSurname() {
+    setObjectProfile({
+      ...objectProfile,
+      surname: <input type="text" placeholder={datos.surname}  onChange={$event =>
+        setFormObject({ ...formObject, surname: $event.target.value })
+      } ></input>,
+    });}
+  function changeToInputBirthDay() {
+    setObjectProfile({
+      ...objectProfile,
+      birthDay: <input type="text" placeholder={datos.birthDay}    onChange={$event =>
+        setFormObject({ ...formObject, birthDay: $event.target.value })
+      }></input>,
+    });}
+  function changeToInputZipcode() {
+    setObjectProfile({
+      ...objectProfile,
+      zipCode: <input type="text" placeholder={datos.zipCode}   onChange={$event =>
+        setFormObject({ ...formObject, number: $event.target.value })
+      }></input>,
+      
+    });}
   const formHeader = {
     headerText: "Home",
     srcArrow: ""
   };
   return (
-    <div className="contenedor">
+    <div className="contenedor_confiperfil">
       <Header headerObject={formHeader} />
       <header className="">
         <p className="bienvenido">¡Bienvenido!</p>
       </header>
-
-      <nav className="c__nav">
-        <p> {datos.username}</p>
-      </nav>
-      <hr />
       <div className="datosPersonales">
-        {objectProfile.nombre}
-        <input
-          type="button"
-          onClick={() => {
-            changeToInput("nombre");
-          }}
-        ></input>
-        <p>{datos.surname}</p>
-        <p>{datos.birthDay}</p>
-        <p>{datos.zipCode}</p>
-      </div>
+      {objectProfile.username}
+        <input className="btn_escri" type="button" onClick={() => {changeToInputUsername();}}></input>
       <hr />
-      <div className="tusGustos">
-        <p>TUS GUSTOS</p>
-        <p className="musicalInteres">{datos.musicalInterest}</p>
+        {objectProfile.name}
+        <input className="btn_escri" type="button" onClick={() => {changeToInputName();}}></input>
+        {objectProfile.surname}
+        <input className="btn_escri" type="button" onClick={() => {changeToInputSurname();}}></input>
+        {objectProfile.birthDay}
+        <input className="btn_escri" type="button" onClick={() => {changeToInputBirthDay();}}></input>
+        {objectProfile.zipCode}
+        <input className="btn_escri" type="button" onClick={() => {changeToInputZipcode();}}></input>
       </div>
       <hr />
       <footer>
