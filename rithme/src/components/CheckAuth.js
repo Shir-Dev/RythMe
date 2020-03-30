@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
-function withAuth(ComponentToProtect) {
+function CheckAuth(ComponentToProtect) {
   let isToken;
 
   fetch("http://localhost:3333/users/checktoken")
@@ -21,8 +21,8 @@ function withAuth(ComponentToProtect) {
   if (isToken) {
     return ComponentToProtect;
   } else {
-    return <Redirect to="/registro"></Redirect>;
+    return <Redirect to="/login"></Redirect>;
   }
 }
 
-export default withAuth;
+export default CheckAuth;
