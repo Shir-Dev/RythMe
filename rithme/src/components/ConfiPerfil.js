@@ -26,8 +26,11 @@ function ConfiPerfil(props) {
     console.log(props.hola);
     props.takingData(formObject);
   }
-
   let name = <p> {datos.name} </p>;
+  function changeToInput(variableToModify) {
+    variableToModify = <input placeholder={datos.variableToModify}></input>;
+  }
+
   const formHeader = {
     headerText: "Home",
     srcArrow: ""
@@ -58,7 +61,13 @@ function ConfiPerfil(props) {
             setFormObject({ ...formObject, surname: $event.target.value })
           }
         />
-        {name}
+        {name}{" "}
+        <input
+          type="button"
+          onClick={() => {
+            changeToInput(name);
+          }}
+        ></input>
         <p> {datos.surname}</p>
         <p>{datos.birthDay}</p>
         <p>{datos.zipCode}</p>
