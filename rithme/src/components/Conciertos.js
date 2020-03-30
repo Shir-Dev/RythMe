@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./assets/styles/conciertos.css";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -9,7 +9,7 @@ function Conciertos() {
     srcArrow: "/bienvenido"
   };
   return (
-    <div className="contenedor_g">
+    <div className="contenedor">
       <Header headerObject={formHeader} />
 
       <Footer changeNav="conciertos" />

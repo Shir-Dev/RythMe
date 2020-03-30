@@ -20,14 +20,15 @@ const signToken = profileId =>
   );
 
 router.post("/signup", async function(req, res, next) {
+  console.log(req.body.username, req.body.email, req.body.password);
   // ESTO VA A MONGO
   const newProfile = new Profile({
     username: req.body.username,
     name: req.body.name,
     surname: req.body.surname,
     zipCode: req.body.zipCode,
-    birthDay: req.body.birthDay
-    // musicalInterest: req.body.musicalInterest,
+    birthDay: req.body.birthDay,
+    musicalInterest: req.body.musicalInterest
     // eventsId: req.body.eventsId
   });
   console.log(newProfile.id);
@@ -43,13 +44,11 @@ router.post("/signup", async function(req, res, next) {
     email: req.body.email,
     password: await bcrypt.hash(req.body.password, 10)
   };
-
-  console.log(req.body.username, req.body.email, req.body.password);
   const users = await pool.query("INSERT INTO Login set ? ", [newUser]);
 
   const token = signToken(newProfile.id);
 
-  res.status(200).json({ token });
+  res.cookie("token", token, { httpOnly: true }).sendStatus(200);
 });
 
 router.post(
@@ -58,13 +57,17 @@ router.post(
   (req, res, next) => {
     const token = signToken(req.user.userID);
     console.log("login successfull, the user is ", req.user.userID);
-    res.status(200).json({ token });
+    res.cookie("token", token, { httpOnly: true }).sendStatus(200);
   }
 );
 
-router.post("/secret", passport.authenticate("jwt", { session: false }), () => {
-  console.log("He entrado con el token");
-});
+router.get(
+  "/checktoken",
+  passport.authenticate("jwt", { session: false }),
+  () => {
+    console.log("He entrado con el token");
+  }
+);
 
 router.get("/", async (req, res) => {
   const profile = await Profile.findById("5e7c7964a071e524f42419c8");
