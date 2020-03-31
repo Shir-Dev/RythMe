@@ -12,22 +12,26 @@ import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
 import FormMusical from "./FormMusical";
 import withAuth from "./WithAuth";
+import WithNoAuth from "./WithNoAuth";
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/configuracion2" component={ConfiPerfil} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/carrito" component={Carrito} />
-        <Route path="/bienvenido" component={withAuth(Bienvenido)} />
-        <Route exact path="/entradas" component={Entradas} />
-        <Route exact path="/registro" component={Registro} />
-        <Route exact path="/registro2" component={FormMusical} />
-        <Route exact path="/" component={PageInicio} />
-        <Route exact path="/buscar" component={Buscar} />
-        <Route exact path="/conciertos" component={Conciertos} />
-        <Route exact path="/configuracion" component={Configuracion} />
+        <Route exact path="/confi" component={withAuth(ConfiPerfil)} />
+        <Route exact path="/login" component={WithNoAuth(Login)} />
+        <Route exact path="/carrito" component={withAuth(Carrito)} />
+        <Route exact path="/bienvenido" component={withAuth(Bienvenido)} />
+        <Route exact path="/entradas" component={withAuth(Entradas)} />
+        <Route exact path="/registro" component={WithNoAuth(Registro)} />
+        <Route exact path="/" component={withAuth(PageInicio)} />
+        <Route exact path="/buscar" component={withAuth(Buscar)} />
+        <Route exact path="/conciertos" component={withAuth(Conciertos)} />
+        <Route
+          exact
+          path="/configuracion"
+          component={withAuth(Configuracion)}
+        />
       </Switch>
     </BrowserRouter>
   );
