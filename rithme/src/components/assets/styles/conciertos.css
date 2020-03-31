@@ -1,17 +1,15 @@
-.contenedor {
+.contenedor_conci {
   background-color: #110033;
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
   width: 100vw;
-  height: 100vh;
   margin-left: 0px;
 }
 .contenedor_concierto {
- 
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: 45%;
   height: 100vh;
   color: white;
+}
+.music{
+  background-color: #110033;
 }

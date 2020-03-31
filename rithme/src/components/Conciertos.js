@@ -21,19 +21,19 @@ function Conciertos() {
       const [allMusic, setAllMusic] = useState([]);
       useEffect(() => {
         axios
-          .get(`https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=Music&countryCode=ES&apikey=ntGPVQaujf56CfGVAEXhDAioEwQA5Apr`)
-          .then(res => { let musical= res.data._embedded.events;
+          .get(`http://localhost:3333/events`)
+          .then(res => { let music = res.data;
                   
-            for(let i =0; i <  musical.length; i++){
-              const music =  musical[i];
-            array.push(<p key={i}>{music.name}</p>,<p>{music.id}</p>,<img src={music.images[0].url}  height="42" width="42"/>)
-              
+            for(let i =0; i <  music.length; i++){
+              const musical =  music[i];
+            array.push(<img  src={musical.image}  height="100px" width="120px"/>,<br/>)
+            array.push(<p key={i}>{musical.artist.name}</p>)  
             }
-            setAllMusic(array)
-       
+          setAllMusic(array)
+          console.log(array)
           
           })}, []);
-        
+          
         
     const settings = {
     dots: true,
@@ -43,18 +43,18 @@ function Conciertos() {
     slidesToScroll: 2
   };
   return (
-    <div className="contenedor">
+    <div className="contenedor_conci">
       <Header headerObject={formHeader} />
-  <h2 className="parrafo">HOLA {datos.name}</h2>
+      <div><h2 className="parrafo">HOLA {datos.name}</h2></div>
+  
 
-  <div className="contenedor_concierto"><p className="music">{allMusic}</p></div>
+  <div className="contenedor_concierto">
+    
+  <div className="music">{allMusic}</div>
+  
+  </div>
 
-      <input
-        className="btn_continuar"
-        type="submit"
-        value="Finalizar"
-      
-      />
+    
       <Footer changeNav="conciertos" />
     </div>
   );

@@ -73,7 +73,7 @@ function Login(props) {
             onClick={autoLogin}
           />
         </form>
-        <Link to="/form" className="registro">
+        <Link to="/registro" className="registro">
           Registrarme
         </Link>
       </div>
