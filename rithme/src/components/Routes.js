@@ -12,7 +12,9 @@ import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
 import FormMusical from "./FormMusical";
 import withAuth from "./WithAuth";
+
 import ReduxForm from "./ReduxForm";
+import WithNoAuth from "./WithNoAuth";
 
 function Routes() {
   return (
