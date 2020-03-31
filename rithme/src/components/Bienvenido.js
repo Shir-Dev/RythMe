@@ -8,22 +8,20 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 
-
-function Bienvenido() { 
-  
+function Bienvenido() {
   const [datos, setDatos] = useState([]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
-      .then(res => {console.log(res.data); setDatos(res.data);});}, []);
-  console.log(datos.musicalInterest)
- 
-     
+      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
+      .then(res => {
+        console.log(res.data);
+        setDatos(res.data);
+      });
+  }, []);
+  console.log(datos.musicalInterest);
 
   const formHeader = {
-    headerText: "Home",
-    srcArrow: ""
+    headerText: "Home"
   };
   return (
     <div className="contenedor">

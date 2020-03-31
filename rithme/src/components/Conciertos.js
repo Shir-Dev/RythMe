@@ -5,8 +5,7 @@ import Header from "./Header";
 
 function Conciertos() {
   const formHeader = {
-    headerText: "Conciertos",
-    srcArrow: "/bienvenido"
+    headerText: "Conciertos"
   };
   return (
     <div className="contenedor">

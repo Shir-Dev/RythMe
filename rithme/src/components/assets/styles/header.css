@@ -9,16 +9,13 @@
   height: 69px;
   font-family: Overpass-Light;
 }
-/*.b-flecha {
-  width: 8%;
-  margin-top: 10%;
-  margin-right: 90%;
-}*/
+.b-flecha {
+  position: absolute;
+  margin-top: 5%;
+}
 
 .text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  padding-top: 7%;
+  text-align: center;
   font-size: 20px;
 }

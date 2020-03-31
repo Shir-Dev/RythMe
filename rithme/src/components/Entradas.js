@@ -12,8 +12,7 @@ import Footer from "./Footer";
 
 function Entradas() {
   const formHeader = {
-    headerText: "Entradas",
-    srcArrow: "/bienvenido"
+    headerText: "Entradas"
   };
   return (
     <div className="contenedor_g">

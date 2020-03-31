@@ -4,9 +4,9 @@ import flecha11 from "./assets/icons/flecha11.png";
 import { Link } from "react-router-dom";
 
 function App(props) {
-  let isArrow = "";
   let headerText = " ";
   let srcArrow = "";
+  let isArrow = "";
 
   isArrow = props.headerObject.isArrow;
   headerText = props.headerObject.headerText;
@@ -16,7 +16,7 @@ function App(props) {
   if (isArrow === true) {
     arrow = (
       <Link to={srcArrow}>
-        <img src={flecha11} className="b-flecha"></img>
+        <img src={flecha11}></img>
       </Link>
     );
   }
@@ -24,7 +24,7 @@ function App(props) {
   return (
     <div className="contenedor_header">
       <header className="b-header">
-        {arrow}
+        <div className="b-flecha">{arrow}</div>
         <div className="text">{headerText}</div>
       </header>
     </div>
