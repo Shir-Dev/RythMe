@@ -45,7 +45,7 @@ function Conciertos() {
   return (
     <div className="contenedor_conci">
       <Header headerObject={formHeader} />
-      <div><h2 className="parrafo">HOLA {datos.name}</h2></div>
+      <div><h2 className="parrafo2">HOLA {datos.name}</h2></div>
   
 
   <div className="contenedor_concierto">

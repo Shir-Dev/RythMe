@@ -104,44 +104,7 @@ function Carrito() {
             <img src={play} className="icono_play" />
           </div>
         </div>
-        <div className="contenedor_img">
-          <img src={img_blus} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Judith Hill</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
-        </div>
-        <div className="contenedor_img">
-          <img src={Girl} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Judith Hill</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
-        </div>
+       
       </div>
       <div>
         <Footer changeNav="entradas" />

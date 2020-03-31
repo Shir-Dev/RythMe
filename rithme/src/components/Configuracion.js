@@ -13,7 +13,7 @@ function Configuracion() {
       <Header headerObject={formHeader} />
       <div className="contenedor_confi">
         
-        <Link to="/configuracion2" className="confi_perfil">
+        <Link to="/confi" className="confi_perfil">
           CONFIGURACION DE PERFIL
         </Link>
         
