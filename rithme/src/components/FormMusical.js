@@ -6,9 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export default function FormMusical(props) {
   const [music, setMusic] = useState([]);
+  const [redirect, setRedirect] = useState();
   useEffect(() => {
     axios
       .get(
@@ -92,6 +94,7 @@ export default function FormMusical(props) {
     let registerObject = props.formObject;
     registerObject.musicalInterest = musicalInterest;
     console.log(registerObject);
+
     fetch("http://localhost:3333/users/signup", {
       method: "POST",
       body: JSON.stringify(registerObject),
@@ -103,7 +106,7 @@ export default function FormMusical(props) {
       .then(res => {
         console.log(res.status);
         if (res.status === 200) {
-          console.log(res);
+          setRedirect(<Redirect to="/bienvenido" />);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -117,6 +120,7 @@ export default function FormMusical(props) {
 
   return (
     <div className="contenedor_form">
+      {redirect}
       <Header headerObject={formHeader} />
 
       <h2 className="parrafo">Cuentanos tus Gustos</h2>

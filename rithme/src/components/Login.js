@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./assets/styles/login.css";
 import Footer from "./Footer";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 
 function Login(props) {
   const [loginObject, setLoginObject] = useState();
-
+  const [redirect, setRedirect] = useState();
   function autoLogin() {
     Axios("http://localhost:3333/users/signin", {
       method: "POST",
@@ -17,6 +17,7 @@ function Login(props) {
       .then(res => {
         if (res.status === 200) {
           console.log("usuario logeado");
+          setRedirect(<Redirect to="/bienvenido" />);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -33,6 +34,7 @@ function Login(props) {
   };
   return (
     <div className="contenedor_g">
+      {redirect}
       <Header headerObject={formHeader} />
       <div className="contenedor_login">
         <form className="contenedor_login">
@@ -73,7 +75,7 @@ function Login(props) {
             onClick={autoLogin}
           />
         </form>
-        <Link to="/form" className="registro">
+        <Link to="/registro" className="registro">
           Registrarme
         </Link>
       </div>

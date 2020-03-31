@@ -12,9 +12,15 @@ function Configuracion() {
     <div className="contenedor">
       <Header headerObject={formHeader} />
       <div className="contenedor_confi">
-        <Link to="/confi" className="confi_perfil">
-          Configuracion de Perfil
+        
+        <Link to="/configuracion2" className="confi_perfil">
+          CONFIGURACION DE PERFIL
         </Link>
+        
+        <Link to="/confi" className="confi_perfil">
+          SINRONIZAR TU MÚSICA Y PLATAFORMAS
+        </Link>
+        
       </div>
       <Footer changeNav="confi" />
     </div>
