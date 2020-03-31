@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
 import logom from "./assets/icons/avatar.png";
-import logop from "./assets/icons/comentario2.png";
-import logos from "./assets/icons/usuario.png";
 import "./assets/styles/bienvenido.css";
 import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
-import checkAuth from "./checkAuth";
-import { Redirect } from "react-router-dom";
 
 function Bienvenido() {
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
-      .then(res => {
-        console.log(res.data);
-        setDatos(res.data);
-      });
+    axios.get(`http://localhost:3333/users`).then(res => {
+      console.log(res.data);
+      setDatos(res.data);
+    });
   }, []);
   console.log(datos.musicalInterest);
 
@@ -27,53 +21,30 @@ function Bienvenido() {
     headerText: "Home"
   };
 
-  /*   async function validating() {
-    setIsToken(await checkAuth());
-    await console.log("isToken:", await isToken);
-  }
-
-  validating();
- */
-  /*   axios("http://localhost:3333/users/checktoken", { withCredentials: true })
-    .then(res => {
-      if (res.status === 200) {
-        console.log("Token Correcto");
-      } else {function Bienvenido() { 
-        const error = new Error(res.error);
-        throw error;
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      return <Redirect to="/Login" />;
-    }); */
   return (
-    <div className="contenedor">
-      <Header headerObject={formHeader} />
-      <header className="">
-        <p className="bienvenido">¡Bienvenido!</p>
-      </header>
-      <div className="c__img">
-        <img src={logop} className="logo_p " />
-        <img src={logom} className="logo_g" />
-        <img src={logos} className="logo_p" />
+    <div>
+      <div className="contenedor-welcome">
+        <Header headerObject={formHeader} />
+        <header className="">
+          <h1 className="welcome">¡Bienvenido!</h1>
+        </header>
+        <div className="c__img">
+          <img src={logom} className="logo_profile" />
+        </div>
+        <div className="profileBody">
+          <h2> {datos.username}</h2>
+          <div className="personal-data">
+            <label className="label-class"> Nombre:</label>
+            <label className="label-data"> {datos.name}</label>
+            <label className="label-class"> Apellidos:</label>
+            <label className="label-data"> {datos.surname}</label>
+            <label className="label-class"> Cumpleaños:</label>
+            <label className="label-data">{datos.birthDay}</label>
+            <label className="label-class"> Código Postal:</label>
+            <label className="label-data">{datos.zipCode}</label>
+          </div>
+        </div>
       </div>
-      <nav className="c__nav">
-        <p> {datos.username}</p>
-      </nav>
-      <hr />
-      <div className="datosPersonales">
-        <p> {datos.name}</p>
-        <p> {datos.surname}</p>
-        <p>{datos.birthDay}</p>
-        <p>{datos.zipCode}</p>
-      </div>
-      <hr />
-      <div className="tusGustos">
-        <p>TUS GUSTOS</p>
-        <p className="musicalInteres">{datos.musicalInterest}</p>
-      </div>
-      <hr />
       <footer>
         <Footer changeNav="home" />
       </footer>
