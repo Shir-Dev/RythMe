@@ -11,8 +11,9 @@ function Form(props) {
     props.takingData(formObject);
   }
   const formHeader = {
+    isArrow: true,
     headerText: "Registro",
-    srcArrow: "/bienvenido"
+    srcArrow: "/login"
   };
   return (
     <div className="contenedor_g">

@@ -9,8 +9,7 @@ import axios from "axios";
 
 function Conciertos() {
   const formHeader = {
-    headerText: "Conciertos",
-    srcArrow: "/bienvenido"
+    headerText: "Conciertos"
   };
   const [datos, setDatos] = useState([]);
   useEffect(() => {

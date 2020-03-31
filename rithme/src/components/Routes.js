@@ -10,21 +10,20 @@ import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
-
+import FormMusical from "./FormMusical";
 import withAuth from "./WithAuth";
-
-
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/confi" component={ConfiPerfil} />
+        <Route exact path="/configuracion2" component={ConfiPerfil} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/carrito" component={Carrito} />
         <Route path="/bienvenido" component={withAuth(Bienvenido)} />
         <Route exact path="/entradas" component={Entradas} />
         <Route exact path="/registro" component={Registro} />
+        <Route exact path="/registro2" component={FormMusical} />
         <Route exact path="/" component={PageInicio} />
         <Route exact path="/buscar" component={Buscar} />
         <Route exact path="/conciertos" component={Conciertos} />
