@@ -13,7 +13,7 @@ import ConfiPerfil from "./ConfiPerfil";
 
 import withAuth from "./WithAuth";
 
-import Carrito from "./Carrito";
+
 
 function Routes() {
   return (
