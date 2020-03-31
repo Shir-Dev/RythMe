@@ -18,23 +18,25 @@ function Conciertos() {
       .get(`http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
       .then(res =>{  setDatos(res.data);});}, []);
   
-  const [musical, setMusical] = useState([]);
+      const array = [];
+      const [allMusic, setAllMusic] = useState([]);
       useEffect(() => {
         axios
           .get(`https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=Music&countryCode=ES&apikey=ntGPVQaujf56CfGVAEXhDAioEwQA5Apr`)
-          .then(res => { setMusical(res.data); 
-            console.log(musical)});}, []);
+          .then(res => { let musical= res.data._embedded.events;
+                  
+            for(let i =0; i <  musical.length; i++){
+              const music =  musical[i];
+            array.push(<p key={i}>{music.name}</p>,<p>{music.id}</p>,<img src={music.images[0].url}  height="42" width="42"/>)
+              
+            }
+            setAllMusic(array)
+       
           
-const allMusic =[];       
-for(let i =0; i <  musical._embedded.events.length; i++){
-  const music =  musical._embedded.events[i];
-  
-  allMusic.push(<p> {music}</p>);
-}
+          })}, []);
         
-
-
-  const settings = {
+        
+    const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -45,12 +47,9 @@ for(let i =0; i <  musical._embedded.events.length; i++){
     <div className="contenedor">
       <Header headerObject={formHeader} />
   <h2 className="parrafo">HOLA {datos.name}</h2>
-      <Slider {...settings}>
-        <div>{allMusic} </div>
-    
-        <div></div>
-  
-      </Slider>
+
+  <div className="contenedor_concierto"><p className="music">{allMusic}</p></div>
+
       <input
         className="btn_continuar"
         type="submit"
