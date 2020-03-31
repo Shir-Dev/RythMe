@@ -10,12 +10,6 @@ import axios from "axios";
 import checkAuth from "./checkAuth";
 import { Redirect } from "react-router-dom";
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> ea4977c2dd33df4da82f9f18a0581b4cf9845512
 function Bienvenido() {
   const [datos, setDatos] = useState([]);
 
@@ -83,9 +77,7 @@ function Bienvenido() {
       <footer>
         <Footer changeNav="home" />
       </footer>
-     
     </div>
-     
   );
 }
 export default Bienvenido;

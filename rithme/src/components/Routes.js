@@ -10,10 +10,8 @@ import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
-
+import FormMusical from "./FormMusical";
 import withAuth from "./WithAuth";
-
-
 
 function Routes() {
   return (

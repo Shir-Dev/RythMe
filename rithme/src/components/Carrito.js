@@ -17,34 +17,35 @@ import { Link } from "react-router-dom";
 
 function Carrito() {
   const formHeader = {
-    headerText: "Entradas",
-    srcArrow: "/bienvenido"
+    isArrow: true,
+    headerText: "Carrito",
+    srcArrow: "/entradas"
   };
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <div className="contenedor">
-      <Link to="/entradas" className="links" >
-        <div className="contenedor_img">
-          <img src={Girl} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Judith Hill</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-         
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
+        <Link to="/entradas" className="links">
+          <div className="contenedor_img">
+            <img src={Girl} className="img_girl" />
+            <div className="contenedor_text">
+              <p>
+                <strong className="nombretexto">Judith Hill</strong>
+              </p>
+              <p className="texto2"> 08 Noviembre 2019</p>
+              <p className="texto2">
+                {" "}
+                <img src={icono_reloj} className="icono" />
+                22:00
+              </p>
+
+              <p className="texto2">
+                <img src={icono_dolar} className="icono" />
+                25
+              </p>
+              <img src={play} className="icono_play" />
+            </div>
           </div>
-        </div>
         </Link>
         <div className="contenedor_img">
           <img src={img_guitarra} className="img_girl" />
