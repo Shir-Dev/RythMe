@@ -10,14 +10,10 @@ import axios from "axios";
 import checkAuth from "./checkAuth";
 import { Redirect } from "react-router-dom";
 
-<<<<<<< HEAD
 
 
-function Bienvenido() { 
-  
-=======
+
 function Bienvenido() {
->>>>>>> 0b46ef45afa2a786bc45f7a7e8295b8e1a3ee224
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
@@ -46,7 +42,7 @@ function Bienvenido() {
     .then(res => {
       if (res.status === 200) {
         console.log("Token Correcto");
-      } else {
+      } else {function Bienvenido() { 
         const error = new Error(res.error);
         throw error;
       }
