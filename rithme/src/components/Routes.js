@@ -12,6 +12,7 @@ import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
 import FormMusical from "./FormMusical";
 import withAuth from "./WithAuth";
+import ReduxForm from "./ReduxForm";
 
 function Routes() {
   return (
@@ -26,6 +27,7 @@ function Routes() {
         <Route exact path="/registro2" component={FormMusical} />
         <Route exact path="/" component={PageInicio} />
         <Route exact path="/buscar" component={Buscar} />
+        <Route exact path="/redux" component={ReduxForm} />
         <Route exact path="/conciertos" component={Conciertos} />
         <Route exact path="/configuracion" component={Configuracion} />
       </Switch>

@@ -1,113 +1,181 @@
 import React from "react";
-import styled from "styled-components";
-import { Field, reduxForm } from "redux-form";
 
-const Error = styled.div`
-  margin-top: 0.25em;
-`;
-
-const Warning = Error.extend`
-  color: #ffc107;
-`;
-
-const required = value => (value ? undefined : "Required");
-
-const maxLength = max => value =>
-  value && value.length > max
-    ? `Deben de ser ${max} caracteres como máximo`
-    : undefined;
-
-const maxLength15 = maxLength(15);
-
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-    ? "Dirección de correo inválida"
-    : undefined;
-
-const aol = value =>
-  value && value && /.+@aol\.com/.test(value)
-    ? "Really? You still use AOL for your email?"
-    : undefined;
-
-const number = value =>
-  value && isNaN(Number(value)) ? "Debe de ser un número" : undefined;
-
-const minValue = min => value =>
-  value && value < min ? `Mínimo tiene que ser ${min}` : undefined;
-
-const minValue18 = minValue(18);
-
-const renderField = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning }
-}) => (
-  <div className="form-group">
-    <label>{label}</label>
-    <div>
-      <input
-        className="form-control"
-        {...input}
-        placeholder={label}
-        type={type}
-      />
-      {touched &&
-        ((error && <Error>{error}</Error>) ||
-          (warning && <Warning>{warning}</Warning>))}
-    </div>
-  </div>
+const EMAIL_REGEX = new RegExp(
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
-const FieldLevelValidationForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+function ContactForm(props) {
 
-  return (
-    <form className="container" onSubmit={handleSubmit}>
-      <h3 className="mb-3 mt-4">Field Level Validation</h3>
-      <Field
-        name="username"
-        type="text"
-        label="Username"
-        component={renderField}
-        validate={[required, maxLength15]}
-      />
-      <Field
-        name="email"
-        type="email"
-        label="Email"
-        component={renderField}
-        validate={email}
-        warn={aol}
-      />
-      <Field
-        name="age"
-        type="number"
-        label="Age"
-        component={renderField}
-        validate={[required, number, minValue18]}
-      />
+
+    this.state = {
+      name: "",
+      email: "",
+      touched: {
+        name: false,
+        email: false
+      },
+      errors: {
+        required: {
+          name: false,
+          email: false
+        },
+        valid: {
+          email: false,
+          name: true
+        }
+      }
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const { value, name } = target;
+    const errors = {
+      required: { ...this.state.errors.required, [name]: false }
+    };
+    this.setState({
+      [name]: value,
+      errors: { ...this.state.errors, ...errors }
+    });
+  }
+
+  handleBlur(event) {
+    const field = event.target.name;
+    this.setState({
+      touched: { ...this.state.touched, [field]: true }
+    });
+    this.validate(event);
+  }
+
+  validate(event) {
+    const target = event.target;
+    const { value, name } = target;
+
+    if (value.length === 0) {
+      const errors = {
+        required: { ...this.state.errors.required, [name]: true }
+      };
+
+      this.setState({
+        errors: { ...this.state.errors, ...errors }
+      });
+      return;
+    }
+
+    if (name === "email") {
+      this.validateEmail(value);
+    }
+  }
+
+  validateEmail(email) {
+    const emailIsValid = EMAIL_REGEX.test(this.state.email);
+    const errors = {
+      valid: { ...this.state.errors.valid, email: emailIsValid }
+    };
+
+    this.setState({
+      errors: { ...this.state.errors, ...errors }
+    });
+  }
+
+  hasError(field) {
+    return (
+      (this.state.errors.required[field] || !this.state.errors.valid[field]) &&
+      this.state.touched[field]
+    );
+  }
+
+  isFormInvalid() {
+    const { email, name, errors } = this.state;
+    const { required, valid } = errors;
+    const isSomeFieldRequired = Object.keys(required).some(
+      error => required[error]
+    );
+    const isSomeFieldInvalid = Object.keys(valid).some(error => !valid[error]);
+
+    return isSomeFieldInvalid || isSomeFieldRequired;
+  }
+
+  displayError(field) {
+    const { required, valid } = this.state.errors;
+    const errorMessage = `Field ${field} is `;
+
+    if (required[field]) {
+      return `${errorMessage} required`;
+    }
+
+    if (!valid[field]) {
+      return `${errorMessage} not valid`;
+    }
+  }
+
+  render() {
+    const { email, name, errors } = this.state;
+
+    return (
       <div>
-        <button
-          type="submit"
-          disabled={submitting}
-          className="btn btn-primary mr-2"
-        >
-          Submit
-        </button>
-        <button
-          type="submit"
-          disabled={pristine || submitting}
-          className="btn btn-secondary"
-          onClick={reset}
-        >
-          Clear Values
-        </button>
+        <h1>Get in touch</h1>
+        <p>
+          Fill the fields below and we will get in touch as soon as possible!!
+        </p>
+        <form onSubmit={this.handleSubmit}>
+          <div className="row-input">
+            <label>First Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              className={this.hasError("name") ? "error" : ""}
+              name="name"
+            />
+            <p
+              className={
+                this.hasError("name")
+                  ? "error-message__visible"
+                  : "error-message"
+              }
+            >
+              {this.displayError("name")}
+            </p>
+          </div>
+          <div className="row-input">
+            <label>Email</label>
+            <input
+              type="text"
+              value={email}
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              className={this.hasError("email") ? "error" : ""}
+              name="email"
+            />
+            <p
+              className={
+                this.hasError("email")
+                  ? "error-message__visible"
+                  : "error-message"
+              }
+            >
+              {this.displayError("email")}
+            </p>
+          </div>
+          <div className="submit-button-container">
+            <button type="submit" disabled={this.isFormInvalid()}>
+              Send
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
-  );
-};
+    );
+  }
 
-export default reduxForm({
-  form: "fieldLevelValidation" // a unique identifier for this form
-})(FieldLevelValidationForm);
+
+export default ContactForm;
