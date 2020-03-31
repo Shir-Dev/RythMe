@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/styles/conciertos.css";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -13,13 +13,19 @@ import img_guitarra from "./assets/img/guitarra.jpg";
 import img_rock from "./assets/img/rock.jpg";
 import img_pop from "./assets/img/pop.jpg";
 import img_blus from "./assets/img/blus.jpg";
+import axios from "axios";
 
 function Conciertos() {
   const formHeader = {
     headerText: "Conciertos",
     srcArrow: "/bienvenido"
   };
-
+  const [datos, setDatos] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
+      .then(res => {console.log(res.data); setDatos(res.data);});}, []);
+  
   const settings = {
     dots: true,
     infinite: false,
@@ -30,7 +36,7 @@ function Conciertos() {
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
-      <h2 className="parrafo">Cuentanos tus Gustos</h2>
+  <h2 className="parrafo">HOLA{datos.name}</h2>
       <Slider {...settings}>
         <div> <div className="">
           <img src={Girl} className="img_girl" />
@@ -38,19 +44,7 @@ function Conciertos() {
             <p>
               <strong className="nombretexto">Judith Hill</strong>
               <p className=""> 08 Noviembre 2019</p>
-            </p>
-            <p className=""> 08 Noviembre 2019</p>
-            <p className="">
-            
-              22:00
-            </p>
-         
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
+              <p className="">22:00 </p></p> </div>
         </div>
       </div>
         <div></div>

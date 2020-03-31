@@ -3,19 +3,15 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Form from "./Form";
 import PageInicio from "./PageInicio";
 import Entradas from "./Entradas";
+import Carrito from "./Carrito";
 import Bienvenido from "./Bienvenido";
-import FormMusical from "./FormMusical";
 import Buscar from "./Buscar";
 import Conciertos from "./Conciertos";
 import Configuracion from "./Configuracion";
 import Login from "./Login";
 import Registro from "./Registro";
 import ConfiPerfil from "./ConfiPerfil";
-<<<<<<< HEAD
-import Carrito from "./Carrito";
-=======
 import CheckAuth from "./CheckAuth";
->>>>>>> 430e72d2c9df44aaca9ec41c51457897a2e4c6a8
 
 function Routes() {
   return (
@@ -23,12 +19,8 @@ function Routes() {
       <Switch>
         <Route exact path="/confi" component={ConfiPerfil} />
         <Route exact path="/login" component={Login} />
-<<<<<<< HEAD
         <Route exact path="/bienvenido" component={Bienvenido} />
         <Route exact path="/carrito" component={Carrito} />
-=======
-        <Route exact path="/bienvenido" component={CheckAuth("Bienvenido")} />
->>>>>>> 430e72d2c9df44aaca9ec41c51457897a2e4c6a8
         <Route exact path="/entradas" component={Entradas} />
         <Route exact path="/registro" component={Registro} />
         <Route exact path="/" component={PageInicio} />

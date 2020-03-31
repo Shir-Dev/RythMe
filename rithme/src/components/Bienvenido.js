@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import axios from "axios";
 
 
+
 function Bienvenido() { 
   
   const [datos, setDatos] = useState([]);
@@ -55,7 +56,9 @@ function Bienvenido() {
       <footer>
         <Footer changeNav="home" />
       </footer>
+     
     </div>
+     
   );
 }
 
