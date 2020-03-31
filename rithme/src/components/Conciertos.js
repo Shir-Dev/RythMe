@@ -14,32 +14,28 @@ function Conciertos() {
   const [datos, setDatos] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
-      .then(res => {
-        setDatos(res.data);
-      });
-  }, []);
-
-  const [musical, setMusical] = useState([]);
-  useEffect(() => {
-    axios
-      .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=Music&countryCode=ES&apikey=ntGPVQaujf56CfGVAEXhDAioEwQA5Apr`
-      )
-      .then(res => {
-        setMusical(res.data);
-        console.log(musical);
-      });
-  }, []);
-
-  const allMusic = [];
-  for (let i = 0; i < musical._embedded.events.length; i++) {
-    const music = musical._embedded.events[i];
-
-    allMusic.push(<p> {music}</p>);
-  }
-
-  const settings = {
+      .get(`http://localhost:3333/users` &&`http://192.168.1.66:3333/users`)
+      .then(res =>{  setDatos(res.data);});}, []);
+  
+      const array = [];
+      const [allMusic, setAllMusic] = useState([]);
+      useEffect(() => {
+        axios
+          .get(`http://localhost:3333/events`)
+          .then(res => { let music = res.data;
+                  
+            for(let i =0; i <  music.length; i++){
+              const musical =  music[i];
+            array.push(<img  src={musical.image}  height="100px" width="120px"/>,<br/>)
+            array.push(<p key={i}>{musical.artist.name}</p>)  
+            }
+          setAllMusic(array)
+          console.log(array)
+          
+          })}, []);
+          
+        
+    const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -47,15 +43,18 @@ function Conciertos() {
     slidesToScroll: 2
   };
   return (
-    <div className="contenedor">
+    <div className="contenedor_conci">
       <Header headerObject={formHeader} />
-      <h2 className="parrafo">HOLA {datos.name}</h2>
-      <Slider {...settings}>
-        <div>{allMusic} </div>
+      <div><h2 className="parrafo2">HOLA {datos.name}</h2></div>
+  
 
-        <div></div>
-      </Slider>
-      <input className="btn_continuar" type="submit" value="Finalizar" />
+  <div className="contenedor_concierto">
+    
+  <div className="music">{allMusic}</div>
+  
+  </div>
+
+    
       <Footer changeNav="conciertos" />
     </div>
   );

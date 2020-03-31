@@ -3,10 +3,13 @@
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
   width: 100vw;
+  
+  
 }
 .contenedor {
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 5%; 
+  
 }
 .img_girl {
   width: 45%;
@@ -17,6 +20,7 @@
   margin-bottom: 3%;
   padding-top: 5%;
   margin-left: 5%;
+ 
 }
 .contenedor_text {
   background-color: rgb(255, 220, 53);

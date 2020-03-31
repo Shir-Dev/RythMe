@@ -3,7 +3,7 @@
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
   width: 100vw;
-  height: 200%;
+  height: 100vh;
   margin-left: 0px;
 }
 .logo_lupa {
@@ -72,10 +72,12 @@
   width: 300px;
   vertical-align: middle;
   white-space: nowrap;
-  
   margin-top: 0px;
 }
 .genres {
   color: white;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
