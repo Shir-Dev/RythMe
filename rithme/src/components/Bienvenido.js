@@ -6,17 +6,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 
-function Bienvenido() {
+function Bienvenido(props) {
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/users`).then(res => {
-      console.log(res.data);
-      setDatos(res.data);
-    });
+    setDatos(props.user);
   }, []);
   console.log(datos.musicalInterest);
-
+  console.log(props.user);
   const formHeader = {
     headerText: "Home"
   };

@@ -65,8 +65,10 @@ router.get(
   "/checktoken",
   passport.authenticate("jwt", { session: false }),
   (req, res, next) => {
+    console.log("a ver ");
     console.log("asdflkjas");
-    res.status(200).json("todo ok");
+    console.log(req.user);
+    res.status(200).json(req.user);
   }
 );
 

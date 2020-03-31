@@ -84,7 +84,7 @@ function Form(props) {
           id="zipCode"
           //required
           onChange={$event =>
-            setFormObject({ ...formObject, number: $event.target.value })
+            setFormObject({ ...formObject, zipCode: $event.target.value })
           }
         />
         <input

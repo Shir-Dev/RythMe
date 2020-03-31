@@ -11,10 +11,10 @@ export default function withAuth(ComponentToProtect) {
       };
     }
     componentDidMount() {
-      console.log("estoy en withauth");
       Axios("http://localhost:3333/users/checktoken", { withCredentials: true })
         .then(res => {
           if (res.status === 200) {
+            this.state.user = res.data;
             this.setState({ loading: false });
           } else {
             const error = new Error(res.error);
@@ -32,10 +32,9 @@ export default function withAuth(ComponentToProtect) {
         return null;
       }
       if (redirect) {
-        console.log("Estoy en el redirect");
         return <Redirect to="/login" />;
       }
-      return <ComponentToProtect {...this.props} />;
+      return <ComponentToProtect user={this.state.user} {...this.props} />;
     }
   };
 }
