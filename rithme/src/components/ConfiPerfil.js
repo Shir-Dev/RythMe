@@ -14,17 +14,19 @@ function ConfiPerfil(props) {
   const [objectProfile, setObjectProfile] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/users`&&`http://192.168.1.66:3333/users`).then(res => {
-      console.log(res.data);
-      setDatos(res.data);
-      setObjectProfile({
-        username: <p> {res.data.username} </p>,
-        name: <p> {res.data.name} </p>,
-        surname: <p>{res.data.surname}</p>,
-        birthDay:  <p>{res.data.birthDay}</p>,
-        zipCode: <p>{res.data.zipCode}</p>
+    axios
+      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
+      .then(res => {
+        console.log(res.data);
+        setDatos(res.data);
+        setObjectProfile({
+          username: <p> {res.data.username} </p>,
+          name: <p> {res.data.name} </p>,
+          surname: <p>{res.data.surname}</p>,
+          birthDay: <p>{res.data.birthDay}</p>,
+          zipCode: <p>{res.data.zipCode}</p>
+        });
       });
-    });
   }, []);
 
   console.log(datos.musicalInterest);
@@ -38,46 +40,79 @@ function ConfiPerfil(props) {
   function changeToInputUsername() {
     setObjectProfile({
       ...objectProfile,
-      username: <input type="text" placeholder={datos.username}   onChange={$event =>
-        setFormObject({ ...formObject, username: $event.target.value })
-      }></input>, 
-     
-    });}
+      username: (
+        <input
+          type="text"
+          placeholder={datos.username}
+          onChange={$event =>
+            setFormObject({ ...formObject, username: $event.target.value })
+          }
+        ></input>
+      )
+    });
+  }
   function changeToInputName() {
     setObjectProfile({
       ...objectProfile,
-      name: <input type="text" placeholder={datos.name}  onChange={$event =>
-        setFormObject({ ...formObject, name: $event.target.value })
-      }></input>, 
-     
-    });}
+      name: (
+        <input
+          type="text"
+          placeholder={datos.name}
+          onChange={$event =>
+            setFormObject({ ...formObject, name: $event.target.value })
+          }
+        ></input>
+      )
+    });
+  }
   function changeToInputSurname() {
     setObjectProfile({
       ...objectProfile,
-      surname: <input type="text" placeholder={datos.surname}  onChange={$event =>
-        setFormObject({ ...formObject, surname: $event.target.value })
-      } ></input>,
-    });}
+      surname: (
+        <input
+          type="text"
+          placeholder={datos.surname}
+          onChange={$event =>
+            setFormObject({ ...formObject, surname: $event.target.value })
+          }
+        ></input>
+      )
+    });
+  }
   function changeToInputBirthDay() {
     setObjectProfile({
       ...objectProfile,
-      birthDay: <input type="text" placeholder={datos.birthDay}    onChange={$event =>
-        setFormObject({ ...formObject, birthDay: $event.target.value })
-      }></input>,
-    });}
+      birthDay: (
+        <input
+          type="text"
+          placeholder={datos.birthDay}
+          onChange={$event =>
+            setFormObject({ ...formObject, birthDay: $event.target.value })
+          }
+        ></input>
+      )
+    });
+  }
   function changeToInputZipcode() {
     setObjectProfile({
       ...objectProfile,
-      zipCode: <input type="text" placeholder={datos.zipCode}   onChange={$event =>
-        setFormObject({ ...formObject, number: $event.target.value })
-      }></input>,
-      
-    });}
+      zipCode: (
+        <input
+          type="text"
+          placeholder={datos.zipCode}
+          onChange={$event =>
+            setFormObject({ ...formObject, number: $event.target.value })
+          }
+        ></input>
+      )
+    });
+  }
   const formHeader = {
-    headerText: "Home",
-    srcArrow: ""
+    isArrow: true,
+    headerText: "Configuración",
+    srcArrow: "/configuracion"
   };
- 
+
   return (
     <div className="contenedor_confiperfil">
       <Header headerObject={formHeader} />
@@ -86,30 +121,65 @@ function ConfiPerfil(props) {
       </header>
       <div className="datosPersonales">
         <div>
-      {objectProfile.username}
-        <button className="btn_escri"  onClick={() => {changeToInputUsername();}}><img className="logo_escribir" src={logo_escribir}/></button>
+          {objectProfile.username}
+          <button
+            className="btn_escri"
+            onClick={() => {
+              changeToInputUsername();
+            }}
+          >
+            <img className="logo_escribir" src={logo_escribir} />
+          </button>
         </div>
-      <hr />
+        <hr />
         <div>
-        {objectProfile.name}
-        <button className="btn_escri"  onClick={() => {changeToInputName();}}><img className="logo_escribir" src={logo_escribir}/></button>
+          {objectProfile.name}
+          <button
+            className="btn_escri"
+            onClick={() => {
+              changeToInputName();
+            }}
+          >
+            <img className="logo_escribir" src={logo_escribir} />
+          </button>
         </div>
         <div>
-        {objectProfile.surname}
-        <button className="btn_escri"  onClick={() => {changeToInputSurname();}}><img className="logo_escribir" src={logo_escribir}/></button>
+          {objectProfile.surname}
+          <button
+            className="btn_escri"
+            onClick={() => {
+              changeToInputSurname();
+            }}
+          >
+            <img className="logo_escribir" src={logo_escribir} />
+          </button>
         </div>
         <div>
-        {objectProfile.birthDay}
-        <button className="btn_escri"  onClick={() => {changeToInputBirthDay();}}><img className="logo_escribir" src={logo_escribir}/></button>
+          {objectProfile.birthDay}
+          <button
+            className="btn_escri"
+            onClick={() => {
+              changeToInputBirthDay();
+            }}
+          >
+            <img className="logo_escribir" src={logo_escribir} />
+          </button>
         </div>
         <div>
-        {objectProfile.zipCode}
-        <button className="btn_escri"  onClick={() => {changeToInputZipcode();}}><img className="logo_escribir" src={logo_escribir}/></button>
+          {objectProfile.zipCode}
+          <button
+            className="btn_escri"
+            onClick={() => {
+              changeToInputZipcode();
+            }}
+          >
+            <img className="logo_escribir" src={logo_escribir} />
+          </button>
         </div>
       </div>
       <hr />
       <footer>
-        <Footer changeNav="home" />
+        <Footer changeNav="confi" />
       </footer>
     </div>
   );

@@ -6,19 +6,16 @@ import { Link } from "react-router-dom";
 
 function Configuracion() {
   const formHeader = {
-    headerText: "Configuración",
-    srcArrow: "/bienvenido"
+    headerText: "Configuración"
   };
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
       <div className="contenedor_confi">
-        
-     <Link to="/confi" className="confi_perfil">
+        <Link to="/confi" className="confi_perfil">
           Configuracion de Perfil
         </Link>
-      
-        </div>
+      </div>
       <Footer changeNav="confi" />
     </div>
   );

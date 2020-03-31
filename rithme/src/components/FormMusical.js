@@ -23,8 +23,9 @@ export default function FormMusical(props) {
       });
   }, []);
   const formHeader = {
+    isArrow: true,
     headerText: "Registro",
-    srcArrow: "/bienvenido"
+    srcArrow: "/registro"
   };
   const laMusica = [];
   const musica1 = [];
@@ -140,7 +141,6 @@ export default function FormMusical(props) {
         value="Finalizar"
         onClick={sendingRegister}
       />
-      <Footer changeNav="conf" />
     </div>
   );
 }

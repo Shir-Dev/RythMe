@@ -10,9 +10,6 @@ import axios from "axios";
 import checkAuth from "./checkAuth";
 import { Redirect } from "react-router-dom";
 
-
-
-
 function Bienvenido() {
   const [datos, setDatos] = useState([]);
 
@@ -27,8 +24,7 @@ function Bienvenido() {
   console.log(datos.musicalInterest);
 
   const formHeader = {
-    headerText: "Home",
-    srcArrow: ""
+    headerText: "Home"
   };
 
   /*   async function validating() {
@@ -81,9 +77,7 @@ function Bienvenido() {
       <footer>
         <Footer changeNav="home" />
       </footer>
-     
     </div>
-     
   );
 }
 export default Bienvenido;
