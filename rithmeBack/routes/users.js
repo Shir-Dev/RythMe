@@ -2,8 +2,8 @@ const JWT = require("jsonwebtoken");
 var express = require("express");
 var router = express.Router();
 const Profile = require("../model/Profile");
-const passport = require("passport");
 const passportConfig = require("../Passport/passport.config");
+const passport = require("passport");
 const bcrypt = require("bcrypt");
 const pool = require("../mysql/database");
 
@@ -64,8 +64,9 @@ router.post(
 router.get(
   "/checktoken",
   passport.authenticate("jwt", { session: false }),
-  () => {
-    console.log("He entrado con el token");
+  (req, res, next) => {
+    console.log("asdflkjas");
+    res.status(200).json("todo ok");
   }
 );
 

@@ -3,44 +3,32 @@ const { Schema } = mongoose;
 
 const EventSchema = new Schema(
     {
-        artist: [{
+        name: {type: String, required:true},
+        artist: {
                     name: {type: String, required:true},
-                    tour: String,
                     description: String
-                }],
-        description: String,
-        dates: [{
-                    date: Date,
-                    timeZone: String,
-                    hour: Date,
-                    required: true
-                }],
-        genre: [{
-                    type: {type: String}
-                }],
-        priceRange: [{
-                        zone: String,
+                },
+        dates: {
+                    dateTime: Date
+                },
+        genre: {
+                    name: {type: String}
+                },
+        priceRange: {
                         currency: String,
                         min: Number,
                         max: Number
-                    }],
+                    },
         location: {
-            id: String,
             name: String,
-            images: [{
-                        url: String,
-                        width: Number,
-                        height: Number,
-                        attribution: String
-                    }],
             postalCode: String,
-            city: { name: String },
-            state: { name: String , stateCode: String},
+            city: String,
+            state: String,
             country: {name: String, countryCode: String},
             address: String,
-            locationCoord: {longitude: String, latitude: String}
+            locationCoord: {longitude: Number, latitude: Number}
         },
-        images: [{type: String}],
+        image: {type: String},
         tickets: { sold: Number, available: Number}
     }
 );
