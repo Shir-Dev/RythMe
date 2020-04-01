@@ -13,38 +13,31 @@
   font-size: 30px;
 }
 
-
-.camara{
- font-size: 20px;
- display: flex;
- justify-content: center;
- margin-left: 12%;
- text-align: center;
- background-color:  #ffdc35;
- color: #110033;
- border: 2px solid black;
-          
+.camara {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 12%;
+  text-align: center;
+  background-color: #ffdc35;
+  color: #110033;
+  border: 2px solid black;
 }
-.subir{
- padding-top: 5%;
- padding-left: 3%;
- padding-right: 3%;
+.subir {
+  padding-top: 5%;
+  padding-left: 3%;
+  padding-right: 3%;
   font-size: 20px;
   background: white;
-  border:3px solid #f7cb15;
+  border: 3px solid #f7cb15;
 }
-.icono_subir{
+.icono_subir {
   width: 10%;
   height: 5%;
-  
 }
-.cont_form{
+.cont_form {
   margin-bottom: 5%;
-  
-  
-
 }
-
 
 .contenedor input {
   margin-bottom: 10px;
@@ -58,4 +51,12 @@
   text-align: center;
   border-radius: 30%;
   border: 1px solid #110033;
+}
+
+.msg-error {
+  display: flex;
+  margin-left: 11%;
+  font-size: 17px;
+  color: red;
+  font-family: Roboto, Helvetica, sans-serif;
 }
