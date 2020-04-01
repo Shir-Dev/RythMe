@@ -1,20 +1,19 @@
 var express = require("express");
 var router = express.Router();
 const axios = require('axios');
-const Events = require("../model/Event");
+const Event = require("../model/Event");
 
 
-/* Saving Events from TicketMaster API on MongoDB */
+// /* Saving Events from TicketMaster API on MongoDB */
 // router.post('/events/seedDB', async (req, res) => {
 
-//   axios.get('https://app.ticketmaster.com/discovery/v2/events.json?size=200&classificationName=Music&countryCode=ES&apikey=ntGPVQaujf56CfGVAEXhDAioEwQA5Apr')
-//   .then( response => {
+//   axios.get('https://app.ticketmaster.com/discovery/v2/events.json?size=200&segment=Music&countryCode=ES&apikey=ntGPVQaujf56CfGVAEXhDAioEwQA5Apr')
+//   .then( async response => {
       
 //     const events = response.data['_embedded'].events;
-//     const eventsMongoDB = [];
-     
-//       events.forEach( async event => {
-
+    
+//     for await (event of events){
+  
 //       const newEvent = new Event({
 
 //         name: event.name,
@@ -27,6 +26,9 @@ const Events = require("../model/Event");
 //                 },
 //         genre: {
 //                     name: event.classifications[0].genre.name
+//                 },
+//         subGenre: {
+//                     name: event.classifications[0].subGenre.name
 //                 },
 //         priceRange: {
 //                         currency: 'Euro',
@@ -47,15 +49,13 @@ const Events = require("../model/Event");
 //       });
 
 //       await newEvent.save(function(err, newEvent) {
-//         eventsMongoDB.push(newEvent);
 //         if (err) return console.error(err);  
 //       });
-
-//       return Promise.resolve(console.log("Saved"));
       
-//     });
-
-//     res.send("OK");
+//     };
+  
+    
+//     res.send("Saved - OK");
 
 //   })
 //   .catch(error => {
@@ -65,9 +65,26 @@ const Events = require("../model/Event");
 // });
 
 /* Events on MongoDB */
-router.get('/events', async (req, res) => {
+router.get('/events/all', async (req, res) => {
   const events = await Events.find();
   res.status(200).json(events);
 });
+
+/* Filtered Events on MongoDB */
+router.get('/events', async (req, res) => {
+    
+  const uniqueEvents = await Event.distinct( "artist.name");
+  let filteredEvents = [];
+
+  for await (artistFilter of uniqueEvents){
+
+    filteredEvents.push(await Event.findOne({"artist.name": artistFilter}, {}));
+
+  };
+
+  res.status(201).json(filteredEvents);
+
+});
+
 
 module.exports = router;
