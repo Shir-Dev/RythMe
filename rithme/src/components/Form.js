@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./assets/styles/form.css";
 import Header from "./Header";
+import subir from "./assets/icons/subir.png"
 
 function Form(props) {
   const [formObject, setFormObject] = useState();
@@ -15,17 +16,24 @@ function Form(props) {
     headerText: "Registro",
     srcArrow: "/login"
   };
+  function cambiar(){
+    var pdrs = document.getElementById('file-upload').files[0].name;
+    document.getElementById('info').innerHTML = pdrs;
+}
+var divStyle = {
+  display: "none"
+}
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <h2 className="h2">Datos Personales</h2>
       <form onSubmit={sendingData} className="contenedor">
-          <span className="productImage">
-          <input className="camara" name="productImage" type="file" id="productImage" accept="image/*" />
-          </span>
-          <label  for="productImage">
-           <span> Foto de Perfil</span>
-          </label>
+
+        <label for="file-upload" className="subir">
+        <img className="icono_subir" src={subir} alt=""/> 
+        </label>
+      <input id="file-upload" name="productImage" onchange='cambiar()' accept="image/*" type="file" style={divStyle}/>
+       <div className="cont_form" id="info"></div>
        
         <input
           type="text"
