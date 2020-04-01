@@ -17,16 +17,15 @@
 .camara{
  font-size: 20px;
  display: flex;
+ justify-content: center;
+ margin-left: 12%;
  text-align: center;
- 
+ background-color:  #ffdc35;
+ color: #110033;
+ border: 2px solid black;
           
 }
-.camara_txt{
-color: white;
-font-size: 18px;
 
-
-}
 .contenedor input {
   margin-bottom: 10px;
   padding: 3%;
@@ -40,24 +39,3 @@ font-size: 18px;
   border-radius: 30%;
   border: 1px solid #110033;
 }
-input[type=”file”]#productImage {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  }
-  label[for=" productImage"] {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    background-color: #106BA0;
-    display: inline-block;
-    transition: all .5s;
-    cursor: pointer;
-    padding: 15px 40px;
-    text-transform: uppercase;
-    width: fit-content;
-    text-align: center;
-    }

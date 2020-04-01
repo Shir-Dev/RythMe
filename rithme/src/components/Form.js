@@ -23,9 +23,6 @@ function Form(props) {
           <span className="productImage">
           <input className="camara" name="productImage" type="file" id="productImage" accept="image/*" />
           </span>
-          <label  for="productImage">
-           <span> Foto de Perfil</span>
-          </label>
        
         <input
           type="text"
