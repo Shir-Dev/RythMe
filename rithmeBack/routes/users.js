@@ -6,7 +6,16 @@ const passportConfig = require("../Passport/passport.config");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const pool = require("../mysql/database");
-
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "./userPhotos/");
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+const upload = multer({ storage });
 //funcion para hacer token
 const signToken = profileId =>
   JWT.sign(
@@ -19,7 +28,11 @@ const signToken = profileId =>
     "pepino"
   );
 
-router.post("/signup", async function(req, res, next) {
+router.post("/signup", upload.single("productImage"), async function(
+  req,
+  res,
+  next
+) {
   console.log(req.body.username, req.body.email, req.body.password);
   // ESTO VA A MONGO
   const newProfile = new Profile({
