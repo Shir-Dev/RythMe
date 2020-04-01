@@ -25,6 +25,7 @@ function Carrito() {
   };
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
+  
   useEffect(() => {
     axios
       .get(`http://localhost:3333/events`)
@@ -32,7 +33,10 @@ function Carrito() {
               
         for(let i =0; i <  music.length; i++){
           const musical =  music[i];
-        array.push(  <div className="contenedor_img">
+          
+        array.push(  
+        <Link to="/entradas" allMusic={musical}  className="link_entradas">
+        <div className="contenedor_img">
         <img src={musical.image} className="img_girl" />
         <div className="contenedor_text">
           <p>
@@ -51,13 +55,15 @@ function Carrito() {
           </p>
           <img src={play} className="icono_play" />
         </div> 
-      </div>)
+      </div>
+      </Link>)
        
         }
       setAllMusic(array)
       console.log(array)
       
       })}, []);
+      
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
