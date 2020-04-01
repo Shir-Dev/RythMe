@@ -10,6 +10,7 @@
   margin-left: 5%;
   margin-right: 5%; 
   
+  
 }
 .img_girl {
   width: 45%;
@@ -20,6 +21,7 @@
   margin-bottom: 3%;
   padding-top: 5%;
   margin-left: 5%;
+ 
  
 }
 .contenedor_text {
@@ -82,6 +84,7 @@
 }
 .icono {
   margin-right: 5px;
+  max-width: 7%;
 }
 .Pasistiran {
   margin-left: 100px;

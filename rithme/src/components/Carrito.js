@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/styles/entradas.css";
 import Header from "./Header";
 import Girl from "./assets/img/girl.jpg";
@@ -14,6 +14,8 @@ import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Entradas from "./Entradas"
 
 function Carrito() {
   const formHeader = {
@@ -21,96 +23,53 @@ function Carrito() {
     headerText: "Carrito",
     srcArrow: "/entradas"
   };
+  const array = [];
+  const [allMusic, setAllMusic] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3333/events`)
+      .then(res => { let music = res.data;
+              
+        for(let i =0; i <  music.length; i++){
+          const musical =  music[i];
+        array.push(  <div className="contenedor_img">
+        <img src={musical.image} className="img_girl" />
+        <div className="contenedor_text">
+          <p>
+        <strong className="nombretexto">{musical.artist.name}</strong>
+          </p>
+          <p className="texto2">08/10/2020</p>
+          <p className="texto2">
+            {" "}
+            <img src={icono_reloj} className="icono" />
+            22:00
+          </p>
+
+          <p className="texto2">
+            <img src={icono_dolar} className="icono" />
+            {musical.priceRange.min}$
+          </p>
+          <img src={play} className="icono_play" />
+        </div> 
+      </div>)
+       
+        }
+      setAllMusic(array)
+      console.log(array)
+      
+      })}, []);
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <div className="contenedor">
-        <Link to="/entradas" className="links">
-          <div className="contenedor_img">
-            <img src={Girl} className="img_girl" />
-            <div className="contenedor_text">
-              <p>
-                <strong className="nombretexto">Judith Hill</strong>
-              </p>
-              <p className="texto2"> 08 Noviembre 2019</p>
-              <p className="texto2">
-                {" "}
-                <img src={icono_reloj} className="icono" />
-                22:00
-              </p>
-
-              <p className="texto2">
-                <img src={icono_dolar} className="icono" />
-                25
-              </p>
-              <img src={play} className="icono_play" />
-            </div>
-          </div>
-        </Link>
-        <div className="contenedor_img">
-          <img src={img_guitarra} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Ismael Cordon</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
-        </div>
-        <div className="contenedor_img">
-          <img src={img_rock} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Maria Diaz</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
-        </div>
-        <div className="contenedor_img">
-          <img src={img_pop} className="img_girl" />
-          <div className="contenedor_text">
-            <p>
-              <strong className="nombretexto">Judith Hill</strong>
-            </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
-            <p className="texto2">
-              {" "}
-              <img src={icono_reloj} className="icono" />
-              22:00
-            </p>
-            <p className="texto2">
-              <img src={icono_dolar} className="icono" />
-              25
-            </p>
-            <img src={play} className="icono_play" />
-          </div>
-        </div>
-       
+        {allMusic}
       </div>
-      <div>
-        <Footer changeNav="entradas" />
-      </div>
+      <Footer changeNav="entradas" />
     </div>
+    
   );
 }
 
-export default Carrito;
+export default Carrito ;
+
+ 
