@@ -25,6 +25,26 @@
  border: 2px solid black;
           
 }
+.subir{
+ padding-top: 5%;
+ padding-left: 3%;
+ padding-right: 3%;
+  font-size: 20px;
+  background: white;
+  border:3px solid #f7cb15;
+}
+.icono_subir{
+  width: 10%;
+  height: 5%;
+  
+}
+.cont_form{
+  margin-bottom: 5%;
+  border: 1px solid;
+  
+
+}
+
 
 .contenedor input {
   margin-bottom: 10px;
