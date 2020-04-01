@@ -14,6 +14,8 @@ function Entradas() {
   const formHeader = {
     headerText: "Entradas"
   };
+
+  
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />

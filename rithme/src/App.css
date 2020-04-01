@@ -1,5 +1,6 @@
 html{
   font-size: 10px;
+  background-color: #110033;
 }
 
 .App{
@@ -21,4 +22,5 @@ html{
   align-items: center;
   padding: 0px;
   margin: 0px;
+  background-color: #110033;
 }
