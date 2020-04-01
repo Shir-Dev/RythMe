@@ -8,7 +8,8 @@ const ProfileSchema = new Schema({
   zipCode: Number,
   birthDay: Date,
   musicalInterest: [{ type: String }],
-  eventsId: [{ type: String }]
+  eventsId: [{ type: String }],
+  urlImage: String
 });
 
 module.exports = mongoose.model("Profile", ProfileSchema);

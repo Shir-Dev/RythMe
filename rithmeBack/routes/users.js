@@ -28,12 +28,13 @@ const signToken = profileId =>
     "pepino"
   );
 
-router.post("/signup", upload.single("productImage"), async function(
+router.post("/signup", upload.single("userPhoto"), async function(
   req,
   res,
   next
 ) {
   console.log(req.body.username, req.body.email, req.body.password);
+  console.log(req.file.path);
   // ESTO VA A MONGO
   const newProfile = new Profile({
     username: req.body.username,
@@ -41,7 +42,8 @@ router.post("/signup", upload.single("productImage"), async function(
     surname: req.body.surname,
     zipCode: req.body.zipCode,
     birthDay: req.body.birthDay,
-    musicalInterest: req.body.musicalInterest
+    musicalInterest: req.body.musicalInterest,
+    urlImage: req.file.path
     // eventsId: req.body.eventsId
   });
   console.log(newProfile.id);

@@ -10,7 +10,7 @@ import axios from "axios";
 
 function ConfiPerfil(props) {
   const [datos, setDatos] = useState([]);
-
+  const [formObject, setFormObject] = useState({});
   const [objectProfile, setObjectProfile] = useState({});
 
   useEffect(() => {
@@ -24,7 +24,6 @@ function ConfiPerfil(props) {
   }, []);
 
   console.log(datos.musicalInterest);
-  const [formObject, setFormObject] = useState();
 
   function sendingData(event) {
     event.preventDefault();
@@ -37,21 +36,23 @@ function ConfiPerfil(props) {
       username: (
         <input
           type="text"
-          placeholder={datos.username}
-          onChange={$event =>
-            setFormObject({ ...formObject, username: $event.target.value })
-          }
+          placeholder={props.user.username}
+          onChange={$event => {
+            setFormObject({ ...formObject, username: $event.target.value });
+            console.log($event.target);
+          }}
         ></input>
       )
     });
   }
+
   function changeToInputName() {
     setObjectProfile({
       ...objectProfile,
       name: (
         <input
           type="text"
-          placeholder={datos.name}
+          placeholder={props.user.name}
           onChange={$event =>
             setFormObject({ ...formObject, name: $event.target.value })
           }
@@ -65,7 +66,7 @@ function ConfiPerfil(props) {
       surname: (
         <input
           type="text"
-          placeholder={datos.surname}
+          placeholder={props.user.surname}
           onChange={$event =>
             setFormObject({ ...formObject, surname: $event.target.value })
           }
@@ -79,7 +80,7 @@ function ConfiPerfil(props) {
       birthDay: (
         <input
           type="text"
-          placeholder={datos.birthDay}
+          placeholder={props.user.birthDay}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }
@@ -93,7 +94,7 @@ function ConfiPerfil(props) {
       zipCode: (
         <input
           type="text"
-          placeholder={datos.zipCode}
+          placeholder={props.user.zipCode}
           onChange={$event =>
             setFormObject({ ...formObject, number: $event.target.value })
           }
@@ -125,6 +126,7 @@ function ConfiPerfil(props) {
             <img className="logo_escribir" src={logo_escribir} />
           </button>
         </div>
+
         <hr />
         <div>
           {objectProfile.name}
