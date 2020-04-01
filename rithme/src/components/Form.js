@@ -64,7 +64,7 @@ function Form(props) {
             },
             maxLength: {
               value: 11,
-              message: "Máximo 11 carácteres"
+              message: "Máximo 11 caracteres"
             },
             minLength: {
               value: 4,
@@ -91,7 +91,7 @@ function Form(props) {
 
             minLength: {
               value: 3,
-              message: "Mínimo 3 carácteres"
+              message: "Mínimo 3 caracteres"
             },
             pattern: {
               value: /^[A-Za-z ]+$/i,
@@ -140,7 +140,7 @@ function Form(props) {
 
             minLength: {
               value: 8,
-              message: "Mínimo 8 carácteres"
+              message: "Mínimo 8 caracteres"
             },
             pattern: {
               value: /^[a-zA-Z0-9_]+$/i
@@ -166,7 +166,7 @@ function Form(props) {
 
             minLength: {
               value: 5,
-              message: "Mínimo 5 carácteres"
+              message: "Mínimo 5 caracteres"
             },
             pattern: {
               value: /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/i,
