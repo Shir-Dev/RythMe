@@ -14,19 +14,13 @@ function ConfiPerfil(props) {
   const [objectProfile, setObjectProfile] = useState({});
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/users` && `http://192.168.1.66:3333/users`)
-      .then(res => {
-        console.log(res.data);
-        setDatos(res.data);
-        setObjectProfile({
-          username: <p> {res.data.username} </p>,
-          name: <p> {res.data.name} </p>,
-          surname: <p>{res.data.surname}</p>,
-          birthDay: <p>{res.data.birthDay}</p>,
-          zipCode: <p>{res.data.zipCode}</p>
-        });
-      });
+    setObjectProfile({
+      username: <p> {props.user.username} </p>,
+      name: <p> {props.user.name} </p>,
+      surname: <p>{props.user.surname}</p>,
+      birthDay: <p>{props.user.birthDay}</p>,
+      zipCode: <p>{props.user.zipCode}</p>
+    });
   }, []);
 
   console.log(datos.musicalInterest);
