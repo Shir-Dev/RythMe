@@ -43,7 +43,7 @@ router.post("/signup", upload.single("userPhoto"), async function(
     zipCode: req.body.zipCode,
     birthDay: req.body.birthDay,
     musicalInterest: req.body.musicalInterest,
-    urlImage: req.file.path
+    urlImage: "http://localhost:3333/" + req.file.path
     // eventsId: req.body.eventsId
   });
   console.log(newProfile.id);
