@@ -4,7 +4,6 @@ import "./assets/styles/bienvenido.css";
 import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import axios from "axios";
 
 function Bienvenido(props) {
   const [datos, setDatos] = useState([]);

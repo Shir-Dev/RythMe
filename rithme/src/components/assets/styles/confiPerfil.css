@@ -1,59 +1,67 @@
-.contenedor_confiperfil{
-    background-color: #110033;
-    font-family: Roboto , Helvetica, sans-serif;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
-    margin-left: 0px;
-   
-}
-.logo_p{
-    width: 40pt;
-    height: 40pt;
-    filter: brightness(500%);
-    background-color: white;
-    border-radius: 20%;
-    
-    
-}
-.logo_g{
-    width: 80pt;
-    height: 80pt;
-    margin: 5px 30px 30px;
-    background-color: white;
-    border-radius: 50%; 
-}
-hr{
-    width: 70%;
-    color: #f4f4f4;
-}
-.bienvenido{
-    color:rgb(255, 220, 53);
-    font-size: 30pt;
-    margin-top: 3px;
+.contenedor_confiperfil {
+  font-family: Roboto, Helvetica, sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.datosPersonales p{
-    color: white;
-    font-size: 20px;
-    margin-right: 10%;
-   
-
-}
-.datosPersonales div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.bienvenido {
+  color: rgb(255, 220, 53);
+  font-size: 30pt;
+  margin-top: 3px;
 }
 
-.btn_escri{
-    width: 10%;
-    height: 10%;
+.datosPersonales p {
+  color: black;
+  font-size: 17px;
+  justify-self: end;
+  display: block;
+  margin-right: 10%;
 }
-.logo_escribir{
-    width: 100%;
-    margin-top: 15%;
-    
-    
+.datosPersonales div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 50px;
+}
+
+.datosPersonales label {
+  color: grey;
+  display: flex;
+  justify-self: left;
+  margin: 10px 0 -10px 10%;
+  font-size: 13px;
+}
+.datosPersonales input {
+  height: 50%;
+  align-self: center;
+  text-align: center;
+}
+
+.updateButton {
+  margin-top: 5%;
+  background-color: #4dd599;
+  border: solid 1.5px #110033;
+  height: 30px;
+  width: 100px;
+  font-weight: bold;
+}
+.updateButton:hover {
+  background-color: #01918e;
+}
+.btn_escri {
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  margin-right: 5%;
+  background-color: #4dd599;
+  border: solid 1.5px #110033;
+}
+.logo_escribir {
+  width: 100%;
+  margin-top: 15%;
 }
