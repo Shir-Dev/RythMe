@@ -17,7 +17,7 @@ function Configuracion() {
           CONFIGURACION DE PERFIL
         </Link>
         
-        <Link to="/confi" className="confi_perfil">
+        <Link to="/sincro" className="confi_perfil">
           SINRONIZAR TU MÚSICA Y PLATAFORMAS
         </Link>
         
