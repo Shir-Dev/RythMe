@@ -67,8 +67,8 @@ function Form(props) {
               message: "Máximo 11 caracteres"
             },
             minLength: {
-              value: 4,
-              message: "Mínimo 4 carácteres"
+              value: 3,
+              message: "Mínimo 4 caracteres"
             }
           })}
         />
@@ -194,7 +194,7 @@ function Form(props) {
               message: "Campo requerido"
             },
             max: {
-              value: 2003 - 12 - 31,
+              value: 31 - 12 - 2003,
               message: "Fecha incorrecta"
             }
           })}
