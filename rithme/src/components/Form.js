@@ -20,12 +20,13 @@ function Form(props) {
       <Header headerObject={formHeader} />
       <h2 className="h2">Datos Personales</h2>
       <form onSubmit={sendingData} className="contenedor">
-        <div className="content_camara">
-          <label className="camara_txt" for="Name">
-            Foto de Perfil
+          <span className="productImage">
+          <input className="camara" name="productImage" type="file" id="productImage" accept="image/*" />
+          </span>
+          <label  for="productImage">
+           <span> Foto de Perfil</span>
           </label>
-          <input className="camara" name="productImage" type="file" id="photo" accept="image/*" />
-        </div>
+       
         <input
           type="text"
           placeholder="Nombre de Usuario"
