@@ -94,15 +94,27 @@ export default function FormMusical(props) {
     let registerObject = props.formObject;
     registerObject.musicalInterest = musicalInterest;
     console.log(registerObject);
+    const formData = new FormData();
 
-    fetch("http://localhost:3333/users/signup", {
-      method: "POST",
-      body: JSON.stringify(registerObject),
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    const arrayToAppend = [
+      "username",
+      "name",
+      "email",
+      "password",
+      "zipCode",
+      "birthDay",
+      "musicalInterest",
+      "userPhoto"
+    ];
+    for (let field of arrayToAppend) {
+      formData.append(field, registerObject[field]);
+    }
+    axios
+      .post("http://localhost:3333/users/signup", formData, {
+        //data: registerObject,
+        headers: { "content-type": "multipart/form-data" },
+        withCredentials: true
+      })
       .then(res => {
         console.log(res.status);
         if (res.status === 200) {

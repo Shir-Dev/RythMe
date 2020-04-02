@@ -10,12 +10,15 @@ import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 
-function Entradas() {
+function Entradas(props) {
   const formHeader = {
     isArrow: true,
     headerText: "Entradas",
     srcArrow: "/comprar"
   };
+ 
+  console.log(props.allMusic)
+
 
   return (
     <div className="contenedor_g">
@@ -25,16 +28,16 @@ function Entradas() {
           <img src={Girl} className="img_girl" />
           <div className="contenedor_text">
             <p>
-              <strong className="nombretexto">Judith Hill</strong>
+  <strong className="nombretexto">{}</strong>
             </p>
             <p className="texto2"> 08 Noviembre 2019</p>
             <p className="texto2">
               {" "}
-              <img src={icono_reloj} className="icono" />
+              <img src={icono_reloj} className="icono_reloj_dolar" />
               22:00
             </p>
             <p className="texto2">
-              <img src={icono_dolar} className="icono" />
+              <img src={icono_dolar} className="icono_reloj_dolar" />
               25
             </p>
             <img src={play} className="icono_play" />

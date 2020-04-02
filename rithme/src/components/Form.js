@@ -9,8 +9,10 @@ function Form(props) {
 
   const onSubmit = data => {
     console.log(data);
+    console.log(props.hola);
+    props.takingData(formObject);
   };
-
+  var formData = new FormData();
   const [formObject, setFormObject] = useState();
 
   const formHeader = {
@@ -34,23 +36,27 @@ function Form(props) {
           <img className="icono_subir" src={subir} alt="" />
         </label>
         <input
-          id="file-upload"
-          name="productImage"
-          /*onchange="cambiar()"*/
-          accept="image/*"
           type="file"
           style={divStyle}
+          accept="image/*"
+          id="file-upload"
+          onChange={$event => {
+            console.log($event.target.files[0]);
+            setFormObject({ ...formObject, userPhoto: $event.target.files[0] });
+            formData.append("userPhoto", $event.target.files[0]);
+          }}
         />
         <div className="cont_form" id="info"></div>
-
         <input
           type="text"
           placeholder="Nombre de Usuario"
           name="username"
           id="username"
-          onChange={$event =>
-            setFormObject({ ...formObject, username: $event.target.value })
-          }
+          onChange={$event => {
+            setFormObject({ ...formObject, username: $event.target.value });
+            formData.append("username", $event.target.value);
+            console.log(formData);
+          }}
           className=""
           ref={register({
             required: {
