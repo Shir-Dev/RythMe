@@ -7,7 +7,8 @@ import icono_dolar from "./assets/icons/dolar.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Entradas from "./Entradas";
+import Comprar from "./Comprar";
+import { dateFix, timeFix } from "./dateFixer";
 
 function Carrito(props) {
   const formHeader = {
@@ -21,25 +22,36 @@ function Carrito(props) {
   useEffect(() => {
     axios.get(`http://localhost:3333/events`).then(res => {
       let music = res.data;
-
+      let eventDay;
+      let eventTime;
       for (let i = 0; i < music.length; i++) {
         const musical = music[i];
+        console.log(musical.dates);
+        if (musical.dates) {
+          eventDay = dateFix(musical.dates.dateTime);
+          eventTime = timeFix(musical.dates.dateTime);
+        }
         array.push(
-          <div className="contenedor_img">
+          <div
+            className="contenedor_img"
+            onClick={() => {
+              props.takingData(musical);
+            }}
+          >
             <img src={musical.image} className="img_girl" />
             <div className="contenedor_text">
               <p>
                 <strong className="nombretexto">{musical.artist.name}</strong>
               </p>
-              <p className="texto2">08/10/2020</p>
+              <p className="texto2">{eventDay}</p>
               <p className="texto2">
                 {" "}
-                <img src={icono_reloj} className="icono" />
-                22:00
+                <img src={icono_reloj} className="icono_reloj_dolar" />
+                {eventTime}
               </p>
 
               <p className="texto2">
-                <img src={icono_dolar} className="icono" />
+                <img src={icono_dolar} className="icono_reloj_dolar" />
                 {musical.priceRange.min}$
               </p>
               <img src={play} className="icono_play" />
@@ -48,9 +60,9 @@ function Carrito(props) {
         );
       }
       setAllMusic(array);
-      console.log(array);
     });
   }, []);
+
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />

@@ -13,10 +13,9 @@ function Buscar() {
   const [buscar,setBuscar]= useState([]);
   const [genres, setGenres] = useState([]);
   const [allMusic, setAllMusic] = useState([]);
-  const [busqueda,setBusqueda] = useState([]);
-  const array = [];
-  const arrayMusic = [];
 
+
+  
   useEffect(() => {
     axios
       .get(`http://localhost:3333/musicgenres` &&`http://192.168.1.66:3333/musicgenres`)
@@ -29,66 +28,28 @@ function Buscar() {
     losGenres.push(<option value={genre.name}>{genre.name}</option>);
   }
 
-
+  const array = [];
+  
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3333/events`)
+      .get(`http://localhost:3333/search/filteredCities`)
       .then(res => { let music = res.data;
               
         for(let i =0; i <  music.length; i++){
           const musical =  music[i];
-        array.push(<option key={i} value={musical.location.city}>{musical.location.city}</option>) 
-        arrayMusic.push( <div className="contenedor_img">
-        <img src={musical.image} className="img_girl" />
-        <div className="contenedor_text">
-          <p>
-        <strong className="nombretexto">{musical.artist.name}</strong>
-          </p>
-          <p className="texto2">08/10/2020</p>
-          <p className="texto2">
-            {" "}
-            <img src={icono_reloj} className="icono_reloj_dolar" />
-            22:00
-          </p>
-
-          <p className="texto2">
-            <img src={icono_dolar} className="icono_reloj_dolar" />
-            {musical.priceRange.min}$
-          </p>
-          <img src={play} className="icono_play" />
-        </div> 
-      </div>)
-        }
-      setAllMusic(array)
+        array.push(<option key={i} value={musical}>{musical}</option>)} setAllMusic(array)})}, []);
       
-     
-     
-      
-      })}, []);
-      
-     
-
-  const formHeader = {
+    const formHeader = {
     headerText: "Búsqueda",
     srcArrow: "/bienvenido"
   };
-
-
 
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
       <form>
-        <div class="box">
-          <div class="container-4">
-            <input type="search" id="search" placeholder="Artista..."  onChange={$event =>setBuscar({ ...buscar, search: $event.target.value })}/>
-            <button class="icon" onClick="">
-              <img src={logo_lupa} className="logo_lupa" />
-            </button>
-          </div>
-        </div>
-        <div>
+         <div>
         <label className="genres" for="genres">
           Ciudad
         </label>
@@ -100,6 +61,12 @@ function Buscar() {
         </label>
         <select  className="selector" id="genres"  onChange={$event =>setBuscar({ ...buscar, genres: $event.target.value })}>{losGenres}</select>
         </div>
+        <div class="box">
+          <div class="container-4">
+            <input type="search" id="search" placeholder="Artista..."  onChange={$event =>setBuscar({ ...buscar, search: $event.target.value })}/>
+          </div>
+        </div>
+        <button className="updateButton">BUSCAR<img src={logo_lupa} className="logo_lupa" /></button>
       </form>
       <Footer changeNav="buscar" />
     </div>
