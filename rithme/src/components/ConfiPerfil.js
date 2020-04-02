@@ -33,13 +33,9 @@ function ConfiPerfil(props) {
       if (formObject[field]) updatedUser[field] = formObject[field];
     }
     console.log(updatedUser);
-    fetch("http://localhost:3333/profiles/edit/", {
-      method: "POST",
-      body: JSON.stringify(updatedUser),
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      }
+    axios("http://localhost:3333/profiles/edit", {
+      method: "PUT",
+      data: updatedUser
     })
       .then(res => {
         console.log(res.status);
@@ -51,7 +47,7 @@ function ConfiPerfil(props) {
       })
       .catch(err => {
         console.error(err);
-        alert("Error al registrarse");
+        alert("Error al Updatear");
       });
   }
   function changeToInputUsername() {
@@ -103,8 +99,8 @@ function ConfiPerfil(props) {
       ...objectProfile,
       birthDay: (
         <input
-          type="text"
-          placeholder={props.user.birthDay}
+          type="date"
+          value={props.user.birthDay}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }
@@ -120,7 +116,7 @@ function ConfiPerfil(props) {
           type="text"
           placeholder={props.user.zipCode}
           onChange={$event =>
-            setFormObject({ ...formObject, number: $event.target.value })
+            setFormObject({ ...formObject, zipCode: $event.target.value })
           }
         ></input>
       )
@@ -133,79 +129,91 @@ function ConfiPerfil(props) {
   };
 
   return (
-    <div className="contenedor_confiperfil">
-      <Header headerObject={formHeader} />
+    <>
+      <div className="contenedor_confiperfil">
+        <Header headerObject={formHeader} />
 
-      <header className="">
-        <p className="bienvenido">Datos de Usuario</p>
-      </header>
-      <form onSubmit={sendingData}>
-        <div className="datosPersonales">
-          <div>
-            {objectProfile.username}
-            <button
-              className="btn_escri"
-              onClick={() => {
-                changeToInputUsername();
-              }}
-            >
-              <img className="logo_escribir" src={logo_escribir} />
-            </button>
-          </div>
+        <header className="">
+          <p className="bienvenido">Datos de Usuario</p>
+        </header>
+        <div className="profileBody">
+          <form onSubmit={sendingData}>
+            <div className="datosPersonales">
+              <label> Usuario</label>
+              <div className="div-to-edit">
+                {objectProfile.username}
+                <button
+                  type="button"
+                  className="btn_escri"
+                  onClick={() => {
+                    changeToInputUsername();
+                  }}
+                >
+                  <img className="logo_escribir" src={logo_escribir} />
+                </button>
+              </div>
+              <label> Nombre</label>
+              <div className="div-to-edit">
+                {objectProfile.name}
+                <button
+                  type="button"
+                  className="btn_escri"
+                  onClick={() => {
+                    changeToInputName();
+                  }}
+                >
+                  <img className="logo_escribir" src={logo_escribir} />
+                </button>
+              </div>
+              <label> Apellidos</label>
+              <div className="div-to-edit">
+                {objectProfile.surname}
+                <button
+                  type="button"
+                  className="btn_escri"
+                  onClick={() => {
+                    changeToInputSurname();
+                  }}
+                >
+                  <img className="logo_escribir" src={logo_escribir} />
+                </button>
+              </div>
+              <label> Fecha de nacimiento</label>
+              <div className="div-to-edit">
+                {objectProfile.birthDay}
+                <button
+                  type="button"
+                  className="btn_escri"
+                  onClick={() => {
+                    changeToInputBirthDay();
+                  }}
+                >
+                  <img className="logo_escribir" src={logo_escribir} />
+                </button>
+              </div>
+              <label> Código postal</label>
+              <div className="div-to-edit">
+                {objectProfile.zipCode}
+                <button
+                  type="button"
+                  className="btn_escri"
+                  onClick={() => {
+                    changeToInputZipcode();
+                  }}
+                >
+                  <img className="logo_escribir" src={logo_escribir} />
+                </button>
+              </div>
 
-          <hr />
-          <div>
-            {objectProfile.name}
-            <button
-              className="btn_escri"
-              onClick={() => {
-                changeToInputName();
-              }}
-            >
-              <img className="logo_escribir" src={logo_escribir} />
-            </button>
-          </div>
-          <div>
-            {objectProfile.surname}
-            <button
-              className="btn_escri"
-              onClick={() => {
-                changeToInputSurname();
-              }}
-            >
-              <img className="logo_escribir" src={logo_escribir} />
-            </button>
-          </div>
-          <div>
-            {objectProfile.birthDay}
-            <button
-              className="btn_escri"
-              onClick={() => {
-                changeToInputBirthDay();
-              }}
-            >
-              <img className="logo_escribir" src={logo_escribir} />
-            </button>
-          </div>
-          <div>
-            {objectProfile.zipCode}
-            <button
-              className="btn_escri"
-              onClick={() => {
-                changeToInputZipcode();
-              }}
-            >
-              <img className="logo_escribir" src={logo_escribir} />
-            </button>
-          </div>
+              <button className="updateButton">Actualizar</button>
+            </div>
+          </form>
         </div>
-        <input type="submit"></input>
-        <hr />
-      </form>
+      </div>
       <footer>
         <Footer changeNav="confi" />
       </footer>
-    </div>
+    </>
   );
 }
 

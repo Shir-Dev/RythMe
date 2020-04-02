@@ -40,7 +40,7 @@ app.use(
     credentials: true
   })
 );
-
+app.use("/userPhotos", express.static("userPhotos"));
 app.use("/", indexRouter);
 app.use(require("./routes/profiles"));
 app.use("/users", usersRouter);

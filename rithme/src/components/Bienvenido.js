@@ -4,7 +4,6 @@ import "./assets/styles/bienvenido.css";
 import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import axios from "axios";
 
 function Bienvenido(props) {
   const [datos, setDatos] = useState([]);
@@ -17,7 +16,8 @@ function Bienvenido(props) {
   const formHeader = {
     headerText: "Home"
   };
-
+  const imgUrl = "http://localhost:3333/" + props.user.urlImage;
+  console.log(props.user.urlImage);
   return (
     <div>
       <div className="contenedor-welcome">
@@ -26,7 +26,7 @@ function Bienvenido(props) {
           <h1 className="welcome">¡Bienvenido!</h1>
         </header>
         <div className="c__img">
-          <img src={logom} className="logo_profile" />
+          <img src={props.user.urlImage} className="logo_profile" />
         </div>
         <div className="profileBody">
           <h2> {datos.username}</h2>
