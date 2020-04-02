@@ -13,11 +13,13 @@ import ConfiPerfil from "./ConfiPerfil";
 import withAuth from "./WithAuth";
 import WithNoAuth from "./WithNoAuth";
 import SincroMusic from "./SincroMusic";
+import Comprar from "./Comprar";
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/comprar" component={withAuth(Comprar)} />  
         <Route exact path="/sincro" component={withAuth(SincroMusic)} />
         <Route exact path="/confi" component={withAuth(ConfiPerfil)} />
         <Route exact path="/login" component={WithNoAuth(Login)} />

@@ -33,11 +33,11 @@ function Buscar() {
           
         }
       setAllMusic(array)
-      console.log(array)
+     
      
       
       })}, []);
-
+      console.log(buscar)
      
   const losGenres = [];
 
@@ -56,7 +56,7 @@ function Buscar() {
       <form>
         <div class="box">
           <div class="container-4">
-            <input type="search" id="search" placeholder="Search..."  onChange={$event =>setBuscar({ ...buscar, search: $event.target.value })}/>
+            <input type="search" id="search" placeholder="Artista..."  onChange={$event =>setBuscar({ ...buscar, search: $event.target.value })}/>
             <button class="icon" onClick="">
               <img src={logo_lupa} className="logo_lupa" />
             </button>

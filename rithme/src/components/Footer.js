@@ -16,7 +16,7 @@ function Footer(props) {
   return (
     <div className="container">
       <div className="router-links">
-        <Link to="/carrito" className="link"></Link>
+        <Link to="/comprar" className="link"></Link>
         <Link to="/buscar" className="link"></Link>
         <Link to="/bienvenido" className="link"></Link>
         <Link to="/conciertos" className="link"></Link>
