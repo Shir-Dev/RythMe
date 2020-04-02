@@ -24,7 +24,8 @@ const Event = require("../model/Event");
 //         dates: {
 //                   dateTime: event.dates.start.dateTime
 //                 },
-//         genre: {
+//         genre: {    
+//                     id: "",
 //                     name: event.classifications[0].genre.name
 //                 },
 //         subGenre: {
