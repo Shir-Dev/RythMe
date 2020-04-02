@@ -7,12 +7,8 @@ import icono_dolar from "./assets/icons/dolar.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-<<<<<<< HEAD
 import Comprar from "./Comprar";
 import { dateFix, timeFix } from "./dateFixer";
-=======
-import Entradas from "./Entradas";
->>>>>>> c046b1ae48f3230df32fb5bcf403f904cac6d606
 
 function Carrito(props) {
   const formHeader = {
