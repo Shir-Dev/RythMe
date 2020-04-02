@@ -15,9 +15,9 @@ function App(props) {
   let arrow = "";
   if (isArrow === true) {
     arrow = (
-      <Link to={srcArrow}>
+      <a href={srcArrow}>
         <img src={flecha11}></img>
-      </Link>
+      </a>
     );
   }
 

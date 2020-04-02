@@ -69,13 +69,15 @@ function ConfiPerfil(props) {
     setObjectProfile({
       ...objectProfile,
       name: (
-        <input
-          type="text"
-          placeholder={props.user.name}
-          onChange={$event =>
-            setFormObject({ ...formObject, name: $event.target.value })
-          }
-        ></input>
+        <>
+          <input
+            type="text"
+            placeholder={props.user.name}
+            onChange={$event =>
+              setFormObject({ ...formObject, name: $event.target.value })
+            }
+          ></input>
+        </>
       )
     });
   }
