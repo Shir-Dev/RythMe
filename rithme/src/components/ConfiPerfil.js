@@ -5,6 +5,7 @@ import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import { dateFix } from "./dateFixer";
 
 function ConfiPerfil(props) {
   const [datos, setDatos] = useState([]);
@@ -16,7 +17,7 @@ function ConfiPerfil(props) {
       username: <p> {props.user.username} </p>,
       name: <p> {props.user.name} </p>,
       surname: <p>{props.user.surname}</p>,
-      birthDay: <p>{props.user.birthDay}</p>,
+      birthDay: <p>{dateFix(props.user.birthDay)}</p>,
       zipCode: <p>{props.user.zipCode}</p>
     });
   }, []);
@@ -98,7 +99,7 @@ function ConfiPerfil(props) {
       birthDay: (
         <input
           type="date"
-          value={props.user.birthDay}
+          value={props.user.birthDay.slice(0, 10)}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }

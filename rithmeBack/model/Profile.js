@@ -8,7 +8,7 @@ const ProfileSchema = new Schema({
   zipCode: Number,
   birthDay: Date,
   musicalInterest: [{ type: String }],
-  eventsId: [{ type: String }],
+  eventsId: [String],
   urlImage: String
 });
 

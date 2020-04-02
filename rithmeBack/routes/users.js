@@ -86,6 +86,10 @@ router.get(
     res.status(200).json(req.user);
   }
 );
+router.get("/events", async (req, res) => {
+  const events = await Events.findById();
+  res.status(200).json(events);
+});
 
 router.get("/", async (req, res) => {
   const profile = await Profile.findById("5e7c7964a071e524f42419c8");
