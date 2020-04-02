@@ -1,7 +1,6 @@
 import React from "react";
 import "./assets/styles/entradas.css";
 import Header from "./Header";
-import Girl from "./assets/img/girl.jpg";
 import play from "./assets/icons/shape.png";
 import icono_reloj from "./assets/icons/reloj.png";
 import icono_dolar from "./assets/icons/dolar.png";
@@ -9,60 +8,64 @@ import icono_ubicacion from "./assets/icons/ubicacion.png";
 import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
-
+import { dateFix, timeFix } from "./dateFixer";
 function Entradas(props) {
   const formHeader = {
     headerText: "Entradas"
   };
- 
-  console.log(props.allMusic)
+  let eventDay;
+  let eventTime;
 
-
-  
+  if (props.allMusic.dates) {
+    eventDay = dateFix(props.allMusic.dates.dateTime);
+    eventTime = timeFix(props.allMusic.dates.dateTime);
+  }
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
       <div className="contenedor">
         <div className="contenedor_img">
-          <img src={Girl} className="img_girl" />
+          <img src={props.allMusic.image} className="img_girl" />
           <div className="contenedor_text">
             <p>
-  <strong className="nombretexto">{}</strong>
+              <strong className="nombretexto">
+                {props.allMusic.artist.name}
+              </strong>
             </p>
-            <p className="texto2"> 08 Noviembre 2019</p>
+            <p className="texto2"> {eventDay}</p>
             <p className="texto2">
               {" "}
               <img src={icono_reloj} className="icono_reloj_dolar" />
-              22:00
+              {eventTime}
             </p>
             <p className="texto2">
               <img src={icono_dolar} className="icono_reloj_dolar" />
-              25
+              {props.allMusic.priceRange.min}- {props.allMusic.priceRange.max}
             </p>
             <img src={play} className="icono_play" />
           </div>
         </div>
-        <div className="botones">
-          <input className="btn_comprar" type="button" value="Comprar" />
-          <input className="btn_compartir" type="button" value="Compartir" />
-        </div>
+
+        <p className="Pasistiran">{props.allMusic.name}</p>
+
         <div className="ubicacion">
           <p>
             <img src={icono_ubicacion} className="icono" />
-            SALA CLAMORES - MADRID,ESPAÑA
+            {props.allMusic.location.name}, {props.allMusic.location.city}.{" "}
+            {props.allMusic.location.country.name}
           </p>
           <p>
             <img src={icono_microfono} className="icono" />
-            Judith Hill + Dr. Funk
+            {props.allMusic.artist.name}
           </p>
           <p>
             <img src={icono_nota} className="icono" />
-            Soul / Funk
+            {props.allMusic.subGenre.name}
           </p>
-          <p className="Pasistiran">16 asistiran</p>
-          <p className="Pasistiran">4 amigos</p>
+          {/*        <p className="Pasistiran"></p>
+          <p className="Pasistiran"></p> */}
         </div>
-        <div>
+        {/*         <div>
           <p className="texto3">
             Judith Glory Hill es una cantante y compositora estadounidense de
             Los Ángeles , California. Ella ha proporcionado coros para artistas
@@ -85,8 +88,12 @@ function Entradas(props) {
             en la banda sonora de la película. Ella ganó el Premio Grammy a la
             Mejor Película Musical por su actuación en esta película.
           </p>
+        </div> */}
+        <div className="botones">
+          <input className="btn_comprar" type="button" value="Comprar" />
         </div>
       </div>
+
       <div>
         <Footer changeNav="entradas" />
       </div>

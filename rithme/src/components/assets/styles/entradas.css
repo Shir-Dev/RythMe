@@ -3,14 +3,10 @@
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
   width: 100vw;
-  
-  
 }
 .contenedor {
   margin-left: 5%;
-  margin-right: 5%; 
-  
-  
+  margin-right: 5%;
 }
 .img_girl {
   width: 45%;
@@ -21,8 +17,6 @@
   margin-bottom: 3%;
   padding-top: 5%;
   margin-left: 5%;
- 
- 
 }
 .contenedor_text {
   background-color: rgb(255, 220, 53);
@@ -34,21 +28,22 @@
   height: 130px;
 }
 .botones {
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
   padding: 5px;
 }
+.botones input {
+  width: 100%;
+}
 .btn_comprar {
+  margin-top: 20%;
+  position: relative;
   background-color: #ffdc35;
-  border-radius: 30%;
-  margin: 10px;
-  
 }
 .btn_compartir {
   background-color: #01918e;
-  border-radius: 30%;
+
   margin: 10px;
-  
 }
 .nombretexto {
   font-size: 18px;
@@ -88,20 +83,22 @@
   height: 3%;
 }
 
-.icono_reloj_dolar{
+.icono_reloj_dolar {
   margin-right: 5px;
   width: 15px;
   height: 15px;
   margin-bottom: 3px;
 }
 .Pasistiran {
-  margin-left: 100px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
-.links{
+.links {
   text-decoration: none;
   color: black;
 }
-.link_entradas{
+.link_entradas {
   text-decoration: none;
   color: black;
 }

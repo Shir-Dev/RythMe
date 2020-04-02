@@ -15,7 +15,8 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Comprar from "./Comprar"
+import Comprar from "./Comprar";
+import { dateFix, timeFix } from "./dateFixer";
 
 function Carrito(props) {
   const formHeader = {
@@ -26,66 +27,59 @@ function Carrito(props) {
 
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
-  console.log(allMusic)
-  
+  console.log(allMusic);
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/events`)
-      .then(res => { let music = res.data;
-              
-        for(let i =0; i <  music.length; i++){
-          const musical =  music[i];
-         
-          
-        array.push(  
-        <Link allMusic={allMusic} to="/entradas" className="link_entradas">
-        <div className="contenedor_img">
-        <img src={musical.image} className="img_girl" />
-        <div className="contenedor_text">
-          <p>
-        <strong className="nombretexto">{musical.artist.name}</strong>
-          </p>
-          <p className="texto2">08/10/2020</p>
-          <p className="texto2">
-            {" "}
-            <img src={icono_reloj} className="icono_reloj_dolar" />
-            22:00
-          </p>
-
-          <p className="texto2">
-            <img src={icono_dolar} className="icono_reloj_dolar" />
-            {musical.priceRange.min}$
-          </p>
-          <img src={play} className="icono_play" />
-        </div> 
-      </div>
-     
-      </Link >)
-       
+    axios.get(`http://localhost:3333/events`).then(res => {
+      let music = res.data;
+      let eventDay;
+      let eventTime;
+      for (let i = 0; i < music.length; i++) {
+        const musical = music[i];
+        console.log(musical.dates);
+        if (musical.dates) {
+          eventDay = dateFix(musical.dates.dateTime);
+          eventTime = timeFix(musical.dates.dateTime);
         }
-      setAllMusic(array)
-     
-      
-      })}, []);
+        array.push(
+          <div
+            className="contenedor_img"
+            onClick={() => {
+              props.takingData(musical);
+            }}
+          >
+            <img src={musical.image} className="img_girl" />
+            <div className="contenedor_text">
+              <p>
+                <strong className="nombretexto">{musical.artist.name}</strong>
+              </p>
+              <p className="texto2">{eventDay}</p>
+              <p className="texto2">
+                {" "}
+                <img src={icono_reloj} className="icono_reloj_dolar" />
+                {eventTime}
+              </p>
 
-
-      function sendingData(event) {
-        event.preventDefault();
-        props.takingData(allMusic);
+              <p className="texto2">
+                <img src={icono_dolar} className="icono_reloj_dolar" />
+                {musical.priceRange.min}$
+              </p>
+              <img src={play} className="icono_play" />
+            </div>
+          </div>
+        );
       }
-      
+      setAllMusic(array);
+    });
+  }, []);
+
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
-      <div className="contenedor">
-        {allMusic}
-      </div>
-      <Footer changeNav="entradas"/>
+      <div className="contenedor">{allMusic}</div>
+      <Footer changeNav="entradas" />
     </div>
-    
   );
 }
 
-export default Carrito ;
-
- 
+export default Carrito;
