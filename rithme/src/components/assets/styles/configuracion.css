@@ -50,6 +50,7 @@
   width: 77%;
   border: 8px double rgb(255, 220, 53);
   border-radius: 40px;
+  text-decoration: none;
 }
 .contenedor_confi2 {
   display: block;

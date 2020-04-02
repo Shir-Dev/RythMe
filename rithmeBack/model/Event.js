@@ -11,7 +11,8 @@ const EventSchema = new Schema(
         dates: {
                     dateTime: Date
                 },
-        genre: {
+        genre: {    
+                    id: {type: String},
                     name: {type: String}
                 },
         priceRange: {

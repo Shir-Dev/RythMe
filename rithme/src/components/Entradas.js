@@ -11,7 +11,9 @@ import Footer from "./Footer";
 import { dateFix, timeFix } from "./dateFixer";
 function Entradas(props) {
   const formHeader = {
-    headerText: "Entradas"
+    isArrow: true,
+    headerText: "Entradas",
+    srcArrow: "/comprar"
   };
   let eventDay;
   let eventTime;

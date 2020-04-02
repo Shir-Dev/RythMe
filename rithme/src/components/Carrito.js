@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./assets/styles/entradas.css";
 import Header from "./Header";
-import Girl from "./assets/img/girl.jpg";
 import play from "./assets/icons/shape.png";
 import icono_reloj from "./assets/icons/reloj.png";
 import icono_dolar from "./assets/icons/dolar.png";
-import img_guitarra from "./assets/img/guitarra.jpg";
-import img_rock from "./assets/img/rock.jpg";
-import img_pop from "./assets/img/pop.jpg";
-import img_blus from "./assets/img/blus.jpg";
-import icono_ubicacion from "./assets/icons/ubicacion.png";
-import icono_nota from "./assets/icons/nota.png";
-import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
+<<<<<<< HEAD
 import Comprar from "./Comprar";
 import { dateFix, timeFix } from "./dateFixer";
+=======
+import Entradas from "./Entradas";
+>>>>>>> c046b1ae48f3230df32fb5bcf403f904cac6d606
 
 function Carrito(props) {
   const formHeader = {
-    isArrow: true,
-    headerText: "Carrito",
-    srcArrow: "/entradas"
+    headerText: "Carrito"
   };
 
   const array = [];
