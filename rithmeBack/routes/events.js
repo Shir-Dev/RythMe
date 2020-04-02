@@ -86,7 +86,7 @@ router.get('/events', async (req, res) => {
 });
 
 /* Filtered Cities from MongoDB */
-router.get('events/search/filteredCities', async (req, res) => {
+router.get('/events/search/filteredCities', async (req, res) => {
     
   const filteredCities = await Event.distinct( "location.city");
 
