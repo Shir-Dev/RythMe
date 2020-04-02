@@ -31,19 +31,21 @@ function Buscar() {
   const array = [];
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/search/filteredCities`).then(res => {
-      let music = res.data;
+    axios
+      .get(`http://localhost:3333/events/search/filteredCities`)
+      .then(res => {
+        let music = res.data;
 
-      for (let i = 0; i < music.length; i++) {
-        const musical = music[i];
-        array.push(
-          <option key={i} value={musical}>
-            {musical}
-          </option>
-        );
-      }
-      setAllMusic(array);
-    });
+        for (let i = 0; i < music.length; i++) {
+          const musical = music[i];
+          array.push(
+            <option key={i} value={musical}>
+              {musical}
+            </option>
+          );
+        }
+        setAllMusic(array);
+      });
   }, []);
 
   const formHeader = {
@@ -52,10 +54,13 @@ function Buscar() {
   };
   function sendingData($event) {
     $event.preventDefault();
-
-    const urlToFilter = `http://localhost:3333/search?city=${buscar.city}&genres=${buscar.genres}&search=${buscar.search}`;
+    let nameToSearch;
+    if (buscar.search) {
+      nameToSearch = buscar.search.replace(" ", "+");
+    }
+    const urlToFilter = `http://localhost:3333/events/search?city=${buscar.city}&genre=${buscar.genres}&name=${nameToSearch}`;
     console.log(urlToFilter);
-    /*     axios.get(urlToFilter).then(res => {
+    axios.get(urlToFilter).then(res => {
       let music = res.data;
 
       for (let i = 0; i < music.length; i++) {
@@ -66,7 +71,7 @@ function Buscar() {
           </option>
         );
       }
-    }); */
+    });
   }
   return (
     <div className="contenedor">
