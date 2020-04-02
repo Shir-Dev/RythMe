@@ -34,7 +34,7 @@ function Conciertos() {
               <p>
                 <strong className="nombretexto2">{musical.artist.name}</strong>
               </p>
-              <img  src={icono_qr}  height="100px" width="80px"/>
+              <img  src={icono_qr} className="codigoqr"  />
             </div>
           </div>)}
           setAllMusic(array)

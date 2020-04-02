@@ -21,14 +21,19 @@
 .music img{
   border: 5px solid black;
 }
+.codigoqr{
+ margin-left: 50px;
+ width: 50%;
+ height: 70%;
+}
 .nombretexto2{
-  font-size: 20px;
+  font-size: 15px;
   color: #110033;
 }
 
 .parrafo2 {
     color:  rgb(255, 220, 53);
-    font-size: 28px;
+    font-size: 25px;
     margin-top: 5%;
     
 }
