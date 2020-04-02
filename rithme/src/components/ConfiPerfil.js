@@ -49,21 +49,6 @@ function ConfiPerfil(props) {
         alert("Error al Updatear");
       });
   }
-  function changeToInputUsername() {
-    setObjectProfile({
-      ...objectProfile,
-      username: (
-        <input
-          type="text"
-          placeholder={props.user.username}
-          onChange={$event => {
-            setFormObject({ ...formObject, username: $event.target.value });
-            console.log($event.target);
-          }}
-        ></input>
-      )
-    });
-  }
 
   function changeToInputName() {
     setObjectProfile({
@@ -141,18 +126,10 @@ function ConfiPerfil(props) {
           <form onSubmit={sendingData}>
             <div className="datosPersonales">
               <label> Usuario</label>
-              <div className="div-to-edit">
-                {objectProfile.username}
-                <button
-                  type="button"
-                  className="btn_escri"
-                  onClick={() => {
-                    changeToInputUsername();
-                  }}
-                >
-                  <img className="logo_escribir" src={logo_escribir} />
-                </button>
-              </div>
+              <b>
+                {" "}
+                <div className="div-to-edit">{objectProfile.username}</div>
+              </b>
               <label> Nombre</label>
               <div className="div-to-edit">
                 {objectProfile.name}

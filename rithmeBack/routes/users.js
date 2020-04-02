@@ -87,6 +87,7 @@ router.get(
   }
 );
 router.get("/events", async (req, res) => {
+  console.log(req.body);
   const events = await Events.findById();
   res.status(200).json(events);
 });
