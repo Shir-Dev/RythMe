@@ -5,24 +5,19 @@ import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+import { dateFix } from "./dateFixer";
 
 function ConfiPerfil(props) {
-  const { register, errors, handleSubmit } = useForm();
-
   const [datos, setDatos] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [objectProfile, setObjectProfile] = useState({});
 
-  const onSubmit = data => {
-    console.log(data);
-  };
   useEffect(() => {
     setObjectProfile({
       username: <p> {props.user.username} </p>,
       name: <p> {props.user.name} </p>,
       surname: <p>{props.user.surname}</p>,
-      birthDay: <p>{props.user.birthDay}</p>,
+      birthDay: <p>{dateFix(props.user.birthDay)}</p>,
       zipCode: <p>{props.user.zipCode}</p>
     });
   }, []);
@@ -54,21 +49,6 @@ function ConfiPerfil(props) {
         alert("Error al Updatear");
       });
   }
-  function changeToInputUsername() {
-    setObjectProfile({
-      ...objectProfile,
-      username: (
-        <input
-          type="text"
-          placeholder={props.user.username}
-          onChange={$event => {
-            setFormObject({ ...formObject, username: $event.target.value });
-            console.log($event.target);
-          }}
-        ></input>
-      )
-    });
-  }
 
   function changeToInputName() {
     setObjectProfile({
@@ -81,20 +61,7 @@ function ConfiPerfil(props) {
             onChange={$event =>
               setFormObject({ ...formObject, name: $event.target.value })
             }
-            ref={register({
-              maxLength: {
-                value: 11,
-                message: "Máximo 11 caracteres"
-              },
-              minLength: {
-                value: 3,
-                message: "Mínimo 3 caracteres"
-              }
-            })}
           ></input>
-          <div className="msg-error">
-            <span>{errors.name && errors.name.message}</span>
-          </div>
         </>
       )
     });
@@ -119,7 +86,7 @@ function ConfiPerfil(props) {
       birthDay: (
         <input
           type="date"
-          value={props.user.birthDay}
+          value={props.user.birthDay.slice(0, 10)}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }
@@ -156,21 +123,13 @@ function ConfiPerfil(props) {
           <p className="bienvenido">Datos de Usuario</p>
         </header>
         <div className="profileBody">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={sendingData}>
             <div className="datosPersonales">
               <label> Usuario</label>
-              <div className="div-to-edit">
-                {objectProfile.username}
-                <button
-                  type="button"
-                  className="btn_escri"
-                  onClick={() => {
-                    changeToInputUsername();
-                  }}
-                >
-                  <img className="logo_escribir" src={logo_escribir} />
-                </button>
-              </div>
+              <b>
+                {" "}
+                <div className="div-to-edit">{objectProfile.username}</div>
+              </b>
               <label> Nombre</label>
               <div className="div-to-edit">
                 {objectProfile.name}
