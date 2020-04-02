@@ -5,12 +5,18 @@ import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 function ConfiPerfil(props) {
+  const { register, errors, handleSubmit } = useForm();
+
   const [datos, setDatos] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [objectProfile, setObjectProfile] = useState({});
 
+  const onSubmit = data => {
+    console.log(data);
+  };
   useEffect(() => {
     setObjectProfile({
       username: <p> {props.user.username} </p>,
@@ -68,13 +74,28 @@ function ConfiPerfil(props) {
     setObjectProfile({
       ...objectProfile,
       name: (
-        <input
-          type="text"
-          placeholder={props.user.name}
-          onChange={$event =>
-            setFormObject({ ...formObject, name: $event.target.value })
-          }
-        ></input>
+        <>
+          <input
+            type="text"
+            placeholder={props.user.name}
+            onChange={$event =>
+              setFormObject({ ...formObject, name: $event.target.value })
+            }
+            ref={register({
+              maxLength: {
+                value: 11,
+                message: "Máximo 11 caracteres"
+              },
+              minLength: {
+                value: 3,
+                message: "Mínimo 3 caracteres"
+              }
+            })}
+          ></input>
+          <div className="msg-error">
+            <span>{errors.name && errors.name.message}</span>
+          </div>
+        </>
       )
     });
   }
@@ -135,7 +156,7 @@ function ConfiPerfil(props) {
           <p className="bienvenido">Datos de Usuario</p>
         </header>
         <div className="profileBody">
-          <form onSubmit={sendingData}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="datosPersonales">
               <label> Usuario</label>
               <div className="div-to-edit">
