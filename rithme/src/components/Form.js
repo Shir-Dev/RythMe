@@ -69,7 +69,7 @@ function Form(props) {
             },
             minLength: {
               value: 3,
-              message: "Mínimo 4 caracteres"
+              message: "Mínimo 3 caracteres"
             }
           })}
         />

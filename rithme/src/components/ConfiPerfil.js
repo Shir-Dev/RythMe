@@ -5,6 +5,7 @@ import "../App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import { dateFix } from "./dateFixer";
 
 function ConfiPerfil(props) {
   const [datos, setDatos] = useState([]);
@@ -16,7 +17,7 @@ function ConfiPerfil(props) {
       username: <p> {props.user.username} </p>,
       name: <p> {props.user.name} </p>,
       surname: <p>{props.user.surname}</p>,
-      birthDay: <p>{props.user.birthDay}</p>,
+      birthDay: <p>{dateFix(props.user.birthDay)}</p>,
       zipCode: <p>{props.user.zipCode}</p>
     });
   }, []);
@@ -48,33 +49,20 @@ function ConfiPerfil(props) {
         alert("Error al Updatear");
       });
   }
-  function changeToInputUsername() {
-    setObjectProfile({
-      ...objectProfile,
-      username: (
-        <input
-          type="text"
-          placeholder={props.user.username}
-          onChange={$event => {
-            setFormObject({ ...formObject, username: $event.target.value });
-            console.log($event.target);
-          }}
-        ></input>
-      )
-    });
-  }
 
   function changeToInputName() {
     setObjectProfile({
       ...objectProfile,
       name: (
-        <input
-          type="text"
-          placeholder={props.user.name}
-          onChange={$event =>
-            setFormObject({ ...formObject, name: $event.target.value })
-          }
-        ></input>
+        <>
+          <input
+            type="text"
+            placeholder={props.user.name}
+            onChange={$event =>
+              setFormObject({ ...formObject, name: $event.target.value })
+            }
+          ></input>
+        </>
       )
     });
   }
@@ -98,7 +86,7 @@ function ConfiPerfil(props) {
       birthDay: (
         <input
           type="date"
-          value={props.user.birthDay}
+          value={props.user.birthDay.slice(0, 10)}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }
@@ -138,18 +126,10 @@ function ConfiPerfil(props) {
           <form onSubmit={sendingData}>
             <div className="datosPersonales">
               <label> Usuario</label>
-              <div className="div-to-edit">
-                {objectProfile.username}
-                <button
-                  type="button"
-                  className="btn_escri"
-                  onClick={() => {
-                    changeToInputUsername();
-                  }}
-                >
-                  <img className="logo_escribir" src={logo_escribir} />
-                </button>
-              </div>
+              <b>
+                {" "}
+                <div className="div-to-edit">{objectProfile.username}</div>
+              </b>
               <label> Nombre</label>
               <div className="div-to-edit">
                 {objectProfile.name}

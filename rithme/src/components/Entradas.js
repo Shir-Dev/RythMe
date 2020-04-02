@@ -9,6 +9,7 @@ import icono_nota from "./assets/icons/nota.png";
 import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { dateFix, timeFix } from "./dateFixer";
+import Axios from "axios";
 function Entradas(props) {
   const formHeader = {
     isArrow: true,
@@ -17,10 +18,30 @@ function Entradas(props) {
   };
   let eventDay;
   let eventTime;
-
   if (props.allMusic.dates) {
     eventDay = dateFix(props.allMusic.dates.dateTime);
     eventTime = timeFix(props.allMusic.dates.dateTime);
+  }
+
+  function savingMyEvent() {
+    let userAddEvent = props.user;
+    userAddEvent.eventsId.push(props.allMusic._id);
+    Axios("http://localhost:3333/profiles/edit", {
+      method: "PUT",
+      data: userAddEvent
+    })
+      .then(res => {
+        console.log(res.status);
+        if (res.status === 200) {
+        } else {
+          const error = new Error(res.error);
+          throw error;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error al Updatear");
+      });
   }
   return (
     <div className="contenedor_g">
@@ -92,7 +113,12 @@ function Entradas(props) {
           </p>
         </div> */}
         <div className="botones">
-          <input className="btn_comprar" type="button" value="Comprar" />
+          <input
+            className="btn_comprar"
+            type="button"
+            value="Comprar"
+            onClick={savingMyEvent}
+          />
         </div>
       </div>
 
