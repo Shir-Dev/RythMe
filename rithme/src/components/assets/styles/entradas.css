@@ -84,7 +84,15 @@
 }
 .icono {
   margin-right: 5px;
-  max-width: 7%;
+  width: 5%;
+  height: 3%;
+}
+
+.icono_reloj_dolar{
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  margin-bottom: 3px;
 }
 .Pasistiran {
   margin-left: 100px;

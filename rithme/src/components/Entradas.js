@@ -14,6 +14,9 @@ function Entradas(props) {
   const formHeader = {
     headerText: "Entradas"
   };
+ 
+  console.log(props.allMusic)
+
 
   
   return (
@@ -24,16 +27,16 @@ function Entradas(props) {
           <img src={Girl} className="img_girl" />
           <div className="contenedor_text">
             <p>
-  <strong className="nombretexto">{props.musical.artist.name}</strong>
+  <strong className="nombretexto">{}</strong>
             </p>
             <p className="texto2"> 08 Noviembre 2019</p>
             <p className="texto2">
               {" "}
-              <img src={icono_reloj} className="icono" />
+              <img src={icono_reloj} className="icono_reloj_dolar" />
               22:00
             </p>
             <p className="texto2">
-              <img src={icono_dolar} className="icono" />
+              <img src={icono_dolar} className="icono_reloj_dolar" />
               25
             </p>
             <img src={play} className="icono_play" />

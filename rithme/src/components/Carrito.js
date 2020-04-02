@@ -15,16 +15,18 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Entradas from "./Entradas"
+import Comprar from "./Comprar"
 
-function Carrito() {
+function Carrito(props) {
   const formHeader = {
     isArrow: true,
     headerText: "Carrito",
     srcArrow: "/entradas"
   };
+
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
+  console.log(allMusic)
   
   useEffect(() => {
     axios
@@ -33,9 +35,10 @@ function Carrito() {
               
         for(let i =0; i <  music.length; i++){
           const musical =  music[i];
+         
           
         array.push(  
-        <Link to="/entradas" allMusic={musical}  className="link_entradas">
+        <Link allMusic={allMusic} to="/entradas" className="link_entradas">
         <div className="contenedor_img">
         <img src={musical.image} className="img_girl" />
         <div className="contenedor_text">
@@ -45,24 +48,31 @@ function Carrito() {
           <p className="texto2">08/10/2020</p>
           <p className="texto2">
             {" "}
-            <img src={icono_reloj} className="icono" />
+            <img src={icono_reloj} className="icono_reloj_dolar" />
             22:00
           </p>
 
           <p className="texto2">
-            <img src={icono_dolar} className="icono" />
+            <img src={icono_dolar} className="icono_reloj_dolar" />
             {musical.priceRange.min}$
           </p>
           <img src={play} className="icono_play" />
         </div> 
       </div>
-      </Link>)
+     
+      </Link >)
        
         }
       setAllMusic(array)
-      console.log(array)
+     
       
       })}, []);
+
+
+      function sendingData(event) {
+        event.preventDefault();
+        props.takingData(allMusic);
+      }
       
   return (
     <div className="contenedor_g">
@@ -70,7 +80,7 @@ function Carrito() {
       <div className="contenedor">
         {allMusic}
       </div>
-      <Footer changeNav="entradas" />
+      <Footer changeNav="entradas"/>
     </div>
     
   );
