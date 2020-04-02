@@ -16,28 +16,25 @@ function Configuracion(props) {
       <div className="user1">
         <h2>¡Hola! {props.user.username}</h2>
       </div>
-      <div className="f-config">
-        <div className="contenedor_confi">
-          <div>
-            <Link to="/confi" className="confi_perfil">
-              Configura tu perfil
-            </Link>
-          </div>
+
+      <div>
+        <Link to="/confi" className="contenedor_confi">
+          <div className="confi_perfil">Configura tu perfil</div>
           <div className="logoConf">
             <img src={logoConfi33} />
           </div>
-        </div>
-        <div className="contenedor_confi2">
-          <div>
-            <Link to="/sincro" className="confi_perfil">
-              Sincroniza tu música y plataformas
-            </Link>
-          </div>
+        </Link>
+      </div>
+
+      <div>
+        <Link to="/sincro" className="contenedor_confi">
+          <div className="confi_perfil">Sincroniza tu música y plataformas</div>
           <div className="logoConf">
             <img src={logoConf22} />
           </div>
-        </div>
+        </Link>
       </div>
+
       <Footer changeNav="confi" />
     </div>
   );

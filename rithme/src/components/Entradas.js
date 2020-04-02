@@ -12,10 +12,11 @@ import Footer from "./Footer";
 
 function Entradas() {
   const formHeader = {
-    headerText: "Entradas"
+    isArrow: true,
+    headerText: "Entradas",
+    srcArrow: "/comprar"
   };
 
-  
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />

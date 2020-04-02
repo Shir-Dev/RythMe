@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import logo_escribir from "./assets/icons/escribir.png";
-import logop from "./assets/icons/comentario2.png";
-import logos from "./assets/icons/usuario.png";
 import "./assets/styles/confiPerfil.css";
 import "../App.css";
 import Header from "./Header";

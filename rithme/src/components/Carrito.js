@@ -15,61 +15,54 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Entradas from "./Entradas"
+import Entradas from "./Entradas";
 
 function Carrito() {
   const formHeader = {
-    isArrow: true,
-    headerText: "Carrito",
-    srcArrow: "/entradas"
+    headerText: "Carrito"
   };
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/events`)
-      .then(res => { let music = res.data;
-              
-        for(let i =0; i <  music.length; i++){
-          const musical =  music[i];
-        array.push(  <div className="contenedor_img">
-        <img src={musical.image} className="img_girl" />
-        <div className="contenedor_text">
-          <p>
-        <strong className="nombretexto">{musical.artist.name}</strong>
-          </p>
-          <p className="texto2">08/10/2020</p>
-          <p className="texto2">
-            {" "}
-            <img src={icono_reloj} className="icono" />
-            22:00
-          </p>
+    axios.get(`http://localhost:3333/events`).then(res => {
+      let music = res.data;
 
-          <p className="texto2">
-            <img src={icono_dolar} className="icono" />
-            {musical.priceRange.min}$
-          </p>
-          <img src={play} className="icono_play" />
-        </div> 
-      </div>)
-       
-        }
-      setAllMusic(array)
-      console.log(array)
-      
-      })}, []);
+      for (let i = 0; i < music.length; i++) {
+        const musical = music[i];
+        array.push(
+          <div className="contenedor_img">
+            <img src={musical.image} className="img_girl" />
+            <div className="contenedor_text">
+              <p>
+                <strong className="nombretexto">{musical.artist.name}</strong>
+              </p>
+              <p className="texto2">08/10/2020</p>
+              <p className="texto2">
+                {" "}
+                <img src={icono_reloj} className="icono" />
+                22:00
+              </p>
+
+              <p className="texto2">
+                <img src={icono_dolar} className="icono" />
+                {musical.priceRange.min}$
+              </p>
+              <img src={play} className="icono_play" />
+            </div>
+          </div>
+        );
+      }
+      setAllMusic(array);
+      console.log(array);
+    });
+  }, []);
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
-      <div className="contenedor">
-        {allMusic}
-      </div>
+      <div className="contenedor">{allMusic}</div>
       <Footer changeNav="entradas" />
     </div>
-    
   );
 }
 
-export default Carrito ;
-
- 
+export default Carrito;

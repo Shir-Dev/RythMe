@@ -13,12 +13,15 @@
   padding: 8px;
   display: flex;
   justify-content: center;
+  margin-top: 50%;
 }
 
-.contenedor_login{
+.contenedor_login {
   background-color: #ccc;
   height: 50%;
-  width: 100%;
+  width: 77%;
+  margin-left: 12%;
+  border-radius: 40px;
 }
 
 .contenedor_login input {
@@ -34,7 +37,7 @@
   margin-top: 20px;
   border: 1px solid #110033;
 }
-.registro{
+.registro {
   cursor: pointer;
   display: flex;
   justify-content: center;

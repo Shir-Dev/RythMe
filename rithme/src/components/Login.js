@@ -38,7 +38,9 @@ function Login(props) {
       <Header headerObject={formHeader} />
       <div className="contenedor_login">
         <form className="contenedor_login">
-          <h2 className="h2">Iniciar Sesion</h2>
+          <div className="h2">
+            <h2>Iniciar Sesion</h2>
+          </div>
           <input
             type="text"
             placeholder="Nombre de Usuario"
