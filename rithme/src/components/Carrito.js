@@ -20,6 +20,10 @@ function Carrito(props) {
   console.log(allMusic);
 
   useEffect(() => {
+    let urlToGet;
+    if (props.urlToGet) {
+      urlToGet = props.url;
+    }
     axios.get(`http://localhost:3333/events`).then(res => {
       let music = res.data;
       let eventDay;

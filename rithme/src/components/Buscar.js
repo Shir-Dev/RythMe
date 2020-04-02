@@ -8,11 +8,13 @@ import logo_lupa from "./assets/icons/lupa.png";
 import play from "./assets/icons/shape.png";
 import icono_reloj from "./assets/icons/reloj.png";
 import icono_dolar from "./assets/icons/dolar.png";
+import Carrito from "./Carrito";
 
 function Buscar() {
   const [buscar, setBuscar] = useState({});
   const [genres, setGenres] = useState([]);
   const [allMusic, setAllMusic] = useState([]);
+  const [carrito, setCarrito] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:3333/musicgenres`).then(res => {
@@ -71,6 +73,8 @@ function Buscar() {
           </option>
         );
       }
+
+      setCarrito(<Carrito urlToGet={urlToFilter}></Carrito>);
     });
   }
   return (
@@ -121,6 +125,7 @@ function Buscar() {
           BUSCAR
           <img src={logo_lupa} className="logo_lupa" />
         </button>
+        {carrito}
       </form>
       <Footer changeNav="buscar" />
     </div>
