@@ -12,13 +12,14 @@ import Footer from "./Footer";
 
 function Entradas(props) {
   const formHeader = {
-    headerText: "Entradas"
+    isArrow: true,
+    headerText: "Entradas",
+    srcArrow: "/comprar"
   };
  
   console.log(props.allMusic)
 
 
-  
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />

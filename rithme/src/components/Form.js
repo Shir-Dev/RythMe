@@ -15,11 +15,6 @@ function Form(props) {
   var formData = new FormData();
   const [formObject, setFormObject] = useState();
 
-  function sendingData(event) {
-    event.preventDefault();
-    console.log(props.hola);
-    props.takingData(formObject);
-  }
   const formHeader = {
     isArrow: true,
     headerText: "Registro",
@@ -83,7 +78,34 @@ function Form(props) {
         </div>
         <input
           type="text"
-          placeholder="Escriba su Apellido"
+          placeholder="Nombre"
+          name="username"
+          id="name"
+          onChange={$event =>
+            setFormObject({ ...formObject, name: $event.target.value })
+          }
+          className=""
+          ref={register({
+            required: {
+              value: true,
+              message: "Campo requerido"
+            },
+            maxLength: {
+              value: 15,
+              message: "Máximo 15 caracteres"
+            },
+            minLength: {
+              value: 3,
+              message: "Mínimo 3 caracteres"
+            }
+          })}
+        />
+        <div className="msg-error">
+          <span>{errors.name && errors.name.message}</span>
+        </div>
+        <input
+          type="text"
+          placeholder="Apellidos"
           name="surname"
           id="surname"
           onChange={$event =>
