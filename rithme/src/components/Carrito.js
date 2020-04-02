@@ -18,9 +18,13 @@ function Carrito(props) {
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
   console.log(allMusic);
+  const [footer, setFooter] = useState();
 
   useEffect(() => {
     let urlToGet;
+    if (!props.urlToGet) {
+      setFooter(<Footer changeNav="entradas" />);
+    }
     if (props.urlToGet) {
       urlToGet = props.url;
     }
@@ -69,9 +73,9 @@ function Carrito(props) {
 
   return (
     <div className="contenedor_g">
-      <Header headerObject={formHeader} />
+      {<Header headerObject={formHeader} />}
       <div className="contenedor">{allMusic}</div>
-      <Footer changeNav="entradas" />
+      {Footer}
     </div>
   );
 }
