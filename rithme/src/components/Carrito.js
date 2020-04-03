@@ -5,9 +5,7 @@ import play from "./assets/icons/shape.png";
 import icono_reloj from "./assets/icons/reloj.png";
 import icono_dolar from "./assets/icons/dolar.png";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import Comprar from "./Comprar";
 import { dateFix, timeFix } from "./dateFixer";
 
 function Carrito(props) {
