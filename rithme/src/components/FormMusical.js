@@ -93,6 +93,7 @@ export default function FormMusical(props) {
     const arrayToAppend = [
       "username",
       "name",
+      "surname",
       "email",
       "password",
       "zipCode",
