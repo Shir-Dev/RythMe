@@ -3,15 +3,7 @@ import "./assets/styles/footer.css";
 import { Link } from "react-router-dom";
 
 function Footer(props) {
-  /*todas las imagenes que acaben en png las mete en esta carpeta
-  y le pasas el nombre de la imagen por el props
-  se te pintará esa imagen*/
-
   let srcImage = "./navImages/" + props.changeNav + ".png";
-
-  /* if (props.changeNav === "Conf") {
-    srcImage = confSrc;
-  }*/
 
   return (
     <div className="container">
