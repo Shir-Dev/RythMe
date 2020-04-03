@@ -9,23 +9,11 @@ const ProfileSchema = new Schema({
             },
   name: {
           type: String,
-          required: [true, 'Campo requerido'],
-          validate: {
-            validator: function(v) {
-              return /^[A-Za-z ]+$/i.test(v);
-            },
-            message: props => `${props.value} no es un apellido válido`
-          }       
+          required: [true, 'Campo requerido']
         },
   surname: {
               type: String,
-              required: [true, 'Campo requerido'],
-              validate: {
-                validator: function(v) {
-                  return /^[A-Za-z ]+$/i.test(v);
-                },
-                message: props => `${props.value} no es un apellido válido`
-              }
+              required: [true, 'Campo requerido']
             },
   zipCode: {
               type: Number,
