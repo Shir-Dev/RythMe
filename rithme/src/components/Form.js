@@ -29,7 +29,7 @@ function Form(props) {
       <Header headerObject={formHeader} />
 
       <form onSubmit={handleSubmit(onSubmit)} className="contenedor">
-        <label for="file-upload" className="subir">
+        <label htmlFor="file-upload" className="subir">
           <img className="icono_subir" src={subir} alt="" />
         </label>
         <input
@@ -201,9 +201,6 @@ function Form(props) {
         />
         <div className="msg-error">
           <span>{errors.zipCode && errors.zipCode.message}</span>
-        </div>
-        <div className="msg-error">
-          <span>{errors.password && errors.password.message}</span>
         </div>
         <input
           type="date"

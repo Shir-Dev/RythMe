@@ -7,41 +7,38 @@
 }
 .contenedor_concierto {
   justify-content: center;
-  height: 100vh;
   color: white;
 }
-.music{
+.music {
   border: 4px solid black;
   padding: 10px;
   display: inline-block;
   background-color: #ccc;
   margin: 5%;
-
 }
-.music img{
+.music img {
   border: 5px solid black;
 }
-.codigoqr{
- margin-left: 50px;
- width: 50%;
- height: 70%;
+.codigoqr {
+  margin-left: 50px;
+  width: 50%;
+  height: 70%;
 }
-.nombretexto2{
+.nombretexto2 {
   font-size: 15px;
   color: #110033;
 }
 
 .parrafo2 {
-    color:  rgb(255, 220, 53);
-    font-size: 25px;
-    margin-top: 5%;
-    
+  color: rgb(255, 220, 53);
+  font-size: 25px;
+  margin-top: 5%;
 }
 body > ul {
   position: absolute;
   top: 50%;
   width: 800px;
-  height: 200px; 
+  height: 200px;
   left: 50%;
   margin-left: -400px;
   margin-top: -130px;
@@ -53,11 +50,11 @@ ul > li {
   position: absolute;
   top: 0;
   padding: 20px;
-  height: 200px; 
+  height: 200px;
   opacity: 0;
   padding-top: 40px;
   text-align: center;
-  transition: 1s opacity; 
+  transition: 1s opacity;
 }
 
 .active {
@@ -71,14 +68,11 @@ ul p {
   line-height: 1.5em;
 }
 
-strong { 
-  
+strong {
   font-weight: 700;
-  font-size: 60px; 
-  
+  font-size: 60px;
 }
-.nombre_artista{
+.nombre_artista {
   color: #110033;
   font-size: 20px;
 }
-

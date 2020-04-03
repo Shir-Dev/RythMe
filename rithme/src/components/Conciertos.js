@@ -55,7 +55,7 @@ function Conciertos(props) {
     <div className="contenedor_conci">
       <Header headerObject={formHeader} />
       <div>
-        <h2 className="parrafo2">TUS ENTRADAS {datos.name}</h2>
+        <h2 className="parrafo2">TUS ENTRADAS {props.user.name}</h2>
       </div>
 
       <div className="contenedor_concierto">{allMusic}</div>
