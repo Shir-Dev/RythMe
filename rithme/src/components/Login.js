@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./assets/styles/login.css";
-import Footer from "./Footer";
 import Header from "./Header";
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";

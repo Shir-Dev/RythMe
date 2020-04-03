@@ -2,7 +2,6 @@ import React from "react";
 import "./assets/styles/configuracion.css";
 import Footer from "./Footer";
 import Header from "./Header";
-import { Link } from "react-router-dom";
 import youtube from "./assets/img/youtube.png";
 import amazon from "./assets/img/amazon.png";
 import apple from "./assets/img/apple.png";
