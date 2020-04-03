@@ -5,9 +5,6 @@ import "./assets/styles/entradas.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import logo_lupa from "./assets/icons/lupa.png";
-import play from "./assets/icons/shape.png";
-import icono_reloj from "./assets/icons/reloj.png";
-import icono_dolar from "./assets/icons/dolar.png";
 import Carrito from "./Carrito";
 
 function Buscar() {
@@ -70,9 +67,7 @@ function Buscar() {
       <Header headerObject={formHeader} />
       <form onSubmit={sendingData}>
         <div>
-          <label className="genres" for="genres">
-            Ciudad
-          </label>
+          <label className="genres" for="genres"></label>
           <select
             className="selector"
             id="city"
@@ -85,9 +80,7 @@ function Buscar() {
           </select>
         </div>
         <div>
-          <label className="genres" for="genres">
-            Genero Musical
-          </label>
+          <label className="genres" for="genres"></label>
           <select
             className="selector"
             id="genres"
@@ -112,7 +105,7 @@ function Buscar() {
             />
           </div>
         </div>
-        <button className="updateButton">
+        <button className="updateButton1">
           BUSCAR
           <img src={logo_lupa} className="logo_lupa" />
         </button>

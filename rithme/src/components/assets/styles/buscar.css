@@ -84,3 +84,20 @@
   justify-content: center;
   margin-top: 3%;
 }
+
+.updateButton1 {
+  margin-top: 5%;
+  background-color: #4dd599;
+  border: solid 1.5px #110033;
+  height: 60px;
+  width: 40%;
+  padding-bottom: 10%;
+  padding-left: 4%;
+  padding-top: 1%;
+  padding-bottom: 10px;
+  font-weight: bold;
+  border-radius: 75px 75px 75px 75px;
+}
+.updateButton:hover1 {
+  background-color: #01918e;
+}
