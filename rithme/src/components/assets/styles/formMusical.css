@@ -1,9 +1,8 @@
-.contenedor_form{
-    background-color: #110033;
-    font-family: Roboto, Helvetica, sans-serif;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
+.contenedor_form {
+  background-color: #110033;
+  font-family: Roboto, Helvetica, sans-serif;
+  text-align: center;
+  width: 100vw;
 }
 
 .btn_music {
@@ -11,9 +10,7 @@
   width: 33%;
   cursor: pointer;
   opacity: 0.65;
-  
-  
- 
+
   background-color: rgba(230, 255, 41, 1);
 
   background: -moz-radial-gradient(
@@ -70,7 +67,6 @@
   color: #110033;
 
   margin: 4%;
-  
 }
 
 .parrafo {
@@ -81,14 +77,12 @@
   margin-top: 5%;
 }
 
-.btn_music_on{
+.btn_music_on {
   padding: 5%;
   width: 33%;
   cursor: pointer;
   opacity: 1;
-  
-  
- 
+
   background-color: rgba(230, 255, 41, 1);
 
   background: -moz-radial-gradient(
@@ -145,17 +139,13 @@
   color: #110033;
 
   margin: 4%;
-  
-  
 }
 
-.btn_continuar{
+.btn_continuar {
   background-color: #ffdc35;
   border-radius: 30%;
   margin: 10px;
   margin-top: 60px;
   padding: 15px;
   font-size: 20px;
-  
 }
-

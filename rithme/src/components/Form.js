@@ -27,7 +27,7 @@ function Form(props) {
   return (
     <div className="contenedor_g">
       <Header headerObject={formHeader} />
-      <h2 className="h2">Datos Personales</h2>
+
       <form onSubmit={handleSubmit(onSubmit)} className="contenedor">
         <label for="file-upload" className="subir">
           <img className="icono_subir" src={subir} alt="" />
