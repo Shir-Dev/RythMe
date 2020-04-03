@@ -75,10 +75,9 @@ function Carrito(props) {
 
   return (
     <div className="contenedor_g">
-      {<Header headerObject={formHeader} />}
       {header}
       <div className="contenedor">{allMusic}</div>
-      {Footer}
+      {footer}
     </div>
   );
 }
