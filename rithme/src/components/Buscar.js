@@ -6,6 +6,9 @@ import Footer from "./Footer";
 import Header from "./Header";
 import logo_lupa from "./assets/icons/lupa.png";
 import Carrito from "./Carrito";
+import up from "./assets/icons/flechaup.png"
+import down from "./assets/icons/flechadown.png"
+
 
 function Buscar() {
   const [buscar, setBuscar] = useState({});
@@ -20,14 +23,14 @@ function Buscar() {
     });
   }, []);
   console.log(buscar);
-  const losGenres = [<option></option>];
+  const losGenres = [<option className="select_city">Genero Musical</option>];
 
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i];
     losGenres.push(<option value={genre.name}>{genre.name}</option>);
   }
 
-  const array = [<option></option>];
+  const array = [<option className="select_city">Selecciona una Ciudad</option>];
 
   useEffect(() => {
     axios
@@ -62,36 +65,56 @@ function Buscar() {
 
     setCarrito(<Carrito urlToGet={urlToFilter}></Carrito>);
   }
+  const [option , setOption] = useState()
+  const [click , setClick] = useState()
+  const [style , setStyle] = useState()
+  
+  
+  function optionAvanz (){
+    if(!click){
+    setStyle({up})
+    setClick(true);
+    console.log('estoy apareciendo')
+    setOption(
+    <>
+    <label className="genres" for="genres"></label>
+    <select className="selector"
+      id="city"
+      onChange={$event => {
+        setCarrito("");
+        setBuscar({ ...buscar, city: $event.target.value });
+      }}
+    >
+      {allMusic}
+    </select>
+  
+  
+    <label className="genres" for="genres"></label>
+    <select
+      className="selector"
+      id="genres"
+      onChange={$event => {
+        setCarrito("");
+        setBuscar({ ...buscar, genres: $event.target.value });
+      }}
+    >
+     
+      {losGenres}
+    </select>
+    </>)
+    }else{
+      setStyle({down})
+      setClick(false);
+      setOption(null);
+      console.log('quiero desaparecer')
+    }
+    };
+
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
       <form onSubmit={sendingData}>
-        <div>
-          <label className="genres" for="genres"></label>
-          <select
-            className="selector"
-            id="city"
-            onChange={$event => {
-              setCarrito("");
-              setBuscar({ ...buscar, city: $event.target.value });
-            }}
-          >
-            {allMusic}
-          </select>
-        </div>
-        <div>
-          <label className="genres" for="genres"></label>
-          <select
-            className="selector"
-            id="genres"
-            onChange={$event => {
-              setCarrito("");
-              setBuscar({ ...buscar, genres: $event.target.value });
-            }}
-          >
-            {losGenres}
-          </select>
-        </div>
+   
         <div class="box">
           <div class="container-4">
             <input
@@ -105,10 +128,17 @@ function Buscar() {
             />
           </div>
         </div>
+          {option}
+
+        <button className="updateButton1" type="button" onClick={optionAvanz}>
+          O.avanzadas
+          <img src={style} className="logo_lupa" />
+        </button>
         <button className="updateButton1">
           BUSCAR
           <img src={logo_lupa} className="logo_lupa" />
         </button>
+       
         {carrito}
       </form>
       <Footer changeNav="buscar" />
