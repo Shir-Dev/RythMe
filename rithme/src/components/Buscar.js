@@ -67,12 +67,12 @@ function Buscar() {
   }
   const [option , setOption] = useState()
   const [click , setClick] = useState()
-  const [style , setStyle] = useState()
+  const [style , setStyle] = useState(down)
   
   
   function optionAvanz (){
     if(!click){
-    setStyle({up})
+    setStyle(up)
     setClick(true);
     console.log('estoy apareciendo')
     setOption(
@@ -103,7 +103,7 @@ function Buscar() {
     </select>
     </>)
     }else{
-      setStyle({down})
+      setStyle(down)
       setClick(false);
       setOption(null);
       console.log('quiero desaparecer')
@@ -125,15 +125,18 @@ function Buscar() {
                 setCarrito("");
                 setBuscar({ ...buscar, search: $event.target.value });
               }}
+              
             />
+                <button className="optionavanz"  type="button" onClick={optionAvanz}>
+                <img src={style} className="logo_flecha" />
+                </button>
+            
           </div>
+      
         </div>
           {option}
 
-        <button className="updateButton1" type="button" onClick={optionAvanz}>
-          O.avanzadas
-          <img src={style} className="logo_lupa" />
-        </button>
+       
         <button className="updateButton1">
           BUSCAR
           <img src={logo_lupa} className="logo_lupa" />
