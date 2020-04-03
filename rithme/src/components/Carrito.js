@@ -20,15 +20,15 @@ function Carrito(props) {
   const [header, setHeader] = useState();
 
   useEffect(() => {
-    let urlToGet;
+    let urlToGet = `http://localhost:3333/events`;
     if (!props.urlToGet) {
       setFooter(<Footer changeNav="entradas" />);
       setHeader(<Header headerObject={formHeader} />);
     }
     if (props.urlToGet) {
-      urlToGet = props.url;
+      urlToGet = props.urlToGet;
     }
-    axios.get(`http://localhost:3333/events`).then(res => {
+    axios.get(urlToGet).then(res => {
       let music = res.data;
       let eventDay;
       let eventTime;
@@ -73,10 +73,9 @@ function Carrito(props) {
 
   return (
     <div className="contenedor_g">
-      {<Header headerObject={formHeader} />}
       {header}
       <div className="contenedor">{allMusic}</div>
-      {Footer}
+      {footer}
     </div>
   );
 }

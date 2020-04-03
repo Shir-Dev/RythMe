@@ -34,7 +34,6 @@ router.get("/profiles/:id", async (req, res) => {
 
 /* Finding and Updating a Profile by ID on MongoDB */
 router.put("/profiles/edit", async (req, res) => {
-  console.log(req);
   const {
     _id,
     userName,

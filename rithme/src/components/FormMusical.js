@@ -12,15 +12,10 @@ export default function FormMusical(props) {
   const [music, setMusic] = useState([]);
   const [redirect, setRedirect] = useState();
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:3333/musicgenres` /* &&
-          `http://192.168.1.66:3333/musicgenres` */
-      )
-      .then(res => {
-        console.log(res.data);
-        setMusic(res.data);
-      });
+    axios.get(`http://localhost:3333/musicgenres`).then(res => {
+      console.log(res.data);
+      setMusic(res.data);
+    });
   }, []);
   const formHeader = {
     isArrow: true,

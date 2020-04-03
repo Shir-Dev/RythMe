@@ -16,10 +16,11 @@ import SincroMusic from "./SincroMusic";
 import Comprar from "./Comprar";
 
 function Routes() {
+  console.log(Route);
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/comprar" component={withAuth(Comprar)} />  
+        <Route exact path="/comprar" component={withAuth(Comprar)} />
         <Route exact path="/sincro" component={withAuth(SincroMusic)} />
         <Route exact path="/confi" component={withAuth(ConfiPerfil)} />
         <Route exact path="/login" component={WithNoAuth(Login)} />

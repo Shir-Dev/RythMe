@@ -24,6 +24,7 @@ function Entradas(props) {
   }
 
   function savingMyEvent() {
+    console.log(props.user);
     let userAddEvent = props.user;
     userAddEvent.eventsId.push(props.allMusic._id);
     Axios("http://localhost:3333/profiles/edit", {

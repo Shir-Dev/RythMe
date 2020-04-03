@@ -7,6 +7,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const pool = require("../mysql/database");
 const multer = require("multer");
+const Event = require("../model/Event");
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, "./userPhotos/");
@@ -43,8 +44,8 @@ router.post("/signup", upload.single("userPhoto"), async function(
     zipCode: req.body.zipCode,
     birthDay: req.body.birthDay,
     musicalInterest: req.body.musicalInterest,
-    urlImage: "http://localhost:3333/" + req.file.path
-    // eventsId: req.body.eventsId
+    urlImage: "http://localhost:3333/" + req.file.path,
+    eventsId: req.body.eventsId
   });
   console.log(newProfile.id);
   await newProfile.save(function(err, newProfile) {
@@ -86,10 +87,13 @@ router.get(
     res.status(200).json(req.user);
   }
 );
-router.get("/events", async (req, res) => {
-  console.log(req.body);
-  const events = await Events.findById();
-  res.status(200).json(events);
+router.post("/events", async (req, res) => {
+  console.log("el body es" + req.body.eventsId);
+
+  const event = await Event.find({
+    _id: { $in: req.body.eventsId }
+  });
+  res.status(200).json(event);
 });
 
 router.get("/", async (req, res) => {

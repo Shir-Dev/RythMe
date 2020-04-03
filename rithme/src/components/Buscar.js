@@ -23,14 +23,14 @@ function Buscar() {
     });
   }, []);
   console.log(buscar);
-  const losGenres = [];
+  const losGenres = [<option></option>];
 
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i];
     losGenres.push(<option value={genre.name}>{genre.name}</option>);
   }
 
-  const array = [];
+  const array = [<option></option>];
 
   useEffect(() => {
     axios
@@ -62,20 +62,8 @@ function Buscar() {
     }
     const urlToFilter = `http://localhost:3333/events/search?city=${buscar.city}&genre=${buscar.genres}&name=${nameToSearch}`;
     console.log(urlToFilter);
-    axios.get(urlToFilter).then(res => {
-      let music = res.data;
 
-      for (let i = 0; i < music.length; i++) {
-        const musical = music[i];
-        array.push(
-          <option key={i} value={musical}>
-            {musical}
-          </option>
-        );
-      }
-
-      setCarrito(<Carrito urlToGet={urlToFilter}></Carrito>);
-    });
+    setCarrito(<Carrito urlToGet={urlToFilter}></Carrito>);
   }
   return (
     <div className="contenedor">
@@ -88,9 +76,10 @@ function Buscar() {
           <select
             className="selector"
             id="city"
-            onChange={$event =>
-              setBuscar({ ...buscar, city: $event.target.value })
-            }
+            onChange={$event => {
+              setCarrito("");
+              setBuscar({ ...buscar, city: $event.target.value });
+            }}
           >
             {allMusic}
           </select>
@@ -102,9 +91,10 @@ function Buscar() {
           <select
             className="selector"
             id="genres"
-            onChange={$event =>
-              setBuscar({ ...buscar, genres: $event.target.value })
-            }
+            onChange={$event => {
+              setCarrito("");
+              setBuscar({ ...buscar, genres: $event.target.value });
+            }}
           >
             {losGenres}
           </select>
@@ -115,9 +105,10 @@ function Buscar() {
               type="search"
               id="search"
               placeholder="Artista..."
-              onChange={$event =>
-                setBuscar({ ...buscar, search: $event.target.value })
-              }
+              onChange={$event => {
+                setCarrito("");
+                setBuscar({ ...buscar, search: $event.target.value });
+              }}
             />
           </div>
         </div>

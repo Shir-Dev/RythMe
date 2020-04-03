@@ -86,7 +86,7 @@ function ConfiPerfil(props) {
       birthDay: (
         <input
           type="date"
-          value={props.user.birthDay.slice(0, 10)}
+          placeholder={props.user.birthDay.slice(0, 10)}
           onChange={$event =>
             setFormObject({ ...formObject, birthDay: $event.target.value })
           }

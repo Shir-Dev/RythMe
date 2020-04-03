@@ -20,10 +20,7 @@ function Form(props) {
     headerText: "Registro",
     srcArrow: "/login"
   };
-  function cambiar() {
-    var pdrs = document.getElementById("file-upload").files[0].name;
-    document.getElementById("info").innerHTML = pdrs;
-  }
+
   var divStyle = {
     display: "none"
   };
