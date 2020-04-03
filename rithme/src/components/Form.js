@@ -119,7 +119,7 @@ function Form(props) {
               message: "Mínimo 3 caracteres"
             },
             pattern: {
-              value: /^[A-Za-z ]+$/i,
+              value: /^[A-Za-zñÑáéíóúÁÉÍÓÚ]+$/i,
               message: "No se admiten números ni signos"
             }
           })}
