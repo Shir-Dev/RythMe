@@ -1,7 +1,6 @@
 import React from "react";
 import "./assets/styles/header.css";
 import flecha11 from "./assets/icons/flecha11.png";
-import { Link } from "react-router-dom";
 
 function App(props) {
   let headerText = " ";

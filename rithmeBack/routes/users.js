@@ -45,7 +45,7 @@ router.post("/signup", upload.single("userPhoto"), async function(
     birthDay: req.body.birthDay,
     musicalInterest: req.body.musicalInterest,
     urlImage: "http://localhost:3333/" + req.file.path,
-    eventsId: req.body.eventsId
+    eventsId: []
   });
   console.log(newProfile.id);
   await newProfile.save(function(err, newProfile) {

@@ -86,33 +86,8 @@ function Entradas(props) {
             <img src={icono_nota} className="icono" />
             {props.allMusic.subGenre.name}
           </p>
-          {/*        <p className="Pasistiran"></p>
-          <p className="Pasistiran"></p> */}
         </div>
-        {/*         <div>
-          <p className="texto3">
-            Judith Glory Hill es una cantante y compositora estadounidense de
-            Los Ángeles , California. Ella ha proporcionado coros para artistas
-            como Michael Jackson , Stevie Wonder y Josh Groban .
-          </p>
-          <p className="texto3">
-            En 2009, Hill fue elegido como el dúo de Jackson para la canción " I
-            Just Can't Stop Loving You " durante su gira de conciertos This Is
-            It . Después de la muerte de Jackson en 2009, ella, junto con el
-            resto de los miembros del elenco de This Is It , actuó en el
-            servicio conmemorativo de Jackson y atrajo la atención mundial
-            cuando cantó el papel principal en la canción " Heal the World ".
-          </p>
-          <p className="texto3">
-            {" "}
-            El ascenso de Hill a la fama se cuenta brevemente en20 pies de
-            Stardom , una película documental que cuenta la historia no contada
-            de los cantantes de respaldo detrás de algunas de las "mayores
-            leyendas musicales del siglo XXI". También es una artista destacada
-            en la banda sonora de la película. Ella ganó el Premio Grammy a la
-            Mejor Película Musical por su actuación en esta película.
-          </p>
-        </div> */}
+
         <div className="botones">
           <input
             className="btn_comprar"

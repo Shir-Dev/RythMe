@@ -1,5 +1,4 @@
 import "./assets/styles/formMusical.css";
-import Footer from "./Footer";
 import Header from "./Header";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -94,6 +93,7 @@ export default function FormMusical(props) {
     const arrayToAppend = [
       "username",
       "name",
+      "surname",
       "email",
       "password",
       "zipCode",
