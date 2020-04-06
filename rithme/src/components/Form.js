@@ -3,9 +3,17 @@ import "./assets/styles/form.css";
 import Header from "./Header";
 import subir from "./assets/icons/subir.png";
 import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Form(props) {
+  const eye = <FontAwesomeIcon icon={faEye} />;
   const { register, errors, handleSubmit, watch } = useForm();
+  const [showPass, setShowPass] = useState(false);
+
+  const visiblityPass = () => {
+    setShowPass(showPass ? false : true);
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -153,7 +161,7 @@ function Form(props) {
           <span>{errors.email && errors.email.message}</span>
         </div>
         <input
-          type="password"
+          type={showPass ? "text" : "password"}
           placeholder="Contraseña"
           name="password"
           id="password"
@@ -178,6 +186,8 @@ function Form(props) {
         <div className="msg-error">
           <span>{errors.password && errors.password.message}</span>
         </div>
+        <i onClick={visiblityPass}>{eye}</i>
+
         <input
           type="password"
           placeholder=" Repita Contraseña"
@@ -194,6 +204,7 @@ function Form(props) {
         <div className="msg-error">
           <span>{errors.password2 && <p>{errors.password2.message}</p>}</span>
         </div>
+
         <input
           type="number"
           placeholder="C.Postal"
