@@ -9,27 +9,27 @@ const pool = require("../mysql/database");
 const multer = require("multer");
 const Event = require("../model/Event");
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
+  destination: function (req, file, cb) {
     cb(null, "./userPhotos/");
   },
-  filename: function(req, file, cb) {
+  filename: function (req, file, cb) {
     cb(null, new Date().toISOString() + file.originalname);
-  }
+  },
 });
 const upload = multer({ storage });
 //funcion para hacer token
-const signToken = profileId =>
+const signToken = (profileId) =>
   JWT.sign(
     {
       iss: "RithMeOk",
       sub: profileId,
       iat: new Date().getTime(),
-      exp: new Date().setDate(new Date().getDate() + 1)
+      exp: new Date().setDate(new Date().getDate() + 1),
     },
     "pepino"
   );
 
-router.post("/signup", upload.single("userPhoto"), async function(
+router.post("/signup", upload.single("userPhoto"), async function (
   req,
   res,
   next
@@ -45,10 +45,10 @@ router.post("/signup", upload.single("userPhoto"), async function(
     birthDay: req.body.birthDay,
     musicalInterest: req.body.musicalInterest,
     urlImage: "http://localhost:3333/" + req.file.path,
-    eventsId: []
+    eventsId: [],
   });
   console.log(newProfile.id);
-  await newProfile.save(function(err, newProfile) {
+  await newProfile.save(function (err, newProfile) {
     if (err) return console.error(err);
     // res.status(201).json(newProfile);
   });
@@ -58,7 +58,7 @@ router.post("/signup", upload.single("userPhoto"), async function(
     userID: newProfile.id,
     username: req.body.username,
     email: req.body.email,
-    password: await bcrypt.hash(req.body.password, 10)
+    password: await bcrypt.hash(req.body.password, 10),
   };
   const users = await pool.query("INSERT INTO Login set ? ", [newUser]);
 
@@ -91,7 +91,7 @@ router.post("/events", async (req, res) => {
   console.log("el body es" + req.body.eventsId);
 
   const event = await Event.find({
-    _id: { $in: req.body.eventsId }
+    _id: { $in: req.body.eventsId },
   });
   res.status(200).json(event);
 });

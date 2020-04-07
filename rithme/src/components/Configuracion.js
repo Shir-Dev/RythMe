@@ -8,13 +8,14 @@ import logoConfi33 from "./assets/icons/logoConfi33.png";
 
 function Configuracion(props) {
   const formHeader = {
-    headerText: "Configuración"
+    headerText: "Configuración",
   };
   return (
     <div className="contenedor">
       <Header headerObject={formHeader} />
       <div className="user1">
         <h2>¡Hola! {props.user.username}</h2>
+        <h3 onClick={logOut()}> Cerrar sesión</h3>
       </div>
 
       <div>

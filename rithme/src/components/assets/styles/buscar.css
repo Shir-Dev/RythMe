@@ -6,16 +6,18 @@
 
   margin-left: 0px;
 }
+
+.hidden {
+  display: none;
+}
 .logo_lupa {
   width: 20px;
   height: 20px;
   margin-left: 2px;
 }
-.logo_flecha{
+.logo_flecha {
   width: 30px;
   height: 30px;
-  
- 
 }
 .container-4 {
   overflow: hidden;
@@ -40,7 +42,6 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-
 
 .selector {
   overflow: hidden;
@@ -75,10 +76,10 @@
 .updateButton:hover1 {
   background-color: #01918e;
 }
-.select_city{
+.select_city {
   color: #828282;
 }
-.optionavanz{
+.optionavanz {
   height: 50px;
   width: 50px;
 }

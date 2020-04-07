@@ -5,24 +5,26 @@ import "./assets/styles/entradas.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import logo_lupa from "./assets/icons/lupa.png";
+
+import up from "./assets/icons/flechaup.png";
+import down from "./assets/icons/flechadown.png";
+import Comprar from "./Comprar";
 import Carrito from "./Carrito";
-import up from "./assets/icons/flechaup.png"
-import down from "./assets/icons/flechadown.png"
+import Entradas from "./Entradas";
 
-
-function Buscar() {
+function Buscar(props) {
   const [buscar, setBuscar] = useState({});
   const [genres, setGenres] = useState([]);
   const [allMusic, setAllMusic] = useState([]);
   const [carrito, setCarrito] = useState([]);
-
+  const [classContenedor, setClassContenedor] = useState("contenedor");
+  const [entradas, setEntradas] = useState("");
   useEffect(() => {
-    axios.get(`http://localhost:3333/musicgenres`).then(res => {
-      console.log(res.data);
+    axios.get(`http://localhost:3333/musicgenres`).then((res) => {
       setGenres(res.data);
     });
   }, []);
-  console.log(buscar);
+
   const losGenres = [<option className="select_city">Genero Musical</option>];
 
   for (let i = 0; i < genres.length; i++) {
@@ -30,12 +32,14 @@ function Buscar() {
     losGenres.push(<option value={genre.name}>{genre.name}</option>);
   }
 
-  const array = [<option className="select_city">Selecciona una Ciudad</option>];
+  const array = [
+    <option className="select_city">Selecciona una Ciudad</option>,
+  ];
 
   useEffect(() => {
     axios
       .get(`http://localhost:3333/events/search/filteredCities`)
-      .then(res => {
+      .then((res) => {
         let music = res.data;
 
         for (let i = 0; i < music.length; i++) {
@@ -50,9 +54,14 @@ function Buscar() {
       });
   }, []);
 
+  function takingData(data) {
+    setClassContenedor("hidden");
+    setEntradas(<Entradas allMusic={data} user={props.user}></Entradas>);
+  }
+
   const formHeader = {
     headerText: "Búsqueda",
-    srcArrow: "/bienvenido"
+    srcArrow: "/bienvenido",
   };
   function sendingData($event) {
     $event.preventDefault();
@@ -61,91 +70,92 @@ function Buscar() {
       nameToSearch = buscar.search.replace(" ", "+");
     }
     const urlToFilter = `http://localhost:3333/events/search?city=${buscar.city}&genre=${buscar.genres}&name=${nameToSearch}`;
-    console.log(urlToFilter);
 
-    setCarrito(<Carrito urlToGet={urlToFilter}></Carrito>);
+    setCarrito(
+      <Carrito urlToGet={urlToFilter} takingData={takingData}></Carrito>
+    );
   }
-  const [option , setOption] = useState()
-  const [click , setClick] = useState()
-  const [style , setStyle] = useState(down)
-  
-  
-  function optionAvanz (){
-    if(!click){
-    setStyle(up)
-    setClick(true);
-    console.log('estoy apareciendo')
-    setOption(
-    <>
-    <label className="genres" for="genres"></label>
-    <select className="selector"
-      id="city"
-      onChange={$event => {
-        setCarrito("");
-        setBuscar({ ...buscar, city: $event.target.value });
-      }}
-    >
-      {allMusic}
-    </select>
-  
-  
-    <label className="genres" for="genres"></label>
-    <select
-      className="selector"
-      id="genres"
-      onChange={$event => {
-        setCarrito("");
-        setBuscar({ ...buscar, genres: $event.target.value });
-      }}
-    >
-     
-      {losGenres}
-    </select>
-    </>)
-    }else{
-      setStyle(down)
+  const [option, setOption] = useState();
+  const [click, setClick] = useState();
+  const [style, setStyle] = useState(down);
+
+  function optionAvanz() {
+    if (!click) {
+      setStyle(up);
+      setClick(true);
+
+      setOption(
+        <>
+          <label className="genres" for="genres"></label>
+          <select
+            className="selector"
+            id="city"
+            onChange={($event) => {
+              setCarrito("");
+              setBuscar({ ...buscar, city: $event.target.value });
+            }}
+          >
+            {allMusic}
+          </select>
+
+          <label className="genres" for="genres"></label>
+          <select
+            className="selector"
+            id="genres"
+            onChange={($event) => {
+              setCarrito("");
+              setBuscar({ ...buscar, genres: $event.target.value });
+            }}
+          >
+            {losGenres}
+          </select>
+        </>
+      );
+    } else {
+      setStyle(down);
       setClick(false);
       setOption(null);
-      console.log('quiero desaparecer')
     }
-    };
+  }
 
   return (
-    <div className="contenedor">
-      <Header headerObject={formHeader} />
-      <form onSubmit={sendingData}>
-   
-        <div class="box">
-          <div class="container-4">
-            <input
-              type="search"
-              id="search"
-              placeholder="Artista..."
-              onChange={$event => {
-                setCarrito("");
-                setBuscar({ ...buscar, search: $event.target.value });
-              }}
-              
-            />
-                <button className="optionavanz"  type="button" onClick={optionAvanz}>
+    <>
+      <div className={classContenedor}>
+        <Header headerObject={formHeader} />
+        <form onSubmit={sendingData}>
+          <div class="box">
+            <div class="container-4">
+              <input
+                type="search"
+                id="search"
+                placeholder="Artista..."
+                onChange={($event) => {
+                  setCarrito("");
+                  setBuscar({ ...buscar, search: $event.target.value });
+                }}
+              />
+              <button
+                className="optionavanz"
+                type="button"
+                onClick={optionAvanz}
+              >
                 <img src={style} className="logo_flecha" />
-                </button>
-            
+              </button>
+            </div>
           </div>
-      
-        </div>
           {option}
 
-       
-        <button className="updateButton1">
-          BUSCAR
-          <img src={logo_lupa} className="logo_lupa" />
-        </button>
-       
-        {carrito}
-      </form>
-      <Footer changeNav="buscar" />
-    </div>
+          <button className="updateButton1">
+            BUSCAR
+            <img src={logo_lupa} className="logo_lupa" />
+          </button>
+
+          {carrito}
+        </form>
+        <Footer changeNav="buscar" />
+      </div>
+      {entradas}
+    </>
   );
 }
 
