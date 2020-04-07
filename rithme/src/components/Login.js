@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./assets/styles/login.css";
 import Header from "./Header";
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
+import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Login(props) {
+  const eye = <FontAwesomeIcon icon={faEye} />;
+  const { watch } = useForm();
+  const [showPass, setShowPass] = useState(false);
   const [loginObject, setLoginObject] = useState();
   const [redirect, setRedirect] = useState();
+  const visiblityPass = () => {
+    setShowPass(showPass ? false : true);
+  };
+  const password = useRef({});
+  password.current = watch("password", "");
   function autoLogin() {
     Axios("http://localhost:3333/users/signin", {
       method: "POST",
@@ -55,7 +66,7 @@ function Login(props) {
           />
 
           <input
-            type="password"
+            type={showPass ? "text" : "password"}
             placeholder="Contraseña"
             name="password"
             id="password"
@@ -67,6 +78,10 @@ function Login(props) {
             }
             required
           />
+          <div className="eye" onClick={visiblityPass}>
+            {eye}
+          </div>
+
           <input
             className="btnContinue"
             type="button"
@@ -78,6 +93,9 @@ function Login(props) {
         </form>
         <Link to="/registro" className="registro">
           Registrarme
+        </Link>
+        <Link to="/forgotPass" className="forgot">
+          ¿Ha olvidado la contraseña?
         </Link>
       </div>
     </div>
