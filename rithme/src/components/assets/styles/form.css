@@ -61,3 +61,13 @@
   color: red;
   font-family: Roboto, Helvetica, sans-serif;
 }
+
+i {
+  position: absolute;
+  top: 59%;
+  right: 17%;
+}
+i:hover {
+  color: #f51761;
+  cursor: pointer;
+}

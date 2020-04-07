@@ -11,9 +11,9 @@ function Login(props) {
     Axios("http://localhost:3333/users/signin", {
       method: "POST",
       data: loginObject,
-      withCredentials: true
+      withCredentials: true,
     })
-      .then(res => {
+      .then((res) => {
         if (res.status === 200) {
           console.log("usuario logeado");
           setRedirect(<Redirect to="/bienvenido" />);
@@ -22,14 +22,14 @@ function Login(props) {
           throw error;
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         alert("Usuario o contraseña incorrecta.Inténtelo de nuevo.");
       });
   }
   const formHeader = {
     headerText: "Login",
-    srcArrow: "/"
+    srcArrow: "/",
   };
   return (
     <div className="contenedor_g">
@@ -45,10 +45,10 @@ function Login(props) {
             placeholder="Nombre de Usuario"
             name="username"
             id="username"
-            onChange={$event =>
+            onChange={($event) =>
               setLoginObject({
                 ...loginObject,
-                username: $event.target.value
+                username: $event.target.value,
               })
             }
             required
@@ -59,10 +59,10 @@ function Login(props) {
             placeholder="Contraseña"
             name="password"
             id="password"
-            onChange={$event =>
+            onChange={($event) =>
               setLoginObject({
                 ...loginObject,
-                password: $event.target.value
+                password: $event.target.value,
               })
             }
             required
