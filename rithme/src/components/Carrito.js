@@ -10,7 +10,7 @@ import { dateFix, timeFix } from "./dateFixer";
 
 function Carrito(props) {
   const formHeader = {
-    headerText: "Carrito"
+    headerText: "Entradas",
   };
 
   const array = [];
@@ -28,7 +28,7 @@ function Carrito(props) {
     if (props.urlToGet) {
       urlToGet = props.urlToGet;
     }
-    axios.get(urlToGet).then(res => {
+    axios.get(urlToGet).then((res) => {
       let music = res.data;
       let eventDay;
       let eventTime;

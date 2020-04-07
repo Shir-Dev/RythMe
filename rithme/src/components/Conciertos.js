@@ -9,11 +9,11 @@ import axios from "axios";
 
 function Conciertos(props) {
   const formHeader = {
-    headerText: "Conciertos"
+    headerText: "Mis conciertos",
   };
   const [datos, setDatos] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3333/users`).then(res => {
+    axios.get(`http://localhost:3333/users`).then((res) => {
       setDatos(res.data);
     });
   }, []);
@@ -22,7 +22,7 @@ function Conciertos(props) {
   const [allMusic, setAllMusic] = useState([]);
   useEffect(() => {
     console.log(props.user);
-    axios.post(`http://localhost:3333/users/events`, props.user).then(res => {
+    axios.post(`http://localhost:3333/users/events`, props.user).then((res) => {
       let music = res.data;
 
       for (let i = 0; i < music.length; i++) {
@@ -49,7 +49,7 @@ function Conciertos(props) {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 2
+    slidesToScroll: 2,
   };
   return (
     <div className="contenedor_conci">
