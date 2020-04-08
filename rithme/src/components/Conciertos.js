@@ -9,11 +9,7 @@ import axios from "axios";
 
 function Conciertos(props) {
   const formHeader = {
-<<<<<<< HEAD
-    headerText: "Conciertos",
-=======
     headerText: "Mis conciertos",
->>>>>>> a1f7d1b1e37b3edd631479fbebd442191de68bc0
   };
   const [datos, setDatos] = useState([]);
   useEffect(() => {
