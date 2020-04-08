@@ -9,7 +9,11 @@ import axios from "axios";
 
 function Conciertos(props) {
   const formHeader = {
+<<<<<<< HEAD
+    headerText: "Conciertos",
+=======
     headerText: "Mis conciertos",
+>>>>>>> a1f7d1b1e37b3edd631479fbebd442191de68bc0
   };
   const [datos, setDatos] = useState([]);
   useEffect(() => {
@@ -55,7 +59,7 @@ function Conciertos(props) {
     <div className="contenedor_conci">
       <Header headerObject={formHeader} />
       <div>
-        <h2 className="parrafo2">TUS ENTRADAS {props.user.name}</h2>
+        <h2 className="parrafo2">Tus entradas, {props.user.name} :</h2>
       </div>
 
       <div className="contenedor_concierto">{allMusic}</div>

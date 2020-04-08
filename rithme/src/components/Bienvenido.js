@@ -8,14 +8,14 @@ import { dateFix } from "./dateFixer";
 function Bienvenido(props) {
   console.log(props.user);
   const formHeader = {
-    headerText: "Home"
+    headerText: "Home",
   };
   console.log(props.user.urlImage);
   const birthDay = dateFix(props.user.birthDay);
   return (
     <div>
       <div className="contenedor-welcome">
-        <Header headerObject={formHeader} />t
+        <Header headerObject={formHeader} />
         <header className="">
           <h1 className="welcome">¡Bienvenido!</h1>
         </header>

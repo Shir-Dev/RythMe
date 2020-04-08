@@ -192,7 +192,7 @@ function Form(props) {
           type="password"
           placeholder=" Repita Contraseña"
           name="password2"
-          id="password"
+          id="password2"
           onChange={($event) =>
             setFormObject({ ...formObject, password: $event.target.value })
           }
