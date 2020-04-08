@@ -13,7 +13,6 @@
     "formik": "^2.1.4",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
-    "react-cookie": "^4.0.3",
     "react-dom": "^16.13.0",
     "react-hook-form": "^5.2.0",
     "react-html5-camera-photo": "^1.5.4",
