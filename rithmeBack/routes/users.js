@@ -79,7 +79,6 @@ router.post(
 
 router.get("/logout", (req, res) => {
   res.clearCookie("token");
-  console.log("Token eliminado");
   return res.sendStatus(200);
 });
 router.get(
