@@ -13,20 +13,20 @@ function ForgotPass(props) {
   };
 
   return (
-    <div className="container-pass">
+    <>
       <Header headerObject={formHeader} />
-      <form className="contenedor_forgot">
-        <div>
+      <form>
+        <div className="contenedor_forgot-inner">
           <label className="emailForgot">Dirección email:</label>
-        </div>
-        <input
-          className="correo2"
-          type="email"
-          placeholder="Correo Electrónico"
-          name="email"
-          id="email"
-        />
-        <div className="forgotButton">
+
+          <input
+            className="correo2"
+            type="email"
+            placeholder="Correo Electrónico"
+            name="email"
+            id="email"
+          />
+
           <input
             className="btnSend"
             type="button"
@@ -37,7 +37,7 @@ function ForgotPass(props) {
           />
         </div>
       </form>
-    </div>
+    </>
   );
 }
 
