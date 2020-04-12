@@ -38,3 +38,16 @@
   width: 45%;
   border-radius: 25% 25% 25% 25%;
 }
+
+.badEmail {
+  font-family: Roboto, Helvetica, sans-serif;
+  color: red;
+  font-size: 15px;
+  text-align: center;
+}
+.goodEmail {
+  font-family: Roboto, Helvetica, sans-serif;
+  color: rgb(37, 253, 48);
+  font-size: 15px;
+  text-align: center;
+}

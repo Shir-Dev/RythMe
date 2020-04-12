@@ -13,6 +13,7 @@ function Login(props) {
   const [showPass, setShowPass] = useState(false);
   const [loginObject, setLoginObject] = useState();
   const [redirect, setRedirect] = useState();
+  const [errorLogin, setErrorLogin] = useState();
   const visiblityPass = () => {
     setShowPass(showPass ? false : true);
   };
@@ -26,7 +27,7 @@ function Login(props) {
     })
       .then((res) => {
         if (res.status === 200) {
-          console.log("usuario logeado");
+          console.log("email correcto");
           setRedirect(<Redirect to="/bienvenido" />);
         } else {
           const error = new Error(res.error);
@@ -35,7 +36,9 @@ function Login(props) {
       })
       .catch((err) => {
         console.error(err);
-        alert("Usuario o contraseña incorrecta.Inténtelo de nuevo.");
+        setErrorLogin(
+          <p className="badUser">Contraseña o correo incorrecto.</p>
+        );
       });
   }
   const formHeader = {
@@ -51,37 +54,40 @@ function Login(props) {
           <div className="h2">
             <h2>Iniciar Sesion</h2>
           </div>
-          <input
-            type="text"
-            placeholder="Nombre de Usuario"
-            name="username"
-            id="username"
-            onChange={($event) =>
-              setLoginObject({
-                ...loginObject,
-                username: $event.target.value,
-              })
-            }
-            required
-          />
-
-          <input
-            type={showPass ? "text" : "password"}
-            placeholder="Contraseña"
-            name="password"
-            id="password"
-            onChange={($event) =>
-              setLoginObject({
-                ...loginObject,
-                password: $event.target.value,
-              })
-            }
-            required
-          />
-          <div className="eye" onClick={visiblityPass}>
-            {eye}
+          <div className="divUser">
+            <input
+              type="text"
+              placeholder=" Nombre de Usuario"
+              name="username"
+              id="username"
+              onChange={($event) =>
+                setLoginObject({
+                  ...loginObject,
+                  username: $event.target.value,
+                })
+              }
+              required
+            />
           </div>
-
+          <div className="divPass">
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder=" Contraseña"
+              name="password"
+              id="password"
+              onChange={($event) =>
+                setLoginObject({
+                  ...loginObject,
+                  password: $event.target.value,
+                })
+              }
+              required
+            />
+            <div className="eye" onClick={visiblityPass}>
+              {eye}
+            </div>
+          </div>
+          {errorLogin}
           <input
             className="btnContinue"
             type="button"

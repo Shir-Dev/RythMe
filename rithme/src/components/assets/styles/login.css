@@ -26,16 +26,17 @@
 
 .contenedor_login input {
   margin-bottom: 10px;
-  padding: 3%;
   width: 70%;
   font-size: 18px;
+  border: none;
 }
 .btnContinue {
   background-color: #4dd599;
   color: #110033;
   text-align: center;
   margin-top: 20px;
-  border: 1px solid #110033;
+  border: 2px solid #110033;
+  height: 20%;
 }
 .registro {
   cursor: pointer;
@@ -45,11 +46,35 @@
   font-size: 20px;
   color: #110033;
 }
-.eye {
-  position: absolute;
-  margin-left: 46%;
-  top: 44%;
+.divPass {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  margin-left: 15%;
+  width: 70%;
+  height: 20%;
+  background-color: white;
 }
+.divUser {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+
+  margin-left: 15%;
+  width: 100%;
+  height: 26%;
+}
+.badUser {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+}
+.eye {
+  margin-left: 14%;
+  margin-bottom: 3%;
+}
+
 .eye:hover {
   color: #f51761;
   cursor: pointer;
