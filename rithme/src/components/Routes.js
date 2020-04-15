@@ -14,7 +14,12 @@ import withAuth from "./WithAuth";
 import WithNoAuth from "./WithNoAuth";
 import SincroMusic from "./SincroMusic";
 import Comprar from "./Comprar";
+<<<<<<< HEAD
 import ComprarCarrito from "./ComprarCarrito";
+=======
+import ForgotPass from "./ForgotPass";
+import RecoverPass from "./RecoverPass";
+>>>>>>> 061249089f3ce2530d1418957a69527533b1e9ae
 
 function Routes() {
   console.log(Route);
@@ -38,6 +43,8 @@ function Routes() {
           path="/configuracion"
           component={withAuth(Configuracion)}
         />
+        <Route exact path="/forgotPass" component={ForgotPass} />
+        <Route exact path="/recoverPass" component={RecoverPass} />
       </Switch>
     </BrowserRouter>
   );

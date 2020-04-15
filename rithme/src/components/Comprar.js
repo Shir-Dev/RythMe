@@ -7,6 +7,7 @@ function Comprar(props) {
     <Carrito takingData={takingData}></Carrito>
   );
   let allMusic;
+  console.log(props.urlToGet);
   function takingData(data) {
     allMusic = data;
     setRegisterForm(

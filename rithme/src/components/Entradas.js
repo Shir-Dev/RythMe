@@ -14,7 +14,7 @@ function Entradas(props) {
   const formHeader = {
     isArrow: true,
     headerText: "Entradas",
-    srcArrow: "/comprar"
+    srcArrow: "/comprar",
   };
   let eventDay;
   let eventTime;
@@ -29,9 +29,13 @@ function Entradas(props) {
     userAddEvent.eventsId.push(props.allMusic._id);
     Axios("http://localhost:3333/profiles/edit", {
       method: "PUT",
-      data: userAddEvent
+      data: userAddEvent,
     })
+<<<<<<< HEAD
       .then(res => {  
+=======
+      .then((res) => {
+>>>>>>> 061249089f3ce2530d1418957a69527533b1e9ae
         console.log(res.status);
         if (res.status === 200) {
         } else {
@@ -39,7 +43,7 @@ function Entradas(props) {
           throw error;
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         alert("Error al Updatear");
       });

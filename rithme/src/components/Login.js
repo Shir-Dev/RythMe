@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./assets/styles/login.css";
 import Header from "./Header";
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
+import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Login(props) {
+  const eye = <FontAwesomeIcon icon={faEye} />;
+  const { watch } = useForm();
+  const [showPass, setShowPass] = useState(false);
   const [loginObject, setLoginObject] = useState();
   const [redirect, setRedirect] = useState();
+  const [errorLogin, setErrorLogin] = useState();
+  const visiblityPass = () => {
+    setShowPass(showPass ? false : true);
+  };
+  const password = useRef({});
+  password.current = watch("password", "");
   function autoLogin() {
     Axios("http://localhost:3333/users/signin", {
       method: "POST",
       data: loginObject,
-      withCredentials: true
+      withCredentials: true,
     })
-      .then(res => {
+      .then((res) => {
         if (res.status === 200) {
-          console.log("usuario logeado");
+          console.log("email correcto");
           setRedirect(<Redirect to="/bienvenido" />);
         } else {
           const error = new Error(res.error);
           throw error;
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-        alert("Usuario o contraseña incorrecta.Inténtelo de nuevo.");
+        setErrorLogin(
+          <p className="badUser">Contraseña o usuario incorrecto.</p>
+        );
       });
   }
   const formHeader = {
     headerText: "Login",
-    srcArrow: "/"
+    srcArrow: "/",
   };
   return (
     <div className="contenedor_g">
@@ -40,33 +54,40 @@ function Login(props) {
           <div className="h2">
             <h2>Iniciar Sesion</h2>
           </div>
-          <input
-            type="text"
-            placeholder="Nombre de Usuario"
-            name="username"
-            id="username"
-            onChange={$event =>
-              setLoginObject({
-                ...loginObject,
-                username: $event.target.value
-              })
-            }
-            required
-          />
-
-          <input
-            type="password"
-            placeholder="Contraseña"
-            name="password"
-            id="password"
-            onChange={$event =>
-              setLoginObject({
-                ...loginObject,
-                password: $event.target.value
-              })
-            }
-            required
-          />
+          <div className="divUser">
+            <input
+              type="text"
+              placeholder=" Nombre de Usuario"
+              name="username"
+              id="username"
+              onChange={($event) =>
+                setLoginObject({
+                  ...loginObject,
+                  username: $event.target.value,
+                })
+              }
+              required
+            />
+          </div>
+          <div className="divPass">
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder=" Contraseña"
+              name="password"
+              id="password"
+              onChange={($event) =>
+                setLoginObject({
+                  ...loginObject,
+                  password: $event.target.value,
+                })
+              }
+              required
+            />
+            <div className="eye" onClick={visiblityPass}>
+              {eye}
+            </div>
+          </div>
+          {errorLogin}
           <input
             className="btnContinue"
             type="button"
@@ -78,6 +99,9 @@ function Login(props) {
         </form>
         <Link to="/registro" className="registro">
           Registrarme
+        </Link>
+        <Link to="/forgotPass" className="forgot">
+          ¿Ha olvidado la contraseña?
         </Link>
       </div>
     </div>

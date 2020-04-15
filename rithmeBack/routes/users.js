@@ -9,33 +9,59 @@ const pool = require("../mysql/database");
 const multer = require("multer");
 const Event = require("../model/Event");
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
+  destination: function (req, file, cb) {
     cb(null, "./userPhotos/");
   },
-  filename: function(req, file, cb) {
+  filename: function (req, file, cb) {
     cb(null, new Date().toISOString() + file.originalname);
-  }
+  },
 });
 const upload = multer({ storage });
 //funcion para hacer token
-const signToken = profileId =>
+const signToken = (profileId) =>
   JWT.sign(
     {
       iss: "RithMeOk",
       sub: profileId,
       iat: new Date().getTime(),
-      exp: new Date().setDate(new Date().getDate() + 1)
+      exp: new Date().setDate(new Date().getDate() + 1),
     },
     "pepino"
   );
 
-router.post("/signup", upload.single("userPhoto"), async function(
+router.post("/signup", upload.single("userPhoto"), async function (
   req,
   res,
   next
 ) {
-  console.log(req.body.username, req.body.email, req.body.password);
-  console.log(req.file.path);
+  // console.log(req.body.username, req.body.email, req.body.password);
+  // console.log(req.file.path);
+
+  let user = await pool.query(
+    "SELECT * from Login WHERE  email = ? ",
+    [req.body.email]
+  );
+  user = user[0];
+
+  // Validations
+  if (user) return res.status(403).json({error: "Correo ya existe"});
+  if (!req.file) return res.status(403).json({error: "La imgen es requerida"});
+  if (!req.body.username || req.body.username.length < 3 || req.body.username.length > 11 ){
+    return res.status(403).json({error: "El username debe tener entre 3 y 11 caracteres"});
+  }
+  if (!req.body.name || req.body.name.length < 3 || req.body.name.length > 15 ){
+    return res.status(403).json({error: "El username debe tener entre 3 y 15 caracteres"});
+  }
+  if (!req.body.surname || req.body.surname.length < 3 || req.body.surname.length > 20 || /^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$/.test(req.body.surname) == false ){
+    return res.status(403).json({error: "El apellido debe tener entre 3 y 11 caracteres y solo letras"});
+  }
+  if (!req.body.email || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(req.body.email) == false ){
+    return res.status(403).json({error: "Email inválido"});
+  }
+  if (!req.body.password || req.body.password.length < 8 || !(/^[a-zA-Z0-9_]+$/.test(req.body.password)) ){
+    return res.status(403).json({error: "Contraseña inválida"});
+  }
+
   // ESTO VA A MONGO
   const newProfile = new Profile({
     username: req.body.username,
@@ -45,10 +71,10 @@ router.post("/signup", upload.single("userPhoto"), async function(
     birthDay: req.body.birthDay,
     musicalInterest: req.body.musicalInterest,
     urlImage: "http://localhost:3333/" + req.file.path,
-    eventsId: []
+    eventsId: [],
   });
   console.log(newProfile.id);
-  await newProfile.save(function(err, newProfile) {
+  await newProfile.save(function (err, newProfile) {
     if (err) return console.error(err);
     // res.status(201).json(newProfile);
   });
@@ -58,7 +84,7 @@ router.post("/signup", upload.single("userPhoto"), async function(
     userID: newProfile.id,
     username: req.body.username,
     email: req.body.email,
-    password: await bcrypt.hash(req.body.password, 10)
+    password: await bcrypt.hash(req.body.password, 10),
   };
   const users = await pool.query("INSERT INTO Login set ? ", [newUser]);
 
@@ -77,6 +103,10 @@ router.post(
   }
 );
 
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  return res.sendStatus(200);
+});
 router.get(
   "/checktoken",
   passport.authenticate("jwt", { session: false }),
@@ -91,7 +121,7 @@ router.post("/events", async (req, res) => {
   console.log("el body es" + req.body.eventsId);
 
   const event = await Event.find({
-    _id: { $in: req.body.eventsId }
+    _id: { $in: req.body.eventsId },
   });
   res.status(200).json(event);
 });

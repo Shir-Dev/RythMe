@@ -1,0 +1,43 @@
+.contenedor_forgot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 100vw;
+}
+
+.emailForgot {
+  color: #ffdc35;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.correo2 {
+  margin-top: 5%;
+  width: 65%;
+  padding: 3%;
+  margin-bottom: 30px;
+}
+
+.btnSend {
+  background-color: #4dd599;
+  color: #110033;
+  text-align: center;
+  border: 1px solid #110033;
+  padding: 10px;
+  width: 100%;
+}
+
+.badEmail {
+  font-family: Roboto, Helvetica, sans-serif;
+  color: red;
+  font-size: 15px;
+  text-align: center;
+}
+.goodEmail {
+  font-family: Roboto, Helvetica, sans-serif;
+  color: rgb(37, 253, 48);
+  font-size: 15px;
+  text-align: center;
+}
