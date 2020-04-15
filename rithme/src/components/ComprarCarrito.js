@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./assets/styles/conciertos.css";
+import "./assets/styles/comprarcarrito.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import icono_qr from "./assets/icons/qr.png";
@@ -7,16 +7,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 
-function Conciertos(props) {
+function ComprarCarrito(props) {
   const formHeader = {
     headerText: "Conciertos"
   };
-  const [datos, setDatos] = useState([]);
-  useEffect(() => {
-    axios.get(`http://localhost:3333/users`).then(res => {
-      setDatos(res.data);
-    });
-  }, []);
 
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
@@ -28,14 +22,18 @@ function Conciertos(props) {
       for (let i = 0; i < music.length; i++) {
         const musical = music[i];
         array.push(
-          <div className="contenedor_img">
-            <img src={musical.image} className="img_girl" />
-            <div className="contenedor_text">
+          <div className="carrito">
+            <img src={musical.image} className="carrito_img" />
+            
               <p>
-                <strong className="nombretexto2">{musical.artist.name}</strong>
+               {musical.artist.name}
+             
               </p>
-              <img src={icono_qr} className="codigoqr" />
-            </div>
+             <p>  {musical.priceRange.min}$</p>
+            <button onClick="borrar()">
+              X
+            </button>
+            <hr/>
           </div>
         );
       }
@@ -52,18 +50,15 @@ function Conciertos(props) {
     slidesToScroll: 2
   };
   return (
-    <div className="contenedor_conci">
-      <Header headerObject={formHeader} />
-      <div>
-        <h2 className="parrafo2">TUS ENTRADAS {props.user.name}</h2>
-      </div>
+    
+      
+     
 
-      <div className="contenedor_concierto">{allMusic}</div>
-      <h2 id="precioTotal">A Pagar: $0</h2>
+      <div className="contenedor_carrito">{allMusic}</div>
 
-      <Footer changeNav="conciertos" />
-    </div>
+      
+    
   );
 }
 
-export default Conciertos;
+export default ComprarCarrito;

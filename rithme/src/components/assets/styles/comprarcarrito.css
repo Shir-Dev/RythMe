@@ -1,0 +1,15 @@
+.carrito_img{
+    width: 40%;
+    height: 70%;
+}
+.contenedor_carrito{
+    
+    float: left;
+    width: 50%;
+    background-color: white;
+}
+.carrito{
+   
+    display: flex;
+
+}

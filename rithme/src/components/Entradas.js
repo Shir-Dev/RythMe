@@ -31,7 +31,7 @@ function Entradas(props) {
       method: "PUT",
       data: userAddEvent
     })
-      .then(res => {
+      .then(res => {  
         console.log(res.status);
         if (res.status === 200) {
         } else {

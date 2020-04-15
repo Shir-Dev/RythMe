@@ -14,12 +14,14 @@ import withAuth from "./WithAuth";
 import WithNoAuth from "./WithNoAuth";
 import SincroMusic from "./SincroMusic";
 import Comprar from "./Comprar";
+import ComprarCarrito from "./ComprarCarrito";
 
 function Routes() {
   console.log(Route);
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/comprarcarrito" component={withAuth(ComprarCarrito)} />
         <Route exact path="/comprar" component={withAuth(Comprar)} />
         <Route exact path="/sincro" component={withAuth(SincroMusic)} />
         <Route exact path="/confi" component={withAuth(ConfiPerfil)} />
