@@ -37,7 +37,7 @@ function Login(props) {
       .catch((err) => {
         console.error(err);
         setErrorLogin(
-          <p className="badUser">Contraseña o correo incorrecto.</p>
+          <p className="badUser">Contraseña o usuario incorrecto.</p>
         );
       });
   }
