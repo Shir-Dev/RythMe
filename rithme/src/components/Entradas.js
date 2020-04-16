@@ -31,11 +31,7 @@ function Entradas(props) {
       method: "PUT",
       data: userAddEvent,
     })
-<<<<<<< HEAD
-      .then(res => {  
-=======
       .then((res) => {
->>>>>>> 061249089f3ce2530d1418957a69527533b1e9ae
         console.log(res.status);
         if (res.status === 200) {
         } else {

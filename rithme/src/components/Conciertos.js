@@ -11,7 +11,7 @@ function Conciertos(props) {
   const formHeader = {
     headerText: "Mis conciertos",
   };
-  const [datos, setDatos] = useState([]);
+ /* const [datos, setDatos] = useState([]);
   useEffect(() => {
     axios.get(`http://localhost:3333/users`).then((res) => {
       setDatos(res.data);
@@ -50,18 +50,18 @@ function Conciertos(props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 2,
-  };
+  };*/
   return (
     <div className="contenedor_conci">
       <Header headerObject={formHeader} />
-      <div>
+     <div>
         <h2 className="parrafo2">Tus entradas, {props.user.name} :</h2>
       </div>
 
-      <div className="contenedor_concierto">{allMusic}</div>
-      <h2 id="precioTotal">A Pagar: $0</h2>
+      <div className="contenedor_concierto"></div>
+      
 
-      <Footer changeNav="conciertos" />
+      <Footer changeNav="conciertos" />//
     </div>
   );
 }

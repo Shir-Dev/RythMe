@@ -4,7 +4,7 @@
   margin-bottom: -3px;
 }
 .imageCss {
-  width: 100%;
+  width: 100vw;
   height: 77px;
   font-family: Overpass-Light;
   margin-top: 0px;
@@ -25,7 +25,7 @@
   position: absolute;
   margin-left: 10%;
   margin-top: 22%;
-  filter: alpha(opacity=100);
+  filter: alpha(opacity=1vw00);
   opacity: 1;
 }
 */

@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./assets/styles/comprarcarrito.css";
-import Footer from "./Footer";
-import Header from "./Header";
-import icono_qr from "./assets/icons/qr.png";
+import icono_carrito from "./assets/icons/carrito.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 
+
 function ComprarCarrito(props) {
   const formHeader = {
-    headerText: "Conciertos"
+    headerText: "Conciertos",
   };
 
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
   useEffect(() => {
     console.log(props.user);
-    axios.post(`http://localhost:3333/users/events`, props.user).then(res => {
+    axios.post(`http://localhost:3333/users/events`, props.user).then((res) => {
       let music = res.data;
 
       for (let i = 0; i < music.length; i++) {
@@ -24,16 +23,12 @@ function ComprarCarrito(props) {
         array.push(
           <div className="carrito">
             <img src={musical.image} className="carrito_img" />
-            
-              <p>
-               {musical.artist.name}
-             
-              </p>
-             <p>  {musical.priceRange.min}$</p>
-            <button onClick="borrar()">
-              X
-            </button>
-            <hr/>
+
+            <p>{musical.artist.name}</p>
+            <div>            <p id="precio" > {musical.priceRange.min}$</p></div>
+
+            <button className="btn_borrar" onClick="borrar()">X</button>
+
           </div>
         );
       }
@@ -42,22 +37,20 @@ function ComprarCarrito(props) {
     });
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 2
-  };
   return (
+    <div>
+      <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="" />
+      <label for="abrir-cerrar">
+      <img src={icono_carrito} /> <span className="abrir"></span>
+        <span className="cerrar"></span>
+      </label>
+      <div id="sidebar" className="sidebar">
+     {allMusic}
     
-      
-     
-
-      <div className="contenedor_carrito">{allMusic}</div>
-
-      
+      <button className="btn_comprar" >Comprar todos los articulos</button>
+      </div>
     
+    </div>
   );
 }
 
