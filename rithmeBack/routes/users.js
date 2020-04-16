@@ -154,14 +154,7 @@ router.post("/forgotpass", async (req, res) => {
       pass: "jymgibfewoqkllyd",
     },
   });
-  const mailOptions = {
-    from: "rithmeupgrade@gmail.com", // sender address
-    to: req.body.email, // list of receivers
-    subject: "Restablecer contraseña", // Subject line
-    html:
-      '<p>Para cambiar la contraseña pulsa <a href="http://localhost:3000/recoverPass/">AQUÍ</a></p>', // plain text body
-  };
-  //const token = createdToken(req.body.email);
+
   console.log("Este es el id", forgotPass[0].userID);
   console.log(req.body.email);
   if (!forgotPass[0]) {
@@ -177,6 +170,12 @@ router.post("/forgotpass", async (req, res) => {
       "pepino"
     );
     console.log("el token es este" + createdToken);
+    const mailOptions = {
+      from: "rithmeupgrade@gmail.com", // sender address
+      to: req.body.email, // list of receivers
+      subject: "Restablecer contraseña", // Subject line
+      html: `<p>Para cambiar la contraseña pulsa <a href="http://localhost:3000/recoverPass/?token=${createdToken}">AQUÍ</a></p>`, // plain text body
+    };
 
     transporter.sendMail(mailOptions, function (err, info) {
       if (err) console.log(err);
