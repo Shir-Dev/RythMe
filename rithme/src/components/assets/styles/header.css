@@ -1,6 +1,8 @@
 .contenedor_header {
   position: sticky;
   top: 0;
+  width: 100vw;
+  
 }
 
 .b-header {
@@ -8,6 +10,8 @@
   width: 100vw;
   height: 69px;
   font-family: Overpass-Light;
+  display: inline-flex;
+
 }
 .b-flecha {
   position: absolute;
@@ -15,9 +19,9 @@
 }
 
 .text {
-  text-align: left;
+  text-align: end;
   font-size: 25px;
   padding-top: 20px;
-  display: flex;
-  justify-content: center;
+  margin-left: 33%;
+  
 }

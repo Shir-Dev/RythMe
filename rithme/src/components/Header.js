@@ -1,6 +1,8 @@
 import React from "react";
 import "./assets/styles/header.css";
 import flecha11 from "./assets/icons/flecha11.png";
+import ComprarCarrito from "./ComprarCarrito";
+
 
 function App(props) {
   let headerText = " ";
@@ -23,8 +25,12 @@ function App(props) {
   return (
     <div className="contenedor_header">
       <header className="b-header">
+     
         <div className="b-flecha">{arrow}</div>
+       
         <div className="text">{headerText}</div>
+        <ComprarCarrito></ComprarCarrito>
+      
       </header>
     </div>
   );
