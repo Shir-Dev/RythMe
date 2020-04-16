@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 const pool = require("../mysql/database");
 const multer = require("multer");
 const Event = require("../model/Event");
+const nodemailer = require("nodemailer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./userPhotos/");
@@ -117,6 +118,67 @@ router.get(
     res.status(200).json(req.user);
   }
 );
+router.post("/forgotpass", async (req, res) => {
+  const forgotPass = await pool.query("SELECT * FROM Login WHERE  email = ? ", [
+    req.body.email,
+  ]);
+
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "rithmeupgradehub@gmail.com",
+      pass: "jymgibfewoqkllyd",
+    },
+  });
+  const mailOptions = {
+    from: "rithmeupgrade@gmail.com", // sender address
+    to: req.body.email, // list of receivers
+    subject: "Restablecer contraseña", // Subject line
+    html:
+      '<p>Para cambiar la contraseña pulsa <a href="http://localhost:3000/recoverPass/">AQUÍ</a></p>', // plain text body
+  };
+  //const token = createdToken(req.body.email);
+  console.log("Este es el id", forgotPass[0].userID);
+  console.log(req.body.email);
+  if (!forgotPass[0]) {
+    console.log("No hay email");
+    return res.sendStatus(406);
+  } else {
+    const createdToken = JWT.sign(
+      {
+        iss: "RithMeOk",
+        sub: forgotPass[0].userID,
+        expiresIn: 600,
+      },
+      "pepino"
+    );
+    console.log("el token es este" + createdToken);
+
+    transporter.sendMail(mailOptions, function (err, info) {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+    return res.sendStatus(200);
+  }
+});
+router.post("/recoverpass", async (req, res) => {
+  const password = await bcrypt.hash(req.body.password, 10);
+  const iD = req.body.iD;
+  const recoverPass = await pool.query(
+    "UPDATE Login SET password = ? WHERE userID = ?",
+    [password, iD]
+  );
+  console.log("soy el recover:" + recoverPass);
+  res.status(200);
+});
+/*router.get(
+  "/validateToken",
+  passport.authenticate("jwt", { session: false }),
+  (req, res, next) => {
+    res.status(200);
+  }
+);
+*/
 router.post("/events", async (req, res) => {
   console.log("el body es" + req.body.eventsId);
 

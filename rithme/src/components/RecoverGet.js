@@ -1,37 +1,48 @@
-/*import React, { useState } from "react";
-import RecoverPass from "./RecoverPass";
+/*import React, { Component } from "react";
+import { Redirect, useParams } from "react-router-dom";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+export default function RecoverGet() {
+  return class extends Component {
+    constructor() {
+      super();
+      this.state = {
+        loading: true,
+        redirect: false,
+      };
+    }
+    componentDidMount() {
+      let { token } = useParams();
+      console.log(token);
+      alert("Joooder");
 
-function RecoverGet() {
-    const [redirect, setRedirect] = useState();eringPass] = useState()
- const [recoveringPass, setRecoveringPass] = useState(
-    <RecoverPass gettingData={gettingData}></RecoverPass>
-  );
-
-  let recoverObject;
-  function gettingData(data) {
-    recoverObject = data;
-    console.log(recoverObject);
-  }
-  function validateToken() {
-    Axios("http://localhost:3333/users/validateToken", {
-      method: "GET",
-      data: "",
-      withCredentials: true,
-    }).then((res) => {
-      if (res.status === 200) {
-           setRedirect(<Redirect to="/recoverPass" />);
-      } else {
-        const error = new Error(res.error);
-        throw error;
+      /*Axios("http://localhost:3333/users/checktoken", { withCredentials: true })
+        .then(res => {
+          if (res.status === 200) {
+            this.state.user = res.data;
+            this.setState({ loading: false });
+          } else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          this.setState({ loading: false, redirect: true });
+        });
+    }
+    render() {
+      const { loading, redirect } = this.state;
+      if (loading) {
+        //return null;
+        return <p>Hola</p>;
       }
-    });
-  }
+      if (redirect) {
+        return <Redirect to="/login" />;
+      }
+      //return <ComponentToProtect user={this.state.user} {...this.props} />;
 
-  return recoveringPass;
+      return <p>Hola</p>;
+    }
+  };
 }
-
-export default RecoverGet;
-
 */

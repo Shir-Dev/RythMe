@@ -17,6 +17,7 @@ import Comprar from "./Comprar";
 import ComprarCarrito from "./ComprarCarrito";
 import ForgotPass from "./ForgotPass";
 import RecoverPass from "./RecoverPass";
+import RecoverGet from "./RecoverGet";
 
 function Routes() {
   console.log(Route);
@@ -46,6 +47,7 @@ function Routes() {
         />
         <Route exact path="/forgotPass" component={ForgotPass} />
         <Route exact path="/recoverPass" component={RecoverPass} />
+        <Route exact path="/recoverGet:token" component={RecoverGet} />
       </Switch>
     </BrowserRouter>
   );

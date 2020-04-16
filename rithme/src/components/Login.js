@@ -100,9 +100,11 @@ function Login(props) {
         <Link to="/registro" className="registro">
           Registrarme
         </Link>
-        <Link to="/forgotPass" className="forgot">
-          ¿Ha olvidado la contraseña?
-        </Link>
+        <div className="forgot2">
+          <Link to="/forgotPass" className="forgot">
+            ¿Ha olvidado la contraseña?
+          </Link>
+        </div>
       </div>
     </div>
   );
