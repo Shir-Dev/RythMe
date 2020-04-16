@@ -21,10 +21,11 @@ function RecoverPass2(props) {
   const formHeader = {
     headerText: "Restablecer contraseña",
   };
+
   function recoveringPass() {
     Axios("http://localhost:3333/users/recoverpass", {
       method: "POST",
-      data: { password: password.current, iD: "5e8715c8d57bbe734cc9aae2" },
+      data: { password: password.current, iD: props.user._id },
       withCredentials: true,
     })
       .then((res) => {
