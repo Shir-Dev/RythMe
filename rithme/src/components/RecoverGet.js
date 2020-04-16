@@ -1,23 +1,23 @@
-/*import React, { Component } from "react";
+import React, { Component } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import Axios from "axios";
-export default function RecoverGet() {
+export default function RecoverGet(ComponentToProtect) {
   return class extends Component {
     constructor() {
       super();
+
       this.state = {
         loading: true,
         redirect: false,
       };
     }
     componentDidMount() {
-      let { token } = useParams();
+      const { token } = this.props.match.params;
       console.log(token);
-      alert("Joooder");
-
-      /*Axios("http://localhost:3333/users/checktoken", { withCredentials: true })
-        .then(res => {
+      Axios.post(`http://localhost:3333/users/validateToken`, { token })
+        .then((res) => {
           if (res.status === 200) {
+            console.log("hello");
             this.state.user = res.data;
             this.setState({ loading: false });
           } else {
@@ -25,7 +25,7 @@ export default function RecoverGet() {
             throw error;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.setState({ loading: false, redirect: true });
         });
@@ -33,16 +33,12 @@ export default function RecoverGet() {
     render() {
       const { loading, redirect } = this.state;
       if (loading) {
-        //return null;
-        return <p>Hola</p>;
+        return null;
       }
       if (redirect) {
         return <Redirect to="/login" />;
       }
-      //return <ComponentToProtect user={this.state.user} {...this.props} />;
-
-      return <p>Hola</p>;
+      return <ComponentToProtect user={this.state.user} {...this.props} />;
     }
   };
 }
-*/

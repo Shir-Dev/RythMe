@@ -194,14 +194,14 @@ router.post("/recoverpass", async (req, res) => {
   console.log("soy el recover:" + recoverPass);
   res.status(200);
 });
-/*router.get(
+
+router.post(
   "/validateToken",
   passport.authenticate("jwt", { session: false }),
   (req, res, next) => {
-    res.status(200);
+    res.status(200).json(req.user);
   }
 );
-*/
 router.post("/events", async (req, res) => {
   console.log("el body es" + req.body.eventsId);
 

@@ -47,7 +47,11 @@ function Routes() {
         />
         <Route exact path="/forgotPass" component={ForgotPass} />
         <Route exact path="/recoverPass" component={RecoverPass} />
-        <Route exact path="/recoverGet:token" component={RecoverGet} />
+        <Route
+          exact
+          path="/recoverGet/:token"
+          component={RecoverGet(RecoverPass)}
+        />
       </Switch>
     </BrowserRouter>
   );

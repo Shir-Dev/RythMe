@@ -9,9 +9,9 @@ const Profile = require("../model/Profile");
 passport.use(
   new JwtStrategy(
     {
-      jwtFromRequest: req => req.cookies.token,
+      jwtFromRequest: (req) => req.cookies.token || req.body.token,
       secretOrKey: "pepino",
-      passReqToCallback: true
+      passReqToCallback: true,
     },
     async (req, payload, done) => {
       console.log(payload.sub);
@@ -39,7 +39,7 @@ passport.use(
   new LocalStrategy(
     {
       //probablemente esto se pueda quitar
-      usernameField: "username"
+      usernameField: "username",
     },
     async (username, password, done) => {
       try {
