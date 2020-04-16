@@ -27,23 +27,32 @@ function ComprarCarrito(props) {
             <div className="carrito">
               <img src={musical.image} className="carrito_img" />
 
-              <p>{musical.artist.name}</p>
+              <p className="name_artist">{musical.artist.name}</p>
               <div>
                 {" "}
                 <p id="precio"> {musical.priceRange.min}$</p>
               </div>
 
-              <button className="btn_borrar" onClick="borrar()">
+              <button className="btn_borrar" onClick={borrar}>
                 X
               </button>
             </div>
           );
+          function borrar(){
+            var index = myTickets.indexOf(array);
+            if (index > -1) {
+              myTickets.splice(index, 1);
+           }
+          
+           }
+         
         }
         setAllMusic(array);
         console.log(array);
       });
   }, []);
 
+  
   return (
     <div>
       <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="" />
@@ -54,7 +63,7 @@ function ComprarCarrito(props) {
       <div id="sidebar" className="sidebar">
         {allMusic}
 
-        <button className="btn_comprar">Comprar todos los articulos</button>
+        <button className="btn_comprarArticulos">Comprar todos los articulos</button>
       </div>
     </div>
   );
