@@ -7,12 +7,12 @@ export default function withAuth(ComponentToProtect) {
       super();
       this.state = {
         loading: true,
-        redirect: false
+        redirect: false,
       };
     }
     componentDidMount() {
       Axios("http://localhost:3333/users/checktoken", { withCredentials: true })
-        .then(res => {
+        .then((res) => {
           if (res.status === 200) {
             this.state.user = res.data;
             this.setState({ loading: false });
@@ -21,7 +21,7 @@ export default function withAuth(ComponentToProtect) {
             throw error;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.setState({ loading: false, redirect: true });
         });

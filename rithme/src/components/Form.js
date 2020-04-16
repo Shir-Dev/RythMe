@@ -140,7 +140,7 @@ function Form(props) {
         </div>
         <input
           type="email"
-          placeholder="Correo Electronico"
+          placeholder="Correo Electrónico"
           name="email"
           id="email"
           onChange={($event) =>
