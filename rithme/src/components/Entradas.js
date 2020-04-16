@@ -10,6 +10,7 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { dateFix, timeFix } from "./dateFixer";
 import Axios from "axios";
+import { myTickets } from "./VariableCarrito";
 function Entradas(props) {
   const formHeader = {
     isArrow: true,
@@ -26,7 +27,11 @@ function Entradas(props) {
   function savingMyEvent() {
     console.log(props.user);
     let userAddEvent = props.user;
-    userAddEvent.eventsId.push(props.allMusic._id);
+
+    myTickets.push(props.allMusic._id);
+    console.log(myTickets);
+
+    /*     userAddEvent.eventsId.push(props.allMusic._id);
     Axios("http://localhost:3333/profiles/edit", {
       method: "PUT",
       data: userAddEvent,
@@ -42,7 +47,7 @@ function Entradas(props) {
       .catch((err) => {
         console.error(err);
         alert("Error al Updatear");
-      });
+      }); */
   }
   return (
     <div className="contenedor_g">
