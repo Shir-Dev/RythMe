@@ -17,13 +17,18 @@ import Comprar from "./Comprar";
 import ComprarCarrito from "./ComprarCarrito";
 import ForgotPass from "./ForgotPass";
 import RecoverPass from "./RecoverPass";
+import RecoverGet from "./RecoverGet";
 
 function Routes() {
   console.log(Route);
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/comprarcarrito" component={withAuth(ComprarCarrito)} />
+        <Route
+          exact
+          path="/comprarcarrito"
+          component={withAuth(ComprarCarrito)}
+        />
         <Route exact path="/comprar" component={withAuth(Comprar)} />
         <Route exact path="/sincro" component={withAuth(SincroMusic)} />
         <Route exact path="/confi" component={withAuth(ConfiPerfil)} />
@@ -42,6 +47,7 @@ function Routes() {
         />
         <Route exact path="/forgotPass" component={ForgotPass} />
         <Route exact path="/recoverPass" component={RecoverPass} />
+        <Route exact path="/recoverGet:token" component={RecoverGet} />
       </Switch>
     </BrowserRouter>
   );
