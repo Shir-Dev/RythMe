@@ -13,9 +13,8 @@ function ComprarCarrito(props) {
 
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
-  useEffect(() => {
-    console.log("esto es props users", props.user);
-    console.log("estos son mis tickets", myTickets);
+
+  function actualizaCarrito() {
     axios
       .post(`http://localhost:3333/users/events`, { eventsId: myTickets })
       .then((res) => {
@@ -33,37 +32,49 @@ function ComprarCarrito(props) {
                 <p id="precio"> {musical.priceRange.min}$</p>
               </div>
 
-              <button className="btn_borrar" onClick={()=>{
-                borrar(i)
-              }} >              X
+              <button
+                className="btn_borrar"
+                onClick={() => {
+                  borrar(i);
+                }}
+              >
+                {" "}
+                X
               </button>
             </div>
           );
-          function borrar(index){
-           myTickets.splice(index, 1);
-           
-           alert('estoy borrando')
-          
-           }
-         
         }
         setAllMusic(array);
-        console.log(array);
+        console.log("actualizado");
       });
+  }
+  function borrar(index) {
+    console.log("el índice de lo que quiero borrar:", index);
+    console.log("mis tickets antes de borrar : ", myTickets);
+    myTickets.splice(index, 1);
+
+    console.log("mis tickets después de borrar: ", myTickets);
+    alert("estoy borrando");
+    actualizaCarrito();
+  }
+  useEffect(() => {
+    actualizaCarrito();
   }, []);
 
-  
   return (
     <div>
       <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="" />
       <label for="abrir-cerrar">
-        <img src={icono_carrito} /> <span className="abrir"></span>
+        <img onClick={actualizaCarrito} src={icono_carrito} />{" "}
+        <span className="abrir"></span>
         <span className="cerrar"></span>
       </label>
       <div id="sidebar" className="sidebar">
         {allMusic}
 
-        <button className="btn_comprarArticulos">Comprar todos los articulos</button>
+        <button className="btn_comprarArticulos">
+          Comprar todos los articulos
+        </button>
       </div>
     </div>
   );

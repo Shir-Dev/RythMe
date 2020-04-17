@@ -25,9 +25,6 @@ function Entradas(props) {
   }
 
   function savingMyEvent() {
-    console.log(props.user);
-    let userAddEvent = props.user;
-
     myTickets.push(props.allMusic._id);
     console.log(myTickets);
 
