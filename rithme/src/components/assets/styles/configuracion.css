@@ -16,6 +16,10 @@
   padding-top: 12%;
   border: 50% 50% 50% 50%;
 }
+.cerrar_sesion {
+  font-weight: bold;
+  font-size: 15px;
+}
 
 .confi_perfil1 {
   color: #110033;

@@ -4,13 +4,13 @@ import icono_carrito from "./assets/icons/carrito.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
-import { myTickets } from "./VariableCarrito";
+import { myTickets, userID } from "./VariableCarrito";
 
 function ComprarCarrito(props) {
   const formHeader = {
     headerText: "Conciertos",
   };
-
+  console.log("Desde carrito tengo este USERID", userID);
   const array = [];
   const [allMusic, setAllMusic] = useState([]);
 

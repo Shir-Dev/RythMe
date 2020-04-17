@@ -34,7 +34,10 @@ function Configuracion(props) {
       <Header headerObject={formHeader} />
       <div className="user1">
         <h2>¡Hola! {props.user.username}</h2>
-        <h3 onClick={logOut}> Cerrar sesión</h3>
+        <h3 className="cerrar_sesion" onClick={logOut}>
+          {" "}
+          Cerrar sesión
+        </h3>
       </div>
 
       <div>
