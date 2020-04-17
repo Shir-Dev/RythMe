@@ -10,8 +10,9 @@ import icono_microfono from "./assets/icons/microfono.png";
 import Footer from "./Footer";
 import { dateFix, timeFix } from "./dateFixer";
 import Axios from "axios";
-import { myTickets } from "./VariableCarrito";
+import { myTickets, user } from "./VariableCarrito";
 function Entradas(props) {
+  user.push(props.user);
   const formHeader = {
     isArrow: true,
     headerText: "Entradas",

@@ -1,1 +1,3 @@
-export let myTickets = [];
+let myTickets = [];
+let user = [];
+export { myTickets, user };

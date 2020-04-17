@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Axios from "axios";
+import { userID } from "./VariableCarrito.js";
 export default function withAuth(ComponentToProtect) {
   return class extends Component {
     constructor() {
@@ -15,6 +16,7 @@ export default function withAuth(ComponentToProtect) {
         .then((res) => {
           if (res.status === 200) {
             this.state.user = res.data;
+
             this.setState({ loading: false });
           } else {
             const error = new Error(res.error);
