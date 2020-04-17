@@ -33,16 +33,16 @@ function ComprarCarrito(props) {
                 <p id="precio"> {musical.priceRange.min}$</p>
               </div>
 
-              <button className="btn_borrar" onClick={borrar}>
-                X
+              <button className="btn_borrar" onClick={()=>{
+                borrar(i)
+              }} >              X
               </button>
             </div>
           );
-          function borrar(){
-            var index = myTickets.indexOf(array);
-            if (index > -1) {
-              myTickets.splice(index, 1);
-           }
+          function borrar(index){
+           myTickets.splice(index, 1);
+           
+           alert('estoy borrando')
           
            }
          
