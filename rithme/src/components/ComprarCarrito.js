@@ -12,12 +12,13 @@ function ComprarCarrito(props) {
   };
 
   const array = [];
-  let finalPrice = 0;
+
   const [allMusic, setAllMusic] = useState([]);
   const [Price, setPrice] = useState([]);
 
 
   function actualizaCarrito() {
+    let finalPrice = 0;
     axios
       .post(`http://localhost:3333/users/events`, { eventsId: myTickets })
       .then((res) => {
