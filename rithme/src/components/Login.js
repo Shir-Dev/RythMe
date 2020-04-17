@@ -52,7 +52,7 @@ function Login(props) {
       <div className="contenedor_login">
         <form className="contenedor_login">
           <div className="h2">
-            <h2>Iniciar Sesion</h2>
+            <h2>Iniciar Sesión</h2>
           </div>
           <div className="divUser">
             <input

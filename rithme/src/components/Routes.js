@@ -37,7 +37,7 @@ function Routes() {
         <Route exact path="/bienvenido" component={withAuth(Bienvenido)} />
         <Route exact path="/entradas" component={withAuth(Entradas)} />
         <Route exact path="/registro" component={WithNoAuth(Registro)} />
-        <Route exact path="/" component={withAuth(PageInicio)} />
+        <Route exact path="/" component={PageInicio} />
         <Route exact path="/buscar" component={withAuth(Buscar)} />
         <Route exact path="/conciertos" component={withAuth(Conciertos)} />
         <Route
