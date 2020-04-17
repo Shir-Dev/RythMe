@@ -12,7 +12,10 @@ function ComprarCarrito(props) {
   };
 
   const array = [];
+  let finalPrice = 0;
   const [allMusic, setAllMusic] = useState([]);
+  const [Price, setPrice] = useState([]);
+
 
   function actualizaCarrito() {
     axios
@@ -22,6 +25,7 @@ function ComprarCarrito(props) {
 
         for (let i = 0; i < music.length; i++) {
           const musical = music[i];
+         
           array.push(
             <div className="carrito">
               <img src={musical.image} className="carrito_img" />
@@ -43,9 +47,14 @@ function ComprarCarrito(props) {
               </button>
             </div>
           );
+        finalPrice += musical.priceRange.min
+        
         }
         setAllMusic(array);
         console.log("actualizado");
+        
+       
+        setPrice(finalPrice)
       });
   }
   function borrar(index) {
@@ -54,13 +63,15 @@ function ComprarCarrito(props) {
     myTickets.splice(index, 1);
 
     console.log("mis tickets después de borrar: ", myTickets);
-    alert("estoy borrando");
+  
     actualizaCarrito();
   }
   useEffect(() => {
     actualizaCarrito();
+
   }, []);
 
+ 
   return (
     <div>
       <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="" />
@@ -73,7 +84,7 @@ function ComprarCarrito(props) {
         {allMusic}
 
         <button className="btn_comprarArticulos">
-          Comprar todos los articulos
+          Precio FInal:{Price}$
         </button>
       </div>
     </div>
