@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./assets/styles/header.css";
 import flecha11 from "./assets/icons/flecha11.png";
 import ComprarCarrito from "./ComprarCarrito";
@@ -11,7 +11,8 @@ function App(props) {
   isArrow = props.headerObject.isArrow;
   headerText = props.headerObject.headerText;
   srcArrow = props.headerObject.srcArrow;
-
+  const [carrito, setCarrito] = useState(<ComprarCarrito></ComprarCarrito>);
+  const [boolean, setBoolean] = useState(true);
   let arrow = "";
   if (isArrow === true) {
     arrow = (
@@ -21,13 +22,23 @@ function App(props) {
     );
   }
 
+  if (
+    (headerText === "Login" ||
+      headerText === "Registro" ||
+      headerText === "Restablecer contraseña" ||
+      headerText === "Recuperar contraseña") &&
+    boolean
+  ) {
+    setCarrito("");
+    setBoolean(false);
+  }
   return (
     <div className="contenedor_header">
       <header className="b-header">
         <div className="b-flecha">{arrow}</div>
 
         <div className="text">{headerText}</div>
-        <ComprarCarrito></ComprarCarrito>
+        {carrito}
       </header>
     </div>
   );
