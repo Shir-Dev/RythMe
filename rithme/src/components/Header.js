@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./assets/styles/header.css";
 import flecha11 from "./assets/icons/flecha11.png";
 import ComprarCarrito from "./ComprarCarrito";
@@ -12,6 +12,8 @@ function App(props) {
   headerText = props.headerObject.headerText;
   srcArrow = props.headerObject.srcArrow;
 
+
+
   let arrow = "";
   if (isArrow === true) {
     arrow = (
@@ -20,7 +22,8 @@ function App(props) {
       </a>
     );
   }
-
+ 
+  
   return (
     <div className="contenedor_header">
       <header className="b-header">
