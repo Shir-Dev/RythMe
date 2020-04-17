@@ -48,7 +48,7 @@ function Login(props) {
   return (
     <div className="contenedor_g">
       {redirect}
-      <Header headerObject={formHeader} />
+   
       <div className="contenedor_login">
         <form className="contenedor_login">
           <div className="h2">
