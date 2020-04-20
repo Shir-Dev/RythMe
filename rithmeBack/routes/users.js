@@ -81,10 +81,9 @@ router.post("/signup", upload.single("userPhoto"), async function (
   }
   if (
     !req.body.password ||
-    req.body.password.length < 8 ||
-    !/^[a-zA-Z0-9_]+$/.test(req.body.password)
+    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})+$/.test(req.body.password)
   ) {
-    return res.status(403).json({ error: "Contraseña inválida" });
+    return res.status(403).json({ error: "Contraseña inválida. Debe contener al menos 1 letra mayúscula, 1 letra minúscula y 1 número. Y debe tener mínimo 8 caracteres." });
   }
 
   // ESTO VA A MONGO
